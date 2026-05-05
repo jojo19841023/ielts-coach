@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Coach | 雅思自动化学习教练</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <span class="logo-icon">🎯</span>
+                <h1>IELTS Coach</h1>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-item active" data-view="daily-plan">
+                    <span class="icon">📅</span> 每日计划
+                </button>
+                <button class="nav-item" data-view="grammar">
+                    <span class="icon">🧩</span> 语法诊所
+                </button>
+                <button class="nav-item" data-view="phonetics">
+                    <span class="icon">👄</span> 发音实验室
+                </button>
+                <button class="nav-item" data-view="writing">
+                    <span class="icon">✍️</span> 零基础写作
+                </button>
+                <button class="nav-item" data-view="speaking">
+                    <span class="icon">🗣️</span> 口语纠偏
+                </button>
+            </nav>
+            <div class="user-profile">
+                <div class="avatar">J</div>
+                <div class="user-info">
+                    <span class="name">Jojo</span>
+                    <span class="status">Level: A2 | 目标: 6.5</span>
+                </div>
+                <div class="progress-bar-mini" style="width: 100%; height: 4px; background: rgba(255,255,255,0.1); margin-top: 8px; border-radius: 2px; overflow: hidden;">
+                    <div style="width: 15%; height: 100%; background: var(--accent-secondary);"></div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content">
+            <header class="top-bar">
+                <h2 id="view-title">每日计划</h2>
+                <div class="date-display" id="current-date">2026年5月5日</div>
+            </header>
+
+            <div id="app-view" class="view-container">
+                <!-- Content will be injected here by app.js -->
+                <div class="loading">加载中...</div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
