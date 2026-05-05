@@ -2,26 +2,37 @@
 
 // IELTS Coach App Logic - Functional Version
 
-const state = JSON.parse(localStorage.getItem('ieltsState')) || {
-    currentView: 'daily-plan',
-    user: {
-        name: 'Jojo',
-        targetScore: 6.5,
-        currentLevel: 'A2'
-    },
-    dailyTasks: [
-        { id: 1, type: 'grammar', title: '基础时态：一般现在时 vs 现在进行时', completed: false, duration: '20min', view: 'grammar' },
-        { id: 2, type: 'phonetics', title: '元音训练：/i:/ 与 /ɪ/ 的区别', completed: false, duration: '15min', view: 'phonetics' },
-        { id: 3, type: 'writing', title: '句子构造：5个简单句练习', completed: false, duration: '20min', view: 'writing' },
-        { id: 4, type: 'vocabulary', title: '高频场景单词：个人信息与家庭', completed: true, duration: '15min', view: 'daily-plan' }
-    ],
-    errorBank: [
-        { id: 101, category: 'Grammar', content: 'I very like English.', correction: 'I really like English.', date: '2026-05-04' }
-    ],
-    essays: {
-        current: ''
-    }
-};
+let state;
+try {
+    const saved = localStorage.getItem('ieltsState');
+    state = saved ? JSON.parse(saved) : null;
+} catch (e) {
+    console.error("Failed to parse local storage", e);
+    state = null;
+}
+
+if (!state) {
+    state = {
+        currentView: 'daily-plan',
+        user: {
+            name: 'Jojo',
+            targetScore: 6.5,
+            currentLevel: 'A2'
+        },
+        dailyTasks: [
+            { id: 1, type: 'grammar', title: '基础时态：一般现在时 vs 现在进行时', completed: false, duration: '20min', view: 'grammar' },
+            { id: 2, type: 'phonetics', title: '元音训练：/i:/ 与 /ɪ/ 的区别', completed: false, duration: '15min', view: 'phonetics' },
+            { id: 3, type: 'writing', title: '句子构造：5个简单句练习', completed: false, duration: '20min', view: 'writing' },
+            { id: 4, type: 'vocabulary', title: '高频场景单词：个人信息与家庭', completed: true, duration: '15min', view: 'daily-plan' }
+        ],
+        errorBank: [
+            { id: 101, category: 'Grammar', content: 'I very like English.', correction: 'I really like English.', date: '2026-05-04' }
+        ],
+        essays: {
+            current: ''
+        }
+    };
+}
 
 function saveState() {
     localStorage.setItem('ieltsState', JSON.stringify(state));
@@ -132,7 +143,7 @@ function checkGrammarAnswer(correct) {
     
     feedback.style.display = 'block';
     if (val === correct) {
-        feedback.style.color = var(--accent-secondary);
+        feedback.style.color = "var(--accent-secondary)";
         feedback.innerHTML = "✅ 正确！My brother plays... (第三人称单数加 -s)";
         markTaskComplete('grammar');
     } else {
