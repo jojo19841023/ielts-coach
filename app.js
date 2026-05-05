@@ -271,7 +271,7 @@ function renderAdaptiveGrammarReview() {
                         <p style="font-size: 0.9rem; margin-bottom: 0.5rem; color: #ff8a80; font-weight: 600;">错误场景 ${i+1}:</p>
                         <p style="font-style: italic; color: #eee; font-size: 1rem; margin-bottom: 0.8rem;">"${m.content}"</p>
                         <div style="background: rgba(0,0,0,0.2); padding: 0.8rem; border-radius: 8px;">
-                            <p style="font-size: 0.85rem; color: #4caf50;">💡 改进建议: ${m.improvement}</p>
+                            <p style="font-size: 0.85rem; color: #4caf50;">💡 改进建议: ${m.improvement || '请对照该专项知识点（如时态、词数限制）重新审查句子结构。'}</p>
                         </div>
                     </div>
                 `).join('')}
