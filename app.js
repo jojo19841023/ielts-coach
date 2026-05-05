@@ -117,7 +117,8 @@ function switchView(viewId) {
         'daily-plan': '每日计划', 'grammar': '语法诊所', 'phonetics': '发音实验室',
         'writing': '零基础写作', 'speaking': '口语纠偏', 'reading': '阅读专项',
         'vocabulary': '核心词汇', 'error-bank': '错题库', 
-        'weekly-review': '周度复盘', 'dashboard': '目标追踪'
+        'weekly-review': '周度复盘', 'dashboard': '目标追踪',
+        'settings': '系统设置'
     };
     viewTitle.textContent = viewNames[viewId] || '雅思教练';
     renderView(viewId);
@@ -136,6 +137,7 @@ function renderView(viewId) {
         case 'error-bank': renderErrorBank(); break;
         case 'weekly-review': renderWeeklyReview(); break;
         case 'dashboard': renderDashboard(); break;
+        case 'settings': renderSettingsView(); break;
         default: appView.innerHTML = `<div class="loading">即将上线...</div>`;
     }
 }
@@ -743,27 +745,105 @@ function exportData() {
     downloadAnchorNode.remove();
 }
 
-function importData(input) {
-    const file = input.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            try {
-                const importedState = JSON.parse(e.target.result);
-                // Simple validation
-                if (importedState.dailyTasks && importedState.errorBank) {
-                    state = importedState;
-                    saveState();
-                    alert("✅ 数据导入成功！正在刷新...");
-                    location.reload();
-                } else {
-                    alert("❌ 无效的备份文件。");
-                }
-            } catch (err) {
-                alert("❌ 导入失败，请检查文件格式。");
-            }
-        };
-        reader.readAsText(file);
+function renderSettingsView() {
+    appView.innerHTML = `
+        <div class="card" style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <h3>☁️ GitHub 云同步配置</h3>
+            <p style="font-size: 0.85rem; color: var(--text-dim);">配置后，您可以在电脑和手机之间自动同步学习记录。</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+                <div>
+                    <label style="display: block; font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.5rem;">GitHub Token (ghp_...)</label>
+                    <input type="password" id="gh-token" value="${localStorage.getItem('ghToken') || ''}" style="width: 100%; padding: 12px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: 8px; color: white;">
+                </div>
+                <div>
+                    <label style="display: block; font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.5rem;">仓库路径 (用户名/仓库名)</label>
+                    <input type="text" id="gh-repo" value="${localStorage.getItem('ghRepo') || 'jojo19841023/ielts-coach'}" style="width: 100%; padding: 12px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); border-radius: 8px; color: white;">
+                </div>
+                <button onclick="saveSettings()" style="background: var(--accent-primary); border: none; padding: 14px; border-radius: 8px; color: white; cursor: pointer; font-weight: 600;">保存配置</button>
+            </div>
+
+            <div style="margin-top: 1.5rem; display: flex; gap: 1rem; border-top: 1px solid var(--glass-border); padding-top: 1.5rem;">
+                <button onclick="syncToCloud()" style="flex: 1; background: var(--accent-secondary); border: none; padding: 12px; border-radius: 8px; color: #000; font-weight: 700; cursor: pointer;">⬆️ 上传至云端</button>
+                <button onclick="syncFromCloud()" style="flex: 1; background: #fff; border: none; padding: 12px; border-radius: 8px; color: #000; font-weight: 700; cursor: pointer;">⬇️ 从云端下载</button>
+            </div>
+            <div id="sync-status" style="text-align: center; font-size: 0.8rem; color: var(--text-dim);"></div>
+        </div>
+    `;
+}
+
+function saveSettings() {
+    localStorage.setItem('ghToken', document.getElementById('gh-token').value);
+    localStorage.setItem('ghRepo', document.getElementById('gh-repo').value);
+    alert("✅ 配置已保存！");
+}
+
+async function syncToCloud() {
+    const token = localStorage.getItem('ghToken');
+    const repo = localStorage.getItem('ghRepo');
+    const status = document.getElementById('sync-status');
+    if (!token || !repo) return alert("请先配置 Token 和仓库路径！");
+
+    status.textContent = "正在上传...";
+    try {
+        const path = "db.json";
+        const url = `https://api.github.com/repos/${repo}/contents/${path}`;
+        
+        // Get existing file sha if it exists
+        let sha = null;
+        const getRes = await fetch(url, { headers: { "Authorization": `token ${token}` } });
+        if (getRes.ok) {
+            const getData = await getRes.json();
+            sha = getData.sha;
+        }
+
+        const res = await fetch(url, {
+            method: "PUT",
+            headers: {
+                "Authorization": `token ${token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                message: "sync: update study progress",
+                content: btoa(unescape(encodeURIComponent(JSON.stringify(state)))),
+                sha: sha
+            })
+        });
+
+        if (res.ok) {
+            status.innerHTML = `<span style="color: #4caf50;">✅ 上传成功！</span>`;
+        } else {
+            status.innerHTML = `<span style="color: #ff5252;">❌ 上传失败: ${res.statusText}</span>`;
+        }
+    } catch (err) {
+        status.innerHTML = `<span style="color: #ff5252;">❌ 网络错误</span>`;
+    }
+}
+
+async function syncFromCloud() {
+    const token = localStorage.getItem('ghToken');
+    const repo = localStorage.getItem('ghRepo');
+    const status = document.getElementById('sync-status');
+    if (!token || !repo) return alert("请先配置 Token 和仓库路径！");
+
+    status.textContent = "正在从云端拉取...";
+    try {
+        const url = `https://api.github.com/repos/${repo}/contents/db.json`;
+        const res = await fetch(url, { headers: { "Authorization": `token ${token}` } });
+        
+        if (res.ok) {
+            const data = await res.json();
+            const decoded = decodeURIComponent(escape(atob(data.content)));
+            const newState = JSON.parse(decoded);
+            state = newState;
+            saveState();
+            status.innerHTML = `<span style="color: #4caf50;">✅ 下载并同步成功！</span>`;
+            setTimeout(() => location.reload(), 1000);
+        } else {
+            status.innerHTML = `<span style="color: #ff5252;">❌ 未在云端找到记录</span>`;
+        }
+    } catch (err) {
+        status.innerHTML = `<span style="color: #ff5252;">❌ 同步出错</span>`;
     }
 }
 
