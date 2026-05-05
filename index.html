@@ -53,7 +53,11 @@
                         <span style="width: 8px; height: 8px; background: #4caf50; border-radius: 50%;"></span>
                         数据已实时保存
                     </div>
-                    <button onclick="exportData()" style="width: calc(100% - 3rem); margin: 0 1.5rem; padding: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-dim); cursor: pointer; font-size: 0.8rem; transition: all 0.3s;">💾 导出/备份数据</button>
+                    <div style="display: flex; gap: 0.5rem; padding: 0 1.5rem;">
+                        <button onclick="exportData()" style="flex: 1; padding: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-dim); cursor: pointer; font-size: 0.7rem;">💾 导出</button>
+                        <button onclick="document.getElementById('import-file').click()" style="flex: 1; padding: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-dim); cursor: pointer; font-size: 0.7rem;">📥 导入</button>
+                        <input type="file" id="import-file" style="display: none;" onchange="importData(this)">
+                    </div>
                 </div>
             </nav>
             <div class="user-profile">

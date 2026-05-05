@@ -743,4 +743,28 @@ function exportData() {
     downloadAnchorNode.remove();
 }
 
+function importData(input) {
+    const file = input.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const importedState = JSON.parse(e.target.result);
+                // Simple validation
+                if (importedState.dailyTasks && importedState.errorBank) {
+                    state = importedState;
+                    saveState();
+                    alert("✅ 数据导入成功！正在刷新...");
+                    location.reload();
+                } else {
+                    alert("❌ 无效的备份文件。");
+                }
+            } catch (err) {
+                alert("❌ 导入失败，请检查文件格式。");
+            }
+        };
+        reader.readAsText(file);
+    }
+}
+
 init();
