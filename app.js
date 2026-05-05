@@ -227,11 +227,18 @@ function renderDailyPlan() {
 
 // --- 2. Grammar Clinic ---
 function renderGrammarView() {
+    const isAdaptive = state.dailyTasks.find(t => t.view === 'grammar' && t.isAdaptive && !t.completed);
+    
+    if (isAdaptive && state.errorBank.filter(e => e.type === 'Grammar').length > 0) {
+        renderAdaptiveGrammarReview();
+        return;
+    }
+
     const q = state.grammarQuestions[state.currentGrammarIndex];
     appView.innerHTML = `
         <div class="card" style="display: flex; flex-direction: column; gap: 1.5rem;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <h3 style="color: var(--accent-secondary);">一般现在时专项练习</h3>
+                <h3 style="color: var(--accent-secondary);">🧩 语法诊所：核心练习</h3>
                 <span style="font-size: 0.8rem; color: var(--text-dim);">进度: ${state.currentGrammarIndex + 1}/${state.grammarQuestions.length}</span>
             </div>
             <div id="grammar-exercise" style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-primary);">
@@ -244,6 +251,33 @@ function renderGrammarView() {
                     <button id="next-btn" onclick="nextGrammarQuestion()" style="display: none; flex: 1; background: rgba(0, 229, 255, 0.1); border: 1px solid var(--accent-secondary); padding: 12px; border-radius: 8px; color: var(--accent-secondary); cursor: pointer; font-weight: 600;">下一题</button>
                 </div>
             </div>
+        </div>
+    `;
+}
+
+function renderAdaptiveGrammarReview() {
+    const mistakes = state.errorBank.filter(e => e.type === 'Grammar').slice(0, 3);
+    appView.innerHTML = `
+        <div class="card" style="display: flex; flex-direction: column; gap: 1.5rem; border: 2px solid var(--accent-secondary); animation: fadeIn 0.4s ease;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="color: var(--accent-secondary);">🚨 专项强化：高频错题攻克</h3>
+                <span style="background: var(--accent-secondary); color: #000; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: bold;">弱项针对模式</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-dim);">教练注意到您在以下语法点上遇到了挑战。请重新审查并纠正它们：</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                ${mistakes.map((m, i) => `
+                    <div style="padding: 1.2rem; background: rgba(255,82,82,0.05); border: 1px solid rgba(255,82,82,0.2); border-radius: 12px;">
+                        <p style="font-size: 0.9rem; margin-bottom: 0.5rem; color: #ff8a80; font-weight: 600;">错误场景 ${i+1}:</p>
+                        <p style="font-style: italic; color: #eee; font-size: 1rem; margin-bottom: 0.8rem;">"${m.content}"</p>
+                        <div style="background: rgba(0,0,0,0.2); padding: 0.8rem; border-radius: 8px;">
+                            <p style="font-size: 0.85rem; color: #4caf50;">💡 改进建议: ${m.improvement}</p>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+            
+            <button onclick="markTaskComplete(99); alert('专项强化完成！错题已温习。'); renderView('daily-plan');" style="margin-top: 1rem; padding: 14px; background: var(--accent-secondary); border: none; border-radius: 8px; color: #000; font-weight: 700; cursor: pointer;">我已掌握，返回计划</button>
         </div>
     `;
 }
