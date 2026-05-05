@@ -183,7 +183,7 @@ function renderView(viewId) {
         case 'reading': renderReadingView(); break;
         case 'vocabulary': renderVocabularyView(); break;
         case 'error-bank': renderErrorBank(); break;
-        case 'weekly-review': renderWeeklyReview(); break;
+        case 'weekly-review': renderAssessmentCenter(); break;
         case 'dashboard': renderDashboard(); break;
         case 'settings': renderSettingsView(); break;
         default: appView.innerHTML = `<div class="loading">即将上线...</div>`;
@@ -708,7 +708,78 @@ function renderErrorBank() {
         </div>
     `;
 }
-function renderWeeklyReview() { appView.innerHTML = `<div class="card"><h3>📊 周度复盘</h3><p style="margin-top:1rem; color:var(--text-dim);">完成率: 92% | 本周表现非常稳定。</p></div>`; }
+function renderAssessmentCenter() {
+    const day = getCurrentDay();
+    const isWeekEnd = day % 7 === 0;
+    const isMonthEnd = day % 30 === 0;
+
+    appView.innerHTML = `
+        <div class="card" style="display: flex; flex-direction: column; gap: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3>📊 模考与复盘中心</h3>
+                <span style="font-size: 0.8rem; color: var(--accent-secondary);">当前进度: Day ${day}</span>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="card" style="background: rgba(124, 77, 255, 0.05); border: 1px solid var(--accent-primary); text-align: center; cursor: pointer;" onclick="startExam('weekly')">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">📝</div>
+                    <h4 style="color: var(--accent-primary);">周度摸底考</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 0.5rem;">涵盖本周核心词汇、语法及错题复测</p>
+                </div>
+                <div class="card" style="background: rgba(0, 229, 255, 0.05); border: 1px solid var(--accent-secondary); text-align: center; cursor: pointer;" onclick="startExam('monthly')">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏆</div>
+                    <h4 style="color: var(--accent-secondary);">月度阶段考</h4>
+                    <p style="font-size: 0.75rem; color: var(--text-dim); margin-top: 0.5rem;">30天全考点综合测评与能力等级诊断</p>
+                </div>
+            </div>
+
+            <div id="exam-container" style="margin-top: 1rem;"></div>
+        </div>
+    `;
+}
+
+function startExam(type) {
+    const container = document.getElementById('exam-container');
+    const day = getCurrentDay();
+    container.innerHTML = `<div class="loading">正在为您从已学内容和错题库中组卷...</div>`;
+    
+    setTimeout(() => {
+        let questions = [];
+        if (type === 'weekly') {
+            // Pick 3-5 words from last 7 days
+            const startDay = Math.max(1, day - 7);
+            for(let i=startDay; i<=day; i++) {
+                if(state.curriculum[i]) questions.push(...state.curriculum[i].vocab);
+            }
+            // Add some grammar from error bank
+            const errorGrammar = state.errorBank.filter(e => e.type === 'Grammar').slice(0, 3);
+            
+            container.innerHTML = `
+                <div class="card" style="background: rgba(255,255,255,0.02);">
+                    <h4 style="margin-bottom: 1rem; color: var(--accent-primary);">📖 周考内容 (复习模式)</h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                        <p><strong>1. 词汇拼写检查:</strong></p>
+                        <ul style="padding-left: 1.5rem; font-size: 0.9rem; color: var(--text-dim);">
+                            ${questions.slice(0, 5).map(q => `<li>请拼写并造句: ${q}</li>`).join('')}
+                        </ul>
+                        <p><strong>2. 顽固语法复测:</strong></p>
+                        <ul style="padding-left: 1.5rem; font-size: 0.9rem; color: var(--text-dim);">
+                            ${errorGrammar.length ? errorGrammar.map(e => `<li>纠正此句: ${e.content}</li>`).join('') : '<li>暂无本周语法错误记录，太棒了！</li>'}
+                        </ul>
+                    </div>
+                    <button onclick="markTaskComplete('weekly-exam'); alert('周考完成！请根据答案自行对照错题库进行复盘。')" style="margin-top: 1.5rem; width: 100%; padding: 12px; background: var(--accent-primary); border: none; border-radius: 8px; color: white; cursor: pointer; font-weight: 700;">提交周考报告</button>
+                </div>
+            `;
+        } else {
+            container.innerHTML = `
+                <div class="card" style="background: rgba(255,255,255,0.02); text-align: center;">
+                    <h4 style="color: var(--accent-secondary);">月度大考尚未开启</h4>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-dim);">月度考核将在第 30 天自动激活。目前请继续每日打卡训练。</p>
+                </div>
+            `;
+        }
+    }, 1000);
+}
 
 // --- 7. Reading View ---
 function renderReadingView() {
