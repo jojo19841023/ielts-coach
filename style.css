@@ -67,6 +67,17 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.nav-menu::-webkit-scrollbar {
+    width: 4px;
+}
+
+.nav-menu::-webkit-scrollbar-thumb {
+    background: var(--glass-border);
+    border-radius: 2px;
 }
 
 .nav-item {

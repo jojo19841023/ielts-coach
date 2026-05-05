@@ -21,6 +21,15 @@
                 <button class="nav-item active" data-view="daily-plan">
                     <span class="icon">📅</span> 每日计划
                 </button>
+                <button class="nav-item" data-view="dashboard">
+                    <span class="icon">📈</span> 目标追踪
+                </button>
+                <button class="nav-item" data-view="reading">
+                    <span class="icon">📖</span> 阅读专项
+                </button>
+                <button class="nav-item" data-view="vocabulary">
+                    <span class="icon">📚</span> 核心词汇
+                </button>
                 <button class="nav-item" data-view="grammar">
                     <span class="icon">🧩</span> 语法诊所
                 </button>
@@ -39,6 +48,13 @@
                 <button class="nav-item" data-view="weekly-review">
                     <span class="icon">📊</span> 周度复盘
                 </button>
+                <div style="margin-top: auto; padding: 1rem 0; border-top: 1px solid var(--glass-border);">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; font-size: 0.75rem; color: #4caf50; padding-left: 1.5rem;">
+                        <span style="width: 8px; height: 8px; background: #4caf50; border-radius: 50%;"></span>
+                        数据已实时保存
+                    </div>
+                    <button onclick="exportData()" style="width: calc(100% - 3rem); margin: 0 1.5rem; padding: 8px; background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-dim); cursor: pointer; font-size: 0.8rem; transition: all 0.3s;">💾 导出/备份数据</button>
+                </div>
             </nav>
             <div class="user-profile">
                 <div class="avatar">J</div>
