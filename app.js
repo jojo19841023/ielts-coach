@@ -126,31 +126,42 @@ function runHeuristicAnalysis() {
         return acc;
     }, {});
 
-    // 2. Filter out tasks that should no longer be there, 
-    // but REMEMBER if an adaptive task was already completed in this session
+    // 2. Filter out tasks that should no longer be there
     const completedAdaptiveIds = state.dailyTasks.filter(t => t.isAdaptive && t.completed).map(t => t.id);
+    state.adaptiveCompleted = state.adaptiveCompleted || [];
+    
+    // Merge session memory
+    completedAdaptiveIds.forEach(id => {
+        if (!state.adaptiveCompleted.includes(id)) state.adaptiveCompleted.push(id);
+    });
+
     state.dailyTasks = state.dailyTasks.filter(t => !t.isAdaptive);
 
-    // 3. Inject reinforcement tasks only if NOT already completed today
-    if (errorTypes['Grammar'] >= 3 && !completedAdaptiveIds.includes(99)) {
+    // 3. Inject reinforcement tasks only if NOT already completed in this session
+    if (errorTypes['Grammar'] >= 3 && !state.adaptiveCompleted.includes(99)) {
         state.dailyTasks.unshift({ 
             id: 99, type: 'grammar', title: '🚨 专项强化：攻克高频语法盲点', 
             completed: false, duration: '20min', view: 'grammar', isAdaptive: true 
         });
-        dynamicFeedback.textContent = "注意到您最近语法错误较多，已为您开启'高频盲点'专项强化模式！";
-    } else if (state.errorBank.length > 10 && !completedAdaptiveIds.includes(98)) {
+        dynamicFeedback.textContent = "注意：您最近语法错误较多，已开启专项强化！";
+    } else if (state.errorBank.length > 10 && !state.adaptiveCompleted.includes(98)) {
         state.dailyTasks.unshift({ 
             id: 98, type: 'error-bank', title: '🔥 核心复盘：清空 10+ 历史错题', 
             completed: false, duration: '15min', view: 'error-bank', isAdaptive: true 
         });
-        dynamicFeedback.textContent = "错题积累有点多啦，考前清空它们是 6.5 分的必经之路！";
-    } else {
-        // If they WERE completed, keep them in the list as completed
-        completedAdaptiveIds.forEach(id => {
-            const title = id === 99 ? '🚨 专项强化：攻克高频语法盲点' : '🔥 核心复盘：清空 10+ 历史错题';
-            state.dailyTasks.unshift({ id, type: id === 99 ? 'grammar' : 'error-bank', title, completed: true, duration: '0min', view: id === 99 ? 'grammar' : 'error-bank', isAdaptive: true });
-        });
-        dynamicFeedback.textContent = "当前状态稳定！Day " + getCurrentDay() + " 训练已就绪，保持节奏。";
+        dynamicFeedback.textContent = "错题积累较多，建议先进行核心复盘。";
+    }
+    
+    // Add completed ones back for visual feedback
+    state.adaptiveCompleted.forEach(id => {
+        const title = id === 99 ? '🚨 专项强化：攻克高频语法盲点' : '🔥 核心复盘：清空 10+ 历史错题';
+        state.dailyTasks.unshift({ id, type: id === 99 ? 'grammar' : 'error-bank', title, completed: true, duration: '0min', view: id === 99 ? 'grammar' : 'error-bank', isAdaptive: true });
+    });
+
+    if (state.adaptiveCompleted.length > 0) {
+        dynamicFeedback.textContent = "太棒了！今日专项强化已完成，状态回升中。";
+    } else if (!errorTypes['Grammar'] && state.errorBank.length <= 10) {
+        dynamicFeedback.textContent = "当前状态稳定！Day " + getCurrentDay() + " 训练已就绪。";
     }
 }
 
@@ -293,9 +304,19 @@ function renderAdaptiveGrammarReview() {
                 }).join('')}
             </div>
             
-            <button onclick="markTaskComplete(99); alert('专项强化完成！错题已温习。'); renderView('daily-plan');" style="margin-top: 1rem; padding: 14px; background: var(--accent-secondary); border: none; border-radius: 8px; color: #000; font-weight: 700; cursor: pointer;">我已掌握，返回计划</button>
+            <button onclick="markAdaptiveComplete(99); alert('专项强化完成！错题已温习。');" style="margin-top: 1rem; padding: 14px; background: var(--accent-secondary); border: none; border-radius: 8px; color: #000; font-weight: 700; cursor: pointer;">我已掌握，返回计划</button>
         </div>
     `;
+}
+
+function markAdaptiveComplete(id) {
+    state.adaptiveCompleted = state.adaptiveCompleted || [];
+    if (!state.adaptiveCompleted.includes(id)) {
+        state.adaptiveCompleted.push(id);
+    }
+    markTaskComplete(id);
+    runHeuristicAnalysis(); // Force update UI
+    renderView('daily-plan');
 }
 
 function checkGrammarAnswer(correct) {
