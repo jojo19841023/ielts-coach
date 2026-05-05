@@ -114,8 +114,37 @@ const dynamicFeedback = document.getElementById('dynamic-feedback');
 
 function init() {
     setupNavigation();
+    runHeuristicAnalysis(); // Self-optimize based on data
     updateProgress();
     renderView(state.currentView);
+}
+
+function runHeuristicAnalysis() {
+    // 1. Analyze weak points from Error Bank
+    const errorTypes = state.errorBank.reduce((acc, e) => {
+        acc[e.type] = (acc[e.type] || 0) + 1;
+        return acc;
+    }, {});
+
+    // 2. Clear existing dynamic tasks
+    state.dailyTasks = state.dailyTasks.filter(t => !t.isAdaptive);
+
+    // 3. Inject reinforcement tasks
+    if (errorTypes['Grammar'] >= 3) {
+        state.dailyTasks.unshift({ 
+            id: 99, type: 'grammar', title: '🚨 专项强化：攻克高频语法盲点', 
+            completed: false, duration: '20min', view: 'grammar', isAdaptive: true 
+        });
+        dynamicFeedback.textContent = "注意到您最近语法错误较多，已为您开启'高频盲点'专项强化模式！";
+    } else if (state.errorBank.length > 10) {
+        state.dailyTasks.unshift({ 
+            id: 98, type: 'error-bank', title: '🔥 核心复盘：清空 10+ 历史错题', 
+            completed: false, duration: '15min', view: 'error-bank', isAdaptive: true 
+        });
+        dynamicFeedback.textContent = "错题积累有点多啦，考前清空它们是 6.5 分的必经之路！";
+    } else {
+        dynamicFeedback.textContent = "当前状态稳定！Day " + getCurrentDay() + " 训练已就绪，保持节奏。";
+    }
 }
 
 function setupNavigation() {
