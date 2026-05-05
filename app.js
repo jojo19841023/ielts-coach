@@ -20,6 +20,23 @@ const defaultState = {
         { id: 6, type: 'speaking', title: '🗣️ 口语纠偏：Part 1 常见问题模测', completed: false, duration: '20min', view: 'speaking' },
         { id: 7, type: 'vocabulary', title: '📚 核心词汇：雅思高频场景词 50个', completed: false, duration: '15min', view: 'vocabulary' }
     ],
+    curriculum: {
+        1: {
+            reading: { title: "Remote Work Trends", text: "Nowadays, more people are working from home...", level: "A2", questions: [{q: "What is remote work?", options: ["Office work", "Home work", "Travel work"], a: "b"}] },
+            writing: { prompt: "Describe the advantages of working from home." },
+            vocab: ["Sustainable", "Efficiency", "Remote", "Fulfillment", "Identity"]
+        },
+        2: {
+            reading: { title: "Sustainable Cities", text: "Future cities must be green and sustainable...", level: "B1", questions: [{q: "What is a green city?", options: ["Painted green", "Eco-friendly", "Full of money"], a: "b"}] },
+            writing: { prompt: "How can we make cities more eco-friendly?" },
+            vocab: ["Infrastructure", "Renewable", "Urban", "Congestion", "Environment"]
+        },
+        3: {
+            reading: { title: "The Impact of AI", text: "Artificial Intelligence is changing everything...", level: "B1", questions: [{q: "Is AI important?", options: ["No", "Yes", "Maybe"], a: "b"}] },
+            writing: { prompt: "Will AI replace human workers in the future?" },
+            vocab: ["Automation", "Algorithms", "Intelligence", "Innovative", "Breakthrough"]
+        }
+    },
     errorBank: [],
     essays: { current: '' },
     speakingInput: '',
@@ -70,6 +87,8 @@ if (!state) {
         return newTask;
     });
     state.dailyTasks = updatedTasks;
+    state.startDate = state.startDate || new Date().toISOString();
+    state.curriculum = defaultState.curriculum; // Always load latest 30-day syllabus
 
     state.currentGrammarIndex = state.currentGrammarIndex || 0;
     state.currentPhoneticIndex = state.currentPhoneticIndex || 0;
@@ -140,6 +159,14 @@ function renderView(viewId) {
         case 'settings': renderSettingsView(); break;
         default: appView.innerHTML = `<div class="loading">即将上线...</div>`;
     }
+}
+
+function getCurrentDay() {
+    const start = new Date(state.startDate);
+    const today = new Date();
+    const diffTime = Math.abs(today - start);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return (diffDays % 30) || 1; // Cycle through 30 days
 }
 
 // --- 1. Daily Plan ---
@@ -656,24 +683,31 @@ function renderWeeklyReview() { appView.innerHTML = `<div class="card"><h3>📊 
 
 // --- 7. Reading View ---
 function renderReadingView() {
+    const day = getCurrentDay();
+    const content = state.curriculum[day]?.reading || state.curriculum[1].reading;
+    
     appView.innerHTML = `
         <div class="card" style="display: flex; flex-direction: column; gap: 1.5rem; animation: fadeIn 0.4s ease;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <h3 style="color: var(--accent-secondary);">📖 雅思阅读 A2：远程办公趋势</h3>
-                <span style="font-size: 0.8rem; color: var(--text-dim);">难度: A2-B1</span>
+                <h3 style="color: var(--accent-secondary);">📖 Day ${day} 阅读：${content.title}</h3>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">难度: ${content.level}</span>
             </div>
             <div style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px; line-height: 1.8; color: #e0e0e0; font-size: 1.05rem;">
-                <p>Nowadays, more people are working from home. This is called "remote work". Many companies use technology like Zoom to have meetings. Some people like this because they save time and money on travel. However, other people find it hard to focus at home. They miss their colleagues and the office environment. Experts think that a "hybrid" model (working from both home and office) will be very popular in the future.</p>
+                <p>${content.text}</p>
             </div>
             <div id="reading-questions" style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
-                <div class="reading-q">
-                    <p style="margin-bottom: 1rem; font-weight: 600;">1. What is "remote work"?</p>
-                    <div style="display: flex; flex-direction: column; gap: 0.8rem;">
-                        <label style="cursor:pointer; display:flex; align-items:center; gap:0.5rem;"><input type="radio" name="q1" value="a"> Working in a tall building</label>
-                        <label style="cursor:pointer; display:flex; align-items:center; gap:0.5rem;"><input type="radio" name="q1" value="b"> Working from home using technology</label>
-                        <label style="cursor:pointer; display:flex; align-items:center; gap:0.5rem;"><input type="radio" name="q1" value="c"> Traveling to different countries for work</label>
+                ${content.questions.map((q, i) => `
+                    <div class="reading-q">
+                        <p style="margin-bottom: 1rem; font-weight: 600;">${i+1}. ${q.q}</p>
+                        <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                            ${q.options.map((opt, oi) => `
+                                <label style="cursor:pointer; display:flex; align-items:center; gap:0.5rem;">
+                                    <input type="radio" name="q${i}" value="${['a','b','c'][oi]}"> ${opt}
+                                </label>
+                            `).join('')}
+                        </div>
                     </div>
-                </div>
+                `).join('')}
                 <button onclick="checkReadingAnswers()" style="background: var(--accent-primary); border: none; padding: 12px; border-radius: 8px; color: white; cursor: pointer; font-weight: 600;">提交并检查</button>
             </div>
             <div id="reading-feedback" style="display: none;"></div>
