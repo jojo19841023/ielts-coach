@@ -266,15 +266,24 @@ function renderAdaptiveGrammarReview() {
             <p style="font-size: 0.85rem; color: var(--text-dim);">教练注意到您在以下语法点上遇到了挑战。请重新审查并纠正它们：</p>
             
             <div style="display: flex; flex-direction: column; gap: 1rem;">
-                ${mistakes.map((m, i) => `
+                ${mistakes.map((m, i) => {
+                    let advice = m.improvement;
+                    if (!advice || advice === 'undefined') {
+                        // Heuristic advice based on content
+                        if (m.content.includes('last night') || m.content.includes('yesterday')) advice = "关键点：检测到过去时间状语，请检查动词过去式及助动词(did)的用法。";
+                        else if (m.content.includes('right now') || m.content.includes('now')) advice = "关键点：检测到正在进行的动作，请检查 'be + doing' 结构。";
+                        else if (m.content.includes('she') || m.content.includes('he') || m.content.includes('it')) advice = "关键点：主语为第三人称单数，请检查动词s/es变化或疑问句助动词用法。";
+                        else advice = "核心复盘：请对照该专项知识点重新审查句子结构，重点关注时态一致性。";
+                    }
+                    return `
                     <div style="padding: 1.2rem; background: rgba(255,82,82,0.05); border: 1px solid rgba(255,82,82,0.2); border-radius: 12px;">
                         <p style="font-size: 0.9rem; margin-bottom: 0.5rem; color: #ff8a80; font-weight: 600;">错误场景 ${i+1}:</p>
                         <p style="font-style: italic; color: #eee; font-size: 1rem; margin-bottom: 0.8rem;">"${m.content}"</p>
                         <div style="background: rgba(0,0,0,0.2); padding: 0.8rem; border-radius: 8px;">
-                            <p style="font-size: 0.85rem; color: #4caf50;">💡 改进建议: ${m.improvement || '请对照该专项知识点（如时态、词数限制）重新审查句子结构。'}</p>
+                            <p style="font-size: 0.85rem; color: #4caf50;">💡 改进建议: ${advice}</p>
                         </div>
-                    </div>
-                `).join('')}
+                    </div>`;
+                }).join('')}
             </div>
             
             <button onclick="markTaskComplete(99); alert('专项强化完成！错题已温习。'); renderView('daily-plan');" style="margin-top: 1rem; padding: 14px; background: var(--accent-secondary); border: none; border-radius: 8px; color: #000; font-weight: 700; cursor: pointer;">我已掌握，返回计划</button>
