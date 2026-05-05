@@ -1,5 +1,3 @@
-// IELTS Coach App Logic
-
 // IELTS Coach App Logic - Functional Version
 
 let state;
@@ -8,34 +6,48 @@ try {
     state = saved ? JSON.parse(saved) : null;
 } catch (e) {
     console.error("Failed to parse local storage", e);
-    state = null;
 }
 
+const defaultState = {
+    currentView: 'daily-plan',
+    user: { name: 'Jojo', targetScore: 6.5, currentLevel: 'A2' },
+    dailyTasks: [
+        { id: 1, type: 'grammar', title: '基础时态：一般现在时 vs 现在进行时', completed: false, duration: '20min', view: 'grammar' },
+        { id: 2, type: 'phonetics', title: '元音训练：/i:/ 与 /ɪ/ 的区别', completed: false, duration: '15min', view: 'phonetics' },
+        { id: 3, type: 'writing', title: '句子构造：5个简单句练习', completed: false, duration: '20min', view: 'writing' },
+        { id: 4, type: 'vocabulary', title: '高频场景单词：个人信息与家庭', completed: true, duration: '15min', view: 'daily-plan' }
+    ],
+    errorBank: [],
+    essays: { current: '' },
+    speakingInput: '',
+    chinglishPatterns: [
+        { pattern: "very like", correction: "I really like...", explanation: "Very 是副词，不能修饰动词。请用 really 或 like ... very much。" },
+        { pattern: "I'm very", correction: "I really...", explanation: "如果您想说'我很...'，请注意如果是动作，不要加 I'm。" },
+        { pattern: "people is", correction: "People are...", explanation: "People 是复数形式，谓语动词要用 are。" },
+        { pattern: "look the", correction: "Look at the...", explanation: "Look 是不及物动词，后面接对象需要加 at。" }
+    ]
+};
+
+// Migration: Ensure all properties exist
 if (!state) {
-    state = {
-        currentView: 'daily-plan',
-        user: {
-            name: 'Jojo',
-            targetScore: 6.5,
-            currentLevel: 'A2'
-        },
-        dailyTasks: [
-            { id: 1, type: 'grammar', title: '基础时态：一般现在时 vs 现在进行时', completed: false, duration: '20min', view: 'grammar' },
-            { id: 2, type: 'phonetics', title: '元音训练：/i:/ 与 /ɪ/ 的区别', completed: false, duration: '15min', view: 'phonetics' },
-            { id: 3, type: 'writing', title: '句子构造：5个简单句练习', completed: false, duration: '20min', view: 'writing' },
-            { id: 4, type: 'vocabulary', title: '高频场景单词：个人信息与家庭', completed: true, duration: '15min', view: 'daily-plan' }
-        ],
-        errorBank: [
-            { id: 101, category: 'Grammar', content: 'I very like English.', correction: 'I really like English.', date: '2026-05-04' }
-        ],
-        essays: {
-            current: ''
-        }
-    };
+    state = defaultState;
+} else {
+    state.chinglishPatterns = state.chinglishPatterns || defaultState.chinglishPatterns;
+    state.errorBank = state.errorBank || [];
+    state.essays = state.essays || { current: '' };
+    state.speakingInput = state.speakingInput || '';
 }
 
 function saveState() {
     localStorage.setItem('ieltsState', JSON.stringify(state));
+}
+
+// Helper to convert patterns to regex
+function getPatterns() {
+    return state.chinglishPatterns.map(p => ({
+        ...p,
+        regex: new RegExp(p.pattern, 'i')
+    }));
 }
 
 // DOM Elements
@@ -181,50 +193,193 @@ function renderPhoneticsView() {
         <div class="card" style="display: flex; flex-direction: column; gap: 1.5rem; align-items: center; text-align: center;">
             <h3 style="color: var(--accent-secondary);">元音辨析：/i:/ vs /ɪ/</h3>
             <div style="display: flex; gap: 2rem;">
-                <div class="sound-card" onclick="alert('播放标准音: /i:/ (长元音)')" style="padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; cursor: pointer; border: 1px solid var(--glass-border);">
+                <div class="sound-card" onclick="playText('sheep', 'en-US')" style="padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; cursor: pointer; border: 1px solid var(--glass-border);">
                     <div style="font-size: 2rem; margin-bottom: 0.5rem;">/i:/</div>
                     <div style="font-size: 0.9rem;">Sheep [ʃiːp]</div>
+                    <div style="font-size: 0.7rem; color: var(--accent-secondary); margin-top: 5px;">点击播放</div>
                 </div>
-                <div class="sound-card" onclick="alert('播放标准音: /ɪ/ (短元音)')" style="padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; cursor: pointer; border: 1px solid var(--glass-border);">
+                <div class="sound-card" onclick="playText('ship', 'en-US')" style="padding: 1.5rem; background: rgba(255,255,255,0.05); border-radius: 12px; cursor: pointer; border: 1px solid var(--glass-border);">
                     <div style="font-size: 2rem; margin-bottom: 0.5rem;">/ɪ/</div>
                     <div style="font-size: 0.9rem;">Ship [ʃɪp]</div>
+                    <div style="font-size: 0.7rem; color: var(--accent-secondary); margin-top: 5px;">点击播放</div>
                 </div>
             </div>
             <div style="text-align: left; background: rgba(255,255,255,0.02); padding: 1rem; border-radius: 8px; font-size: 0.85rem; color: var(--text-dim);">
                 💡 <strong>技巧：</strong> 发 /i:/ 时嘴角向两侧拉开（像微笑）；发 /ɪ/ 时下巴自然下垂，声音短促。
             </div>
-            <button id="record-btn" onclick="simulateRecording()" style="width: 60px; height: 60px; border-radius: 50%; background: #ff5252; border: none; font-size: 1.5rem; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(255,82,82,0.3);">🎙️</button>
-            <p id="record-status" style="font-size: 0.9rem; color: var(--text-dim);">点击录音尝试朗读 "A sheep is on a ship."</p>
+            
+            <div id="recording-controls" style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                <button id="record-btn" onclick="toggleRecording()" style="width: 70px; height: 70px; border-radius: 50%; background: #ff5252; border: none; font-size: 1.8rem; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition);">🎙️</button>
+                <p id="record-status" style="font-size: 0.9rem; color: var(--text-dim);">点击麦克风开始录音</p>
+                <div id="audio-playback" style="display: none;">
+                    <p style="font-size: 0.8rem; margin-bottom: 5px;">回放您的发音：</p>
+                    <audio id="player" controls style="height: 30px;"></audio>
+                </div>
+            </div>
         </div>
     `;
 }
 
-function simulateRecording() {
+function playText(text, lang) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = lang;
+    utterance.rate = 0.8; // Slightly slower for clarity
+    window.speechSynthesis.speak(utterance);
+}
+
+let mediaRecorder;
+let audioChunks = [];
+let recognition;
+
+// Initialize Speech Recognition
+if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = 'en-US';
+}
+
+async function toggleRecording() {
     const btn = document.getElementById('record-btn');
     const status = document.getElementById('record-status');
-    btn.style.animation = "pulse 1s infinite";
-    status.innerHTML = "正在录音... 0:02";
-    
-    setTimeout(() => {
+    const playback = document.getElementById('audio-playback');
+    const targetText = "A sheep is on a ship"; // Target phrase for A2 exercise
+
+    if (!mediaRecorder || mediaRecorder.state === 'inactive') {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream);
+            audioChunks = [];
+
+            mediaRecorder.ondataavailable = (event) => {
+                audioChunks.push(event.data);
+            };
+
+            mediaRecorder.onstop = () => {
+                const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+                const audioUrl = URL.createObjectURL(audioBlob);
+                document.getElementById('player').src = audioUrl;
+                playback.style.display = 'block';
+            };
+
+            // Start AI Recognition
+            if (recognition) {
+                recognition.onstart = () => {
+                    status.innerHTML = "🎤 正在识别您的发音...";
+                };
+                recognition.onresult = (event) => {
+                    const result = event.results[0][0].transcript;
+                    const confidence = Math.round(event.results[0][0].confidence * 100);
+                    evaluatePronunciation(result, targetText, confidence);
+                };
+                recognition.onerror = (event) => {
+                    status.innerHTML = "❌ 识别失败: " + event.error;
+                };
+                recognition.start();
+            }
+
+            mediaRecorder.start();
+            btn.style.animation = "pulse 1s infinite";
+            btn.style.background = "#333";
+            btn.innerHTML = "⏹️";
+        } catch (err) {
+            alert("无法访问麦克风，请确保已授予权限。");
+            console.error(err);
+        }
+    } else {
+        mediaRecorder.stop();
+        if (recognition) recognition.stop();
         btn.style.animation = "none";
-        status.innerHTML = "✅ 录音完成！系统正在对比发音... (匹配度 85%)";
+        btn.style.background = "#ff5252";
+        btn.innerHTML = "🎙️";
+    }
+}
+
+function evaluatePronunciation(result, target, confidence) {
+    const status = document.getElementById('record-status');
+    const normalizedResult = result.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+    const normalizedTarget = target.toLowerCase();
+
+    let feedback = "";
+    if (normalizedResult.includes("sheep") && normalizedResult.includes("ship")) {
+        feedback = `✅ 完美！识别结果: "${result}" (置信度: ${confidence}%)。您清晰地区分了长短元音。`;
         markTaskComplete('phonetics');
-    }, 3000);
+    } else if (normalizedResult.includes("sheep") || normalizedResult.includes("ship")) {
+        feedback = `⚠️ 接近了。识别结果: "${result}"。注意辨析 /i:/ 和 /ɪ/ 的长短区别。`;
+    } else {
+        feedback = `❌ 没听清。识别结果: "${result}"。请尝试按照提示的技巧再试一次。`;
+    }
+    status.innerHTML = feedback;
 }
 
 function renderSpeakingView() {
     appView.innerHTML = `
         <div class="card" style="display: flex; flex-direction: column; gap: 1.5rem;">
             <h3>口语纠偏：告别“中式思维”</h3>
-            <div style="background: rgba(255,82,82,0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid #ff5252;">
-                <span style="color: #ff5252; font-weight: bold;">中式表达：</span> I very like English. ❌
+            <p style="color: var(--text-dim); font-size: 0.9rem;">输入您想说的英语句子，看看是否存在常见的“中式英语”倾向：</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <textarea id="speaking-text-input" placeholder="例如: I very like English..." 
+                          style="background: transparent; border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text-main); padding: 1rem; font-family: inherit; font-size: 1rem; resize: none; min-height: 100px; outline: none;">${state.speakingInput}</textarea>
+                <button onclick="analyzeSpeaking()" style="background: var(--accent-primary); color: white; border: none; padding: 12px; border-radius: 12px; font-weight: 600; cursor: pointer;">
+                    AI 纠偏分析
+                </button>
             </div>
-            <div style="background: rgba(0,229,255,0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid var(--accent-secondary);">
-                <span style="color: var(--accent-secondary); font-weight: bold;">地道表达：</span> I really like English. / I'm very fond of English. ✅
+
+            <div id="speaking-result" style="display: none; animation: fadeIn 0.3s ease;">
+                <!-- Results will be injected here -->
             </div>
-            <p style="font-size: 0.9rem; color: var(--text-dim);">原因：Very 是副词，不能直接修饰动词 Like。请试着大声朗读地道表达 3 遍。</p>
+
+            <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--glass-border);">
+                <h4 style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 0.8rem;">💡 今日避坑指南：</h4>
+                <div style="background: rgba(255,255,255,0.02); padding: 0.8rem; border-radius: 8px; font-size: 0.8rem;">
+                    不要说 "My English is very poor"，尝试说 "I'm still working on my English" 更加地道且自信。
+                </div>
+            </div>
         </div>
     `;
+}
+
+function analyzeSpeaking() {
+    const input = document.getElementById('speaking-text-input');
+    const resultDiv = document.getElementById('speaking-result');
+    const text = input.value.trim();
+    state.speakingInput = text;
+    saveState();
+
+    if (!text) return;
+
+    let match = null;
+    const patterns = getPatterns();
+    for (let p of patterns) {
+        if (p.regex.test(text)) {
+            match = p;
+            break;
+        }
+    }
+
+    resultDiv.style.display = 'block';
+    if (match) {
+        resultDiv.innerHTML = `
+            <div style="background: rgba(255,82,82,0.1); padding: 1rem; border-radius: 12px; border-left: 4px solid #ff5252; margin-bottom: 1rem;">
+                <span style="color: #ff5252; font-weight: bold;">中式雷区：</span> ${text} ❌
+            </div>
+            <div style="background: rgba(0,229,255,0.1); padding: 1rem; border-radius: 12px; border-left: 4px solid var(--accent-secondary);">
+                <span style="color: var(--accent-secondary); font-weight: bold;">地道建议：</span> ${match.correction} ✅
+                <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 0.5rem;">${match.explanation}</p>
+            </div>
+        `;
+        addError('Speaking', text, match.correction);
+    } else {
+        resultDiv.innerHTML = `
+            <div style="background: rgba(0,229,255,0.1); padding: 1rem; border-radius: 12px; border-left: 4px solid var(--accent-secondary);">
+                <p>✅ 暂未发现明显的中式表达。您的表达逻辑已经初步具备英语思维！</p>
+                <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 0.5rem;">建议：继续尝试使用更复杂的连词（如 although, because）来丰富句式。</p>
+            </div>
+        `;
+    }
+    markTaskComplete('speaking');
 }
 
 function renderDailyPlan() {
