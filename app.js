@@ -376,9 +376,34 @@ function nextPhoneticExercise() {
     }
 }
 
-function playText(text, lang) {
+async function playText(text, lang) {
+    // Phase 2: API Integration - Fetch real human audio for single words
+    if (lang === 'en-US' && !text.includes(' ')) {
+        try {
+            const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${text}`);
+            if (res.ok) {
+                const data = await res.json();
+                let audioUrl = '';
+                for (const phonetic of data[0].phonetics) {
+                    if (phonetic.audio) {
+                        audioUrl = phonetic.audio;
+                        break;
+                    }
+                }
+                if (audioUrl) {
+                    new Audio(audioUrl).play();
+                    return; // Success, skip robotic TTS
+                }
+            }
+        } catch (e) {
+            console.log("Dictionary API unavailable, falling back to local TTS");
+        }
+    }
+    // Fallback to local Speech Synthesis
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = lang; utterance.rate = 0.8; window.speechSynthesis.speak(utterance);
+    utterance.lang = lang; 
+    utterance.rate = 0.8; 
+    window.speechSynthesis.speak(utterance);
 }
 
 let mediaRecorder; let audioChunks = []; let recognition;
