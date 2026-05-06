@@ -182,12 +182,11 @@ function renderView(viewId) {
 function getCurrentDay() {
     const start = new Date(state.startDate);
     const today = new Date();
-    // Normalize both to midnight to prevent time-of-day shifting bugs
     const startMidnight = new Date(start.getFullYear(), start.getMonth(), start.getDate());
     const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
     const diffTime = todayMidnight - startMidnight;
     const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
-    return (diffDays % 7) + 1; // Cycle through 7 days
+    return (diffDays % 30) + 1; // Expanded to 30-day curriculum cycle
 }
 
 // --- 1. Daily Plan ---
@@ -240,7 +239,7 @@ function renderGrammarView() {
     let questions, titlePrefix;
     const task = state.dailyTasks.find(t => t.type === 'grammar');
 
-    if (weakCategory && !task.isAdaptive) {
+    if (weakCategory && task && !task.isAdaptive) {
         questions = state.grammarQuestions.filter(q => q.category === weakCategory).slice(0, 10);
         titlePrefix = `🚨 弱点强化：${weakCategory}`;
         task.isAdaptive = true;
@@ -919,15 +918,21 @@ function renderReadingView() {
 }
 
 function checkReadingAnswers() {
-    const q1 = document.querySelector('input[name="q1"]:checked');
+    const day = getCurrentDay();
+    const content = state.curriculum[day]?.reading || state.curriculum[1].reading;
+    const selected = document.querySelector('input[name="q0"]:checked'); // Check first question
     const feedback = document.getElementById('reading-feedback');
-    if (!q1) return alert("请先选择答案！");
+    
+    if (!selected) return alert("请先选择一个答案！");
+    
     feedback.style.display = 'block';
-    if (q1.value === 'b') {
-        feedback.innerHTML = `<div style="background: rgba(0,229,255,0.1); padding: 1rem; border-radius: 10px; color: var(--accent-secondary); margin-top: 1rem;">✅ 正确！解析：文中提到 "working from home. This is called 'remote work'."</div>`;
+    const correct = content.questions[0].a;
+    
+    if (selected.value === correct) {
+        feedback.innerHTML = `<div style="background: rgba(0,229,255,0.1); padding: 1rem; border-radius: 10px; color: var(--accent-secondary); margin-top: 1rem;">✅ 正确！您已掌握本篇核心主旨。</div>`;
         markTaskComplete('reading');
     } else {
-        feedback.innerHTML = `<div style="background: rgba(255,82,82,0.1); padding: 1rem; border-radius: 10px; color: #ff5252; margin-top: 1rem;">❌ 错误。正确答案是 B。</div>`;
+        feedback.innerHTML = `<div style="background: rgba(255,82,82,0.1); padding: 1rem; border-radius: 10px; color: #ff5252; margin-top: 1rem;">❌ 错误。正确答案是 ${correct.toUpperCase()}。请仔细研读原文。</div>`;
     }
 }
 
