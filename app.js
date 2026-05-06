@@ -219,22 +219,46 @@ function renderDailyPlan() {
 
 // --- 2. Grammar Clinic ---
 function renderGrammarView() {
-    const isAdaptive = state.dailyTasks.find(t => t.view === 'grammar' && t.isAdaptive && !t.completed);
+    const day = getCurrentDay();
+    state.errorBank = state.errorBank || [];
     
-    if (isAdaptive && state.errorBank.filter(e => e.type === 'Grammar').length > 0) {
-        renderAdaptiveGrammarReview();
-        return;
+    // Phase 3: Weakness Routing Algorithm
+    const grammarErrors = state.errorBank.filter(e => e.type === 'Grammar');
+    const categoryCounts = {};
+    grammarErrors.forEach(e => {
+        if (e.category) categoryCounts[e.category] = (categoryCounts[e.category] || 0) + 1;
+    });
+
+    let weakCategory = null;
+    for (const cat in categoryCounts) {
+        if (categoryCounts[cat] >= 2) {
+            weakCategory = cat;
+            break;
+        }
     }
 
-    const day = getCurrentDay();
-    const startIndex = (day - 1) * 10;
-    const questions = state.grammarQuestions.slice(startIndex, startIndex + 10);
+    let questions, titlePrefix;
+    const task = state.dailyTasks.find(t => t.type === 'grammar');
+
+    if (weakCategory && !task.isAdaptive) {
+        questions = state.grammarQuestions.filter(q => q.category === weakCategory).slice(0, 10);
+        titlePrefix = `🚨 弱点强化：${weakCategory}`;
+        task.isAdaptive = true;
+        state.errorBank = state.errorBank.filter(e => e.type !== 'Grammar' || e.category !== weakCategory);
+        saveState();
+        setTimeout(() => alert(`🚨 智能诊断：检测到您在 [${weakCategory}] 方面存在薄弱环节。系统已为您自动匹配专项强化练习！`), 500);
+    } else {
+        titlePrefix = `Day ${day} 核心考点`;
+        const startIndex = (day - 1) * 10;
+        questions = state.grammarQuestions.slice(startIndex, startIndex + 10);
+    }
+
     const q = questions[state.currentGrammarIndex % questions.length] || questions[0];
     
     appView.innerHTML = `
         <div class="card" style="display: flex; flex-direction: column; gap: 1.5rem;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <h3 style="color: var(--accent-secondary);">🧩 语法诊所：Day ${day} 核心考点</h3>
+                <h3 style="color: var(--accent-secondary);">🧩 语法诊所：${titlePrefix}</h3>
                 <span style="font-size: 0.8rem; color: var(--text-dim);">进度: ${state.currentGrammarIndex + 1}/10</span>
             </div>
             <div id="grammar-exercise" style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-primary);">
@@ -243,7 +267,7 @@ function renderGrammarView() {
                        style="background: transparent; border: 1px solid var(--glass-border); padding: 12px; border-radius: 8px; color: white; width: 100%; margin-bottom: 1rem; outline: none;">
                 <div id="grammar-feedback" style="margin-bottom: 1rem; font-size: 0.9rem; display: none;"></div>
                 <div style="display: flex; gap: 1rem;">
-                    <button id="check-btn" onclick="checkGrammarAnswer('${q.answer}')" style="flex: 1; background: var(--accent-primary); border: none; padding: 12px; border-radius: 8px; color: white; cursor: pointer; font-weight: 600;">检查答案</button>
+                    <button id="check-btn" onclick="checkGrammarAnswer(${q.id})" style="flex: 1; background: var(--accent-primary); border: none; padding: 12px; border-radius: 8px; color: white; cursor: pointer; font-weight: 600;">检查答案</button>
                     <button id="next-btn" onclick="nextGrammarQuestion()" style="display: none; flex: 1; background: rgba(0, 229, 255, 0.1); border: 1px solid var(--accent-secondary); padding: 12px; border-radius: 8px; color: var(--accent-secondary); cursor: pointer; font-weight: 600;">下一题</button>
                 </div>
             </div>
@@ -297,30 +321,35 @@ function markAdaptiveComplete(id) {
     renderView('daily-plan');
 }
 
-function checkGrammarAnswer(correct) {
+function checkGrammarAnswer(qId) {
+    const q = state.grammarQuestions.find(x => x.id === qId);
     const input = document.getElementById('grammar-answer');
     const feedback = document.getElementById('grammar-feedback');
     const nextBtn = document.getElementById('next-btn');
     const checkBtn = document.getElementById('check-btn');
     const val = input.value.trim().toLowerCase();
     
-    // Ensure buttons toggle first to prevent stuck state
     checkBtn.style.display = 'none';
     nextBtn.style.display = 'block';
     feedback.style.display = 'block';
 
-    if (val === correct.toLowerCase()) {
+    if (val === q.answer.toLowerCase()) {
         feedback.style.color = "var(--accent-secondary)";
-        feedback.innerHTML = `✅ 正确！<br><small>${state.grammarQuestions[state.currentGrammarIndex].explanation}</small>`;
+        feedback.innerHTML = `✅ 正确！<br><small>${q.explanation}</small>`;
     } else {
         feedback.style.color = "#ff5252";
-        feedback.innerHTML = `❌ 错误。正确答案是: ${correct}<br><small>${state.grammarQuestions[state.currentGrammarIndex].explanation}</small>`;
-        try {
-            addError('Grammar', `题目: ${state.grammarQuestions[state.currentGrammarIndex].sentence} | 错误答案: ${val}`, `正确答案: ${correct}`);
-        } catch(e) { console.log("Error logging suppressed"); }
+        feedback.innerHTML = `❌ 错误。正确答案是: ${q.answer}<br><small>${q.explanation}</small>`;
+        state.errorBank.push({ 
+            type: 'Grammar', 
+            category: q.category || 'General', 
+            content: q.sentence, 
+            correction: q.answer,
+            date: new Date().toLocaleDateString()
+        });
+        saveState();
     }
     
-    if (state.currentGrammarIndex === state.grammarQuestions.length - 1) { 
+    if (state.currentGrammarIndex >= 9) { 
         nextBtn.textContent = "完成练习"; 
         markTaskComplete('grammar'); 
     }
@@ -906,27 +935,63 @@ function checkReadingAnswers() {
 function renderVocabularyView() {
     const day = getCurrentDay();
     const content = state.curriculum[day] || state.curriculum[1];
-    const words = content.vocab;
+    
+    // Phase 3: Spaced Repetition System (SRS)
+    state.vocabSRS = state.vocabSRS || [];
+    const reviewWords = state.vocabSRS.filter(v => v.nextReviewDay <= day && !v.mastered);
+    const newWords = content.vocab;
+    const allWords = [...reviewWords, ...newWords];
+
     appView.innerHTML = `
         <div class="card" style="display: flex; flex-direction: column; gap: 1.5rem;">
-            <h3 style="color: var(--accent-secondary);">📚 Day ${day} 核心词汇：${content.theme}</h3>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="color: var(--accent-secondary);">📚 Day ${day} 核心词汇：${content.theme}</h3>
+                <span style="font-size: 0.8rem; color: var(--accent-primary); border: 1px solid var(--accent-primary); padding: 2px 8px; border-radius: 10px;">包含 ${reviewWords.length} 个复习词</span>
+            </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
-                ${words.map(w => `
-                    <div class="card" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);">
+                ${allWords.map(w => `
+                    <div class="card" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); position: relative;">
+                        ${w.nextReviewDay ? `<span style="position:absolute; top:10px; right:10px; background:var(--accent-primary); font-size:0.7rem; padding:2px 5px; border-radius:5px;">SRS 复习</span>` : ''}
                         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
                             <h4 style="color: var(--accent-secondary); font-size: 1.2rem;">${w.word}</h4>
                             <button onclick="playText('${w.word}', 'en-US')" style="background: none; border: none; cursor: pointer; font-size: 1.2rem;">🔊</button>
                         </div>
                         <p style="font-size: 0.95rem; color: #fff; margin-bottom: 0.5rem;"><span style="color: var(--text-dim);">释义:</span> ${w.meaning}</p>
-                        <p style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 0.8rem;">同义替换: <span style="color: var(--accent-secondary);">${w.syn}</span></p>
-                        <p style="font-size: 0.9rem; font-style: italic; color: #e0e0e0; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.8rem;">" ${w.ex} "</p>
+                        <p style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 0.8rem;">同义替换: <span style="color: var(--accent-secondary);">${w.syn || '-'}</span></p>
+                        <p style="font-size: 0.9rem; font-style: italic; color: #e0e0e0; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.8rem; margin-bottom: 1rem;">" ${w.ex || '-'} "</p>
+                        <div style="display: flex; gap: 0.5rem;">
+                            ${w.nextReviewDay 
+                                ? `<button onclick="markVocabMastered('${w.word}')" class="btn-primary" style="flex:1; padding: 6px; font-size: 0.85rem; background: var(--accent-primary); border:none; border-radius:8px; color:white; cursor:pointer;">✅ 已掌握</button>`
+                                : `<button onclick="markVocabHard('${w.word}')" class="btn-secondary" style="flex:1; padding: 6px; font-size: 0.85rem; border: 1px solid var(--accent-primary); color: var(--accent-primary); background:transparent; border-radius:8px; cursor:pointer;">🧠 标记难词</button>`
+                            }
+                        </div>
                     </div>
                 `).join('')}
             </div>
-            <button onclick="markTaskComplete('vocabulary'); switchView('daily-plan');" style="background: var(--accent-primary); border: none; padding: 14px; border-radius: 12px; color: white; cursor: pointer; font-weight: 700;">今日词汇已掌握</button>
+            <button onclick="markTaskComplete('vocabulary'); switchView('daily-plan');" style="background: var(--accent-primary); border: none; padding: 14px; border-radius: 12px; color: white; cursor: pointer; font-weight: 700; margin-top: 20px;">今日词汇已掌握</button>
         </div>
     `;
 }
+
+window.markVocabHard = (word) => {
+    state.vocabSRS = state.vocabSRS || [];
+    if (!state.vocabSRS.find(v => v.word === word)) {
+        state.vocabSRS.push({ word: word, nextReviewDay: getCurrentDay() + 2, mastered: false });
+        saveState();
+        alert(`已将 "${word}" 加入复习序列！它将在 2 天后再次出现。`);
+        renderVocabularyView();
+    }
+};
+
+window.markVocabMastered = (word) => {
+    state.vocabSRS = state.vocabSRS || [];
+    const item = state.vocabSRS.find(v => v.word === word);
+    if (item) {
+        item.mastered = true;
+        saveState();
+        renderVocabularyView();
+    }
+};
 
 function addError(type, content, correction) {
     state.errorBank.push({
