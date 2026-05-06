@@ -22,7 +22,23 @@ const defaultState = {
         { id: 6, type: 'speaking', title: '🗣️ 口语纠偏：Part 1 常见问题模测', completed: false, duration: '20min', view: 'speaking' },
         { id: 7, type: 'vocabulary', title: '📚 核心词汇：雅思高频场景词 50个', completed: false, duration: '15min', view: 'vocabulary' }
     ],
-    curriculum: {}, // Linked dynamically now
+    curriculum: {
+        1: {
+            reading: { title: "Remote Work Trends", text: "Nowadays, more people are working from home...", level: "A2", questions: [{q: "What is remote work?", options: ["Office work", "Home work", "Travel work"], a: "b"}] },
+            writing: { prompt: "Describe the advantages of working from home." },
+            vocab: ["Sustainable", "Efficiency", "Remote", "Fulfillment", "Identity"]
+        },
+        2: {
+            reading: { title: "Sustainable Cities", text: "Future cities must be green and sustainable...", level: "B1", questions: [{q: "What is a green city?", options: ["Painted green", "Eco-friendly", "Full of money"], a: "b"}] },
+            writing: { prompt: "How can we make cities more eco-friendly?" },
+            vocab: ["Infrastructure", "Renewable", "Urban", "Congestion", "Environment"]
+        },
+        3: {
+            reading: { title: "The Impact of AI", text: "Artificial Intelligence is changing everything...", level: "B1", questions: [{q: "Is AI important?", options: ["No", "Yes", "Maybe"], a: "b"}] },
+            writing: { prompt: "Will AI replace human workers in the future?" },
+            vocab: ["Automation", "Algorithms", "Intelligence", "Innovative", "Breakthrough"]
+        }
+    },
     errorBank: [],
     essays: { current: '' },
     speakingInput: '',
@@ -32,47 +48,62 @@ const defaultState = {
         { name: '能力爬坡 (B1)', status: 'locked', target: '3500 词汇 + 复合句式', deadline: '2026-09' },
         { name: '6.5 冲刺 (B2)', status: 'locked', target: '真题模拟 + 写作逻辑优化', deadline: '2026-12' }
     ],
-    chinglishPatterns: [], // Linked dynamically
-    grammarQuestions: [],  // Linked dynamically
+    chinglishPatterns: [
+        { regex: /very\s+like/i, name: "中式搭配", correction: "really like / like ... very much", explanation: "Very 不能修饰动词。" },
+        { regex: /people\s+is/i, name: "主谓一致", correction: "people are", explanation: "People 是复数。" },
+        { regex: /Their\s+are/i, name: "词法混淆", correction: "There are", explanation: "存在句用 There。" },
+        { regex: /I\s+is/i, name: "基础语法", correction: "I am", explanation: "I 永远搭配 am。" }
+    ],
+    grammarQuestions: [
+        { id: 1, sentence: "My brother ________ (play) football every Sunday.", answer: "plays", explanation: "三单加 -s。" },
+        { id: 2, sentence: "They ________ (not like) cold weather.", answer: "do not like", explanation: "非三单否定用 do not。" },
+        { id: 3, sentence: "________ she ________ (live) in London?", answer: "Does live", explanation: "疑问句三单用 Does ... 动词原形。" },
+        { id: 4, sentence: "I ________ (be) a student at this school.", answer: "am", explanation: "I 永远搭配 am。" },
+        { id: 5, sentence: "Yesterday, I ________ (go) to the park.", answer: "went", explanation: "一般过去时：Go 的过去式是 went。" },
+        { id: 6, sentence: "We ________ (study) English right now.", answer: "are studying", explanation: "现在进行时：Be + V-ing。" },
+        { id: 7, sentence: "She ________ (have) breakfast at 8 AM daily.", answer: "has", explanation: "Have 的三单形式是 has。" },
+        { id: 8, sentence: "They ________ (watch) a movie last night.", answer: "watched", explanation: "过去式规则动词加 -ed。" }
+    ],
     currentGrammarIndex: 0,
-    phoneticExercises: [], // Linked dynamically
+    phoneticExercises: [
+        { id: 1, title: '/i:/ vs /ɪ/', sentence: "A sheep is on a ship", words: ["sheep", "ship"] },
+        { id: 2, title: '/æ/ vs /e/', sentence: "The bad man is on the bed", words: ["bad", "bed"] },
+        { id: 3, title: '/θ/ vs /s/', sentence: "I think the sink is full", words: ["think", "sink"] }
+    ],
     currentPhoneticIndex: 0
 };
 
+// Migration & State Initialization
 if (!state) {
     state = defaultState;
-    state.startDate = '2026-05-05'; // Hardcode start date for testing
 } else {
-    // Migrate progress
+    state.chinglishPatterns = defaultState.chinglishPatterns;
+    state.grammarQuestions = defaultState.grammarQuestions;
+    
+    // Smart Migration for Tasks: Keep completion status if ID matches
     const updatedTasks = defaultState.dailyTasks.map(newTask => {
         const existingTask = state.dailyTasks.find(t => t.id === newTask.id);
-        return existingTask ? { ...newTask, completed: existingTask.completed } : newTask;
+        if (existingTask) {
+            return { ...newTask, completed: existingTask.completed };
+        }
+        return newTask;
     });
     state.dailyTasks = updatedTasks;
+    state.startDate = state.startDate || new Date().toISOString();
+    state.curriculum = defaultState.curriculum; // Always load latest 30-day syllabus
+
     state.currentGrammarIndex = state.currentGrammarIndex || 0;
     state.currentPhoneticIndex = state.currentPhoneticIndex || 0;
+    state.phoneticExercises = state.phoneticExercises || defaultState.phoneticExercises;
     state.errorBank = state.errorBank || [];
     state.essays = state.essays || { current: '' };
     state.speakingInput = state.speakingInput || '';
     state.examDate = state.examDate || defaultState.examDate;
     state.milestones = state.milestones || defaultState.milestones;
-    state.startDate = state.startDate || '2026-05-05';
 }
 
-// 🌐 LINK EXTERNAL DATA (Stateless linkage, never stored in localStorage)
-state.curriculum = window.IELTS_DATA.curriculum;
-state.chinglishPatterns = window.IELTS_DATA.chinglishPatterns;
-state.grammarQuestions = window.IELTS_DATA.grammarQuestions;
-state.phoneticExercises = window.IELTS_DATA.phoneticExercises;
-
 function saveState() {
-    // Create a lean copy of state to save to localStorage (strip big data arrays)
-    const leanState = { ...state };
-    delete leanState.curriculum;
-    delete leanState.chinglishPatterns;
-    delete leanState.grammarQuestions;
-    delete leanState.phoneticExercises;
-    localStorage.setItem('ieltsState', JSON.stringify(leanState));
+    localStorage.setItem('ieltsState', JSON.stringify(state));
 }
 
 // DOM Elements
@@ -182,12 +213,9 @@ function renderView(viewId) {
 function getCurrentDay() {
     const start = new Date(state.startDate);
     const today = new Date();
-    // Normalize both to midnight to prevent time-of-day shifting bugs
-    const startMidnight = new Date(start.getFullYear(), start.getMonth(), start.getDate());
-    const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-    const diffTime = todayMidnight - startMidnight;
-    const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
-    return (diffDays % 7) + 1; // Cycle through 7 days
+    const diffTime = Math.abs(today - start);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return (diffDays % 30) || 1; // Cycle through 30 days
 }
 
 // --- 1. Daily Plan ---
@@ -226,16 +254,12 @@ function renderGrammarView() {
         return;
     }
 
-    const day = getCurrentDay();
-    const startIndex = (day - 1) * 10;
-    const questions = state.grammarQuestions.slice(startIndex, startIndex + 10);
-    const q = questions[state.currentGrammarIndex % questions.length] || questions[0];
-    
+    const q = state.grammarQuestions[state.currentGrammarIndex];
     appView.innerHTML = `
         <div class="card" style="display: flex; flex-direction: column; gap: 1.5rem;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <h3 style="color: var(--accent-secondary);">🧩 语法诊所：Day ${day} 核心考点</h3>
-                <span style="font-size: 0.8rem; color: var(--text-dim);">进度: ${state.currentGrammarIndex + 1}/10</span>
+                <h3 style="color: var(--accent-secondary);">🧩 语法诊所：核心练习</h3>
+                <span style="font-size: 0.8rem; color: var(--text-dim);">进度: ${state.currentGrammarIndex + 1}/${state.grammarQuestions.length}</span>
             </div>
             <div id="grammar-exercise" style="background: rgba(255,255,255,0.03); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--accent-primary);">
                 <p style="font-size: 1.1rem; margin-bottom: 1rem;">${q.sentence}</p>
@@ -879,12 +903,16 @@ function checkReadingAnswers() {
 
 // --- 8. Vocabulary View ---
 function renderVocabularyView() {
-    const day = getCurrentDay();
-    const content = state.curriculum[day] || state.curriculum[1];
-    const words = content.vocab;
+    const words = [
+        { word: 'Sustainable', meaning: '可持续的 / 环保的', syn: 'Eco-friendly', ex: 'We need sustainable energy.' },
+        { word: 'Efficiency', meaning: '效率 / 效能', syn: 'Productivity', ex: 'New tools improve efficiency.' },
+        { word: 'Remote', meaning: '远程的 / 偏远的', syn: 'Distance / Tele-', ex: 'Remote work is popular now.' },
+        { word: 'Fulfillment', meaning: '成就感 / 满足感', syn: 'Satisfaction', ex: 'Job fulfillment is important.' },
+        { word: 'Identity', meaning: '身份 / 特征', syn: 'Character', ex: 'Food is part of our identity.' }
+    ];
     appView.innerHTML = `
         <div class="card" style="display: flex; flex-direction: column; gap: 1.5rem;">
-            <h3 style="color: var(--accent-secondary);">📚 Day ${day} 核心词汇：${content.theme}</h3>
+            <h3 style="color: var(--accent-secondary);">📚 核心场景词汇：科技与办公</h3>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
                 ${words.map(w => `
                     <div class="card" style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border);">
@@ -976,13 +1004,6 @@ async function syncToCloud() {
             sha = getData.sha;
         }
 
-        // Create lean state for cloud sync
-        const leanState = { ...state };
-        delete leanState.curriculum;
-        delete leanState.chinglishPatterns;
-        delete leanState.grammarQuestions;
-        delete leanState.phoneticExercises;
-
         const res = await fetch(url, {
             method: "PUT",
             headers: {
@@ -991,7 +1012,7 @@ async function syncToCloud() {
             },
             body: JSON.stringify({
                 message: "sync: update study progress",
-                content: btoa(unescape(encodeURIComponent(JSON.stringify(leanState)))),
+                content: btoa(unescape(encodeURIComponent(JSON.stringify(state)))),
                 sha: sha
             })
         });
