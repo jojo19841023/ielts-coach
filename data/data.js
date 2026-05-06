@@ -3,1620 +3,1620 @@ window.IELTS_DATA = {
         "1": {
             "theme": "Remote Work",
             "reading": {
-                "title": "The Evolution of Remote Work",
-                "text": "Passage about Remote Work goes here. This is a placeholder for Day 1.",
-                "level": "B1",
+                "title": "The Rise of the Digital Nomad",
+                "text": "The traditional nine-to-five office model is increasingly being challenged by the rise of remote work. Enabled by high-speed internet and cloud computing, millions of professionals are choosing to work from home or co-working spaces. While this flexibility offers a better work-life balance and reduces commuting time, it also poses challenges for team cohesion and mental health, as the boundaries between professional and personal life become blurred.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "What is a major challenge of remote work mentioned?",
                         "options": [
-                            "Remote Work",
-                            "Other",
-                            "Unknown"
+                            "Lower productivity",
+                            "Reduced commuting time",
+                            "Blurred life boundaries"
                         ],
-                        "a": "a"
+                        "a": "c"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Remote Work."
+                "prompt": "Some people believe that working from home is more productive, while others disagree. Discuss both views and give your opinion."
             },
             "vocab": [
                 {
-                    "word": "Vocab1_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Cohesion",
+                    "meaning": "\u51dd\u805a\u529b\uff1b\u56e2\u7ed3",
+                    "syn": "Unity",
+                    "ex": "Team cohesion is essential for project success."
                 },
                 {
-                    "word": "Vocab1_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Commuting",
+                    "meaning": "\u901a\u52e4",
+                    "syn": "Traveling to work",
+                    "ex": "Commuting costs have risen significantly."
                 },
                 {
-                    "word": "Vocab1_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Blurred",
+                    "meaning": "\u6a21\u7cca\u7684",
+                    "syn": "Fuzzy",
+                    "ex": "The lines between work and home are often blurred."
                 },
                 {
-                    "word": "Vocab1_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Autonomy",
+                    "meaning": "\u81ea\u4e3b\u6743",
+                    "syn": "Independence",
+                    "ex": "Remote workers often enjoy greater autonomy."
                 },
                 {
-                    "word": "Vocab1_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Infrastructure",
+                    "meaning": "\u57fa\u7840\u8bbe\u65bd",
+                    "syn": "Framework",
+                    "ex": "High-speed internet is a vital part of digital infrastructure."
                 }
             ]
         },
         "2": {
             "theme": "Sustainable Cities",
             "reading": {
-                "title": "The Evolution of Sustainable Cities",
-                "text": "Passage about Sustainable Cities goes here. This is a placeholder for Day 2.",
-                "level": "B1",
+                "title": "Urban Planning for a Greener Future",
+                "text": "As the global population becomes more urbanized, the concept of 'sustainable cities' has gained momentum. These cities prioritize eco-friendly infrastructure, such as green roofs, integrated public transport systems, and renewable energy sources. The goal is to minimize the environmental footprint of urban living while enhancing the quality of life for residents through better air quality and more green spaces.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "What is the primary goal of sustainable cities?",
                         "options": [
-                            "Sustainable Cities",
-                            "Other",
-                            "Unknown"
+                            "To increase population",
+                            "To minimize environmental footprint",
+                            "To build more skyscrapers"
                         ],
-                        "a": "a"
+                        "a": "b"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Sustainable Cities."
+                "prompt": "Discuss the importance of green spaces in modern urban environments."
             },
             "vocab": [
                 {
-                    "word": "Vocab2_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Urbanization",
+                    "meaning": "\u57ce\u5e02\u5316",
+                    "syn": "Urban growth",
+                    "ex": "Rapid urbanization is changing the landscape."
                 },
                 {
-                    "word": "Vocab2_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Sustainability",
+                    "meaning": "\u53ef\u6301\u7eed\u6027",
+                    "syn": "Viability",
+                    "ex": "Sustainability is the core of modern planning."
                 },
                 {
-                    "word": "Vocab2_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Momentum",
+                    "meaning": "\u52bf\u5934\uff1b\u52a8\u529b",
+                    "syn": "Impetus",
+                    "ex": "The green movement is gaining momentum."
                 },
                 {
-                    "word": "Vocab2_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Footprint",
+                    "meaning": "\u8db3\u8ff9\uff08\u73af\u5883\u5f71\u54cd\uff09",
+                    "syn": "Impact",
+                    "ex": "We must reduce our carbon footprint."
                 },
                 {
-                    "word": "Vocab2_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Integrated",
+                    "meaning": "\u6574\u5408\u7684",
+                    "syn": "Combined",
+                    "ex": "An integrated transport system saves time."
                 }
             ]
         },
         "3": {
             "theme": "AI in Education",
             "reading": {
-                "title": "The Evolution of AI in Education",
-                "text": "Passage about AI in Education goes here. This is a placeholder for Day 3.",
-                "level": "B1",
+                "title": "Artificial Intelligence in the Classroom",
+                "text": "AI is revolutionizing education by providing personalized learning experiences. Intelligent tutoring systems can adapt to a student's pace, identifying areas where they struggle and offering tailored feedback. However, critics argue that excessive reliance on AI might diminish the role of teachers and reduce critical human interaction in the learning process.",
+                "level": "C1",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "How does AI personalize learning?",
                         "options": [
-                            "AI in Education",
-                            "Other",
-                            "Unknown"
+                            "By replacing teachers",
+                            "By adapting to student pace",
+                            "By giving harder exams"
                         ],
-                        "a": "a"
+                        "a": "b"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of AI in Education."
+                "prompt": "Will AI eventually replace human teachers? Discuss your perspective."
             },
             "vocab": [
                 {
-                    "word": "Vocab3_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Revolutionize",
+                    "meaning": "\u5f7b\u5e95\u53d8\u9769",
+                    "syn": "Transform",
+                    "ex": "AI will revolutionize the healthcare industry."
                 },
                 {
-                    "word": "Vocab3_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Tailored",
+                    "meaning": "\u5b9a\u5236\u7684",
+                    "syn": "Customized",
+                    "ex": "The course offers tailored support for students."
                 },
                 {
-                    "word": "Vocab3_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Diminish",
+                    "meaning": "\u524a\u5f31\uff1b\u51cf\u5c11",
+                    "syn": "Decrease",
+                    "ex": "Poor lighting can diminish the quality of life."
                 },
                 {
-                    "word": "Vocab3_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Interactive",
+                    "meaning": "\u4e92\u52a8\u7684",
+                    "syn": "Engaging",
+                    "ex": "The new software is highly interactive."
                 },
                 {
-                    "word": "Vocab3_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Reliance",
+                    "meaning": "\u4f9d\u8d56",
+                    "syn": "Dependence",
+                    "ex": "Over-reliance on technology can be risky."
                 }
             ]
         },
         "4": {
-            "theme": "Space Exploration",
+            "theme": "Topic Day 4",
             "reading": {
-                "title": "The Evolution of Space Exploration",
-                "text": "Passage about Space Exploration goes here. This is a placeholder for Day 4.",
-                "level": "B1",
+                "title": "Title Day 4",
+                "text": "Placeholder text for Day 4.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Space Exploration",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Space Exploration."
+                "prompt": "Discuss Day 4 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab4_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word4_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab4_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word4_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab4_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word4_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab4_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word4_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab4_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word4_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "5": {
-            "theme": "Global Tourism",
+            "theme": "Topic Day 5",
             "reading": {
-                "title": "The Evolution of Global Tourism",
-                "text": "Passage about Global Tourism goes here. This is a placeholder for Day 5.",
-                "level": "B1",
+                "title": "Title Day 5",
+                "text": "Placeholder text for Day 5.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Global Tourism",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Global Tourism."
+                "prompt": "Discuss Day 5 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab5_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word5_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab5_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word5_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab5_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word5_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab5_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word5_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab5_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word5_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "6": {
-            "theme": "Modern Health",
+            "theme": "Topic Day 6",
             "reading": {
-                "title": "The Evolution of Modern Health",
-                "text": "Passage about Modern Health goes here. This is a placeholder for Day 6.",
-                "level": "B1",
+                "title": "Title Day 6",
+                "text": "Placeholder text for Day 6.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Modern Health",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Modern Health."
+                "prompt": "Discuss Day 6 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab6_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word6_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab6_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word6_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab6_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word6_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab6_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word6_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab6_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word6_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "7": {
-            "theme": "Wildlife Conservation",
+            "theme": "Topic Day 7",
             "reading": {
-                "title": "The Evolution of Wildlife Conservation",
-                "text": "Passage about Wildlife Conservation goes here. This is a placeholder for Day 7.",
-                "level": "B1",
+                "title": "Title Day 7",
+                "text": "Placeholder text for Day 7.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Wildlife Conservation",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Wildlife Conservation."
+                "prompt": "Discuss Day 7 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab7_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word7_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab7_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word7_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab7_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word7_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab7_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word7_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab7_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word7_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "8": {
-            "theme": "Digital Privacy",
+            "theme": "Topic Day 8",
             "reading": {
-                "title": "The Evolution of Digital Privacy",
-                "text": "Passage about Digital Privacy goes here. This is a placeholder for Day 8.",
-                "level": "B1",
+                "title": "Title Day 8",
+                "text": "Placeholder text for Day 8.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Digital Privacy",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Digital Privacy."
+                "prompt": "Discuss Day 8 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab8_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word8_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab8_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word8_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab8_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word8_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab8_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word8_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab8_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word8_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "9": {
-            "theme": "Renewable Energy",
+            "theme": "Topic Day 9",
             "reading": {
-                "title": "The Evolution of Renewable Energy",
-                "text": "Passage about Renewable Energy goes here. This is a placeholder for Day 9.",
-                "level": "B1",
+                "title": "Title Day 9",
+                "text": "Placeholder text for Day 9.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Renewable Energy",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Renewable Energy."
+                "prompt": "Discuss Day 9 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab9_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word9_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab9_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word9_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab9_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word9_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab9_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word9_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab9_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word9_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "10": {
-            "theme": "Future of Transport",
+            "theme": "Topic Day 10",
             "reading": {
-                "title": "The Evolution of Future of Transport",
-                "text": "Passage about Future of Transport goes here. This is a placeholder for Day 10.",
-                "level": "B1",
+                "title": "Title Day 10",
+                "text": "Placeholder text for Day 10.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Future of Transport",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Future of Transport."
+                "prompt": "Discuss Day 10 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab10_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word10_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab10_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word10_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab10_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word10_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab10_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word10_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab10_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word10_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "11": {
-            "theme": "Cultural Heritage",
+            "theme": "Topic Day 11",
             "reading": {
-                "title": "The Evolution of Cultural Heritage",
-                "text": "Passage about Cultural Heritage goes here. This is a placeholder for Day 11.",
+                "title": "Title Day 11",
+                "text": "Placeholder text for Day 11.",
                 "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Cultural Heritage",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Cultural Heritage."
+                "prompt": "Discuss Day 11 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab11_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word11_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab11_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word11_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab11_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word11_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab11_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word11_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab11_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word11_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "12": {
-            "theme": "Ocean Preservation",
+            "theme": "Topic Day 12",
             "reading": {
-                "title": "The Evolution of Ocean Preservation",
-                "text": "Passage about Ocean Preservation goes here. This is a placeholder for Day 12.",
+                "title": "Title Day 12",
+                "text": "Placeholder text for Day 12.",
                 "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Ocean Preservation",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Ocean Preservation."
+                "prompt": "Discuss Day 12 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab12_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word12_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab12_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word12_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab12_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word12_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab12_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word12_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab12_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word12_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "13": {
-            "theme": "Social Media Impact",
+            "theme": "Topic Day 13",
             "reading": {
-                "title": "The Evolution of Social Media Impact",
-                "text": "Passage about Social Media Impact goes here. This is a placeholder for Day 13.",
+                "title": "Title Day 13",
+                "text": "Placeholder text for Day 13.",
                 "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Social Media Impact",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Social Media Impact."
+                "prompt": "Discuss Day 13 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab13_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word13_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab13_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word13_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab13_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word13_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab13_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word13_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab13_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word13_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "14": {
-            "theme": "Fast Fashion",
+            "theme": "Topic Day 14",
             "reading": {
-                "title": "The Evolution of Fast Fashion",
-                "text": "Passage about Fast Fashion goes here. This is a placeholder for Day 14.",
+                "title": "Title Day 14",
+                "text": "Placeholder text for Day 14.",
                 "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Fast Fashion",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Fast Fashion."
+                "prompt": "Discuss Day 14 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab14_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word14_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab14_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word14_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab14_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word14_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab14_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word14_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab14_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word14_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "15": {
-            "theme": "Food Security",
+            "theme": "Topic Day 15",
             "reading": {
-                "title": "The Evolution of Food Security",
-                "text": "Passage about Food Security goes here. This is a placeholder for Day 15.",
+                "title": "Title Day 15",
+                "text": "Placeholder text for Day 15.",
                 "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Food Security",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Food Security."
+                "prompt": "Discuss Day 15 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab15_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word15_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab15_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word15_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab15_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word15_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab15_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word15_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab15_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word15_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "16": {
-            "theme": "Aging Population",
+            "theme": "Topic Day 16",
             "reading": {
-                "title": "The Evolution of Aging Population",
-                "text": "Passage about Aging Population goes here. This is a placeholder for Day 16.",
+                "title": "Title Day 16",
+                "text": "Placeholder text for Day 16.",
                 "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Aging Population",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Aging Population."
+                "prompt": "Discuss Day 16 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab16_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word16_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab16_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word16_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab16_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word16_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab16_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word16_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab16_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word16_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "17": {
-            "theme": "Gig Economy",
+            "theme": "Topic Day 17",
             "reading": {
-                "title": "The Evolution of Gig Economy",
-                "text": "Passage about Gig Economy goes here. This is a placeholder for Day 17.",
+                "title": "Title Day 17",
+                "text": "Placeholder text for Day 17.",
                 "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Gig Economy",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Gig Economy."
+                "prompt": "Discuss Day 17 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab17_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word17_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab17_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word17_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab17_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word17_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab17_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word17_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab17_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word17_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "18": {
-            "theme": "Space Debris",
+            "theme": "Topic Day 18",
             "reading": {
-                "title": "The Evolution of Space Debris",
-                "text": "Passage about Space Debris goes here. This is a placeholder for Day 18.",
+                "title": "Title Day 18",
+                "text": "Placeholder text for Day 18.",
                 "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Space Debris",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Space Debris."
+                "prompt": "Discuss Day 18 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab18_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word18_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab18_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word18_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab18_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word18_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab18_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word18_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab18_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word18_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "19": {
-            "theme": "Universal Basic Income",
+            "theme": "Topic Day 19",
             "reading": {
-                "title": "The Evolution of Universal Basic Income",
-                "text": "Passage about Universal Basic Income goes here. This is a placeholder for Day 19.",
+                "title": "Title Day 19",
+                "text": "Placeholder text for Day 19.",
                 "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Universal Basic Income",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Universal Basic Income."
+                "prompt": "Discuss Day 19 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab19_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word19_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab19_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word19_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab19_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word19_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab19_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word19_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab19_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word19_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "20": {
-            "theme": "Genetic Engineering",
+            "theme": "Topic Day 20",
             "reading": {
-                "title": "The Evolution of Genetic Engineering",
-                "text": "Passage about Genetic Engineering goes here. This is a placeholder for Day 20.",
+                "title": "Title Day 20",
+                "text": "Placeholder text for Day 20.",
                 "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Genetic Engineering",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Genetic Engineering."
+                "prompt": "Discuss Day 20 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab20_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word20_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab20_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word20_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab20_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word20_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab20_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word20_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab20_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word20_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "21": {
-            "theme": "Urban Sprawl",
+            "theme": "Topic Day 21",
             "reading": {
-                "title": "The Evolution of Urban Sprawl",
-                "text": "Passage about Urban Sprawl goes here. This is a placeholder for Day 21.",
-                "level": "C1",
+                "title": "Title Day 21",
+                "text": "Placeholder text for Day 21.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Urban Sprawl",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Urban Sprawl."
+                "prompt": "Discuss Day 21 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab21_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word21_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab21_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word21_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab21_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word21_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab21_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word21_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab21_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word21_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "22": {
-            "theme": "Water Scarcity",
+            "theme": "Topic Day 22",
             "reading": {
-                "title": "The Evolution of Water Scarcity",
-                "text": "Passage about Water Scarcity goes here. This is a placeholder for Day 22.",
-                "level": "C1",
+                "title": "Title Day 22",
+                "text": "Placeholder text for Day 22.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Water Scarcity",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Water Scarcity."
+                "prompt": "Discuss Day 22 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab22_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word22_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab22_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word22_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab22_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word22_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab22_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word22_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab22_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word22_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "23": {
-            "theme": "Cybersecurity",
+            "theme": "Topic Day 23",
             "reading": {
-                "title": "The Evolution of Cybersecurity",
-                "text": "Passage about Cybersecurity goes here. This is a placeholder for Day 23.",
-                "level": "C1",
+                "title": "Title Day 23",
+                "text": "Placeholder text for Day 23.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Cybersecurity",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Cybersecurity."
+                "prompt": "Discuss Day 23 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab23_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word23_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab23_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word23_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab23_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word23_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab23_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word23_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab23_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word23_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "24": {
-            "theme": "Mental Health",
+            "theme": "Topic Day 24",
             "reading": {
-                "title": "The Evolution of Mental Health",
-                "text": "Passage about Mental Health goes here. This is a placeholder for Day 24.",
-                "level": "C1",
+                "title": "Title Day 24",
+                "text": "Placeholder text for Day 24.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Mental Health",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Mental Health."
+                "prompt": "Discuss Day 24 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab24_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word24_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab24_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word24_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab24_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word24_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab24_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word24_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab24_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word24_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "25": {
-            "theme": "Automation & Jobs",
+            "theme": "Topic Day 25",
             "reading": {
-                "title": "The Evolution of Automation & Jobs",
-                "text": "Passage about Automation & Jobs goes here. This is a placeholder for Day 25.",
-                "level": "C1",
+                "title": "Title Day 25",
+                "text": "Placeholder text for Day 25.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Automation & Jobs",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Automation & Jobs."
+                "prompt": "Discuss Day 25 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab25_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word25_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab25_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word25_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab25_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word25_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab25_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word25_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab25_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word25_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "26": {
-            "theme": "E-Waste",
+            "theme": "Topic Day 26",
             "reading": {
-                "title": "The Evolution of E-Waste",
-                "text": "Passage about E-Waste goes here. This is a placeholder for Day 26.",
-                "level": "C1",
+                "title": "Title Day 26",
+                "text": "Placeholder text for Day 26.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "E-Waste",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of E-Waste."
+                "prompt": "Discuss Day 26 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab26_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word26_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab26_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word26_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab26_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word26_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab26_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word26_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab26_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word26_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "27": {
-            "theme": "Microplastics",
+            "theme": "Topic Day 27",
             "reading": {
-                "title": "The Evolution of Microplastics",
-                "text": "Passage about Microplastics goes here. This is a placeholder for Day 27.",
-                "level": "C1",
+                "title": "Title Day 27",
+                "text": "Placeholder text for Day 27.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Microplastics",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Microplastics."
+                "prompt": "Discuss Day 27 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab27_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word27_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab27_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word27_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab27_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word27_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab27_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word27_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab27_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word27_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "28": {
-            "theme": "Alternative Medicine",
+            "theme": "Topic Day 28",
             "reading": {
-                "title": "The Evolution of Alternative Medicine",
-                "text": "Passage about Alternative Medicine goes here. This is a placeholder for Day 28.",
-                "level": "C1",
+                "title": "Title Day 28",
+                "text": "Placeholder text for Day 28.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Alternative Medicine",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Alternative Medicine."
+                "prompt": "Discuss Day 28 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab28_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word28_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab28_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word28_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab28_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word28_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab28_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word28_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab28_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word28_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "29": {
-            "theme": "Cryptocurrency",
+            "theme": "Topic Day 29",
             "reading": {
-                "title": "The Evolution of Cryptocurrency",
-                "text": "Passage about Cryptocurrency goes here. This is a placeholder for Day 29.",
-                "level": "C1",
+                "title": "Title Day 29",
+                "text": "Placeholder text for Day 29.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Cryptocurrency",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Cryptocurrency."
+                "prompt": "Discuss Day 29 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab29_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word29_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab29_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word29_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab29_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word29_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab29_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word29_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab29_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word29_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         },
         "30": {
-            "theme": "Space Tourism",
+            "theme": "Topic Day 30",
             "reading": {
-                "title": "The Evolution of Space Tourism",
-                "text": "Passage about Space Tourism goes here. This is a placeholder for Day 30.",
-                "level": "C1",
+                "title": "Title Day 30",
+                "text": "Placeholder text for Day 30.",
+                "level": "B2",
                 "questions": [
                     {
-                        "q": "What is the main topic?",
+                        "q": "Q?",
                         "options": [
-                            "Space Tourism",
-                            "Other",
-                            "Unknown"
+                            "A",
+                            "B",
+                            "C"
                         ],
                         "a": "a"
                     }
                 ]
             },
             "writing": {
-                "prompt": "Discuss the advantages and disadvantages of Space Tourism."
+                "prompt": "Discuss Day 30 topic."
             },
             "vocab": [
                 {
-                    "word": "Vocab30_1",
-                    "meaning": "\u91ca\u4e491",
-                    "syn": "Syn1",
-                    "ex": "Example 1"
+                    "word": "Word30_1",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab30_2",
-                    "meaning": "\u91ca\u4e492",
-                    "syn": "Syn2",
-                    "ex": "Example 2"
+                    "word": "Word30_2",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab30_3",
-                    "meaning": "\u91ca\u4e493",
-                    "syn": "Syn3",
-                    "ex": "Example 3"
+                    "word": "Word30_3",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab30_4",
-                    "meaning": "\u91ca\u4e494",
-                    "syn": "Syn4",
-                    "ex": "Example 4"
+                    "word": "Word30_4",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 },
                 {
-                    "word": "Vocab30_5",
-                    "meaning": "\u91ca\u4e495",
-                    "syn": "Syn5",
-                    "ex": "Example 5"
+                    "word": "Word30_5",
+                    "meaning": "\u91ca\u4e49",
+                    "syn": "Syn",
+                    "ex": "Ex"
                 }
             ]
         }
@@ -1625,2102 +1625,2102 @@ window.IELTS_DATA = {
         {
             "id": 1,
             "category": "Tense",
-            "sentence": "Question 1 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 2,
             "category": "Agreement",
-            "sentence": "Question 2 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 3,
             "category": "Clause",
-            "sentence": "Question 3 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 4,
             "category": "Voice",
-            "sentence": "Question 4 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 5,
             "category": "Preposition",
-            "sentence": "Question 5 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 6,
             "category": "Tense",
-            "sentence": "Question 6 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 7,
             "category": "Agreement",
-            "sentence": "Question 7 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 8,
             "category": "Clause",
-            "sentence": "Question 8 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 9,
             "category": "Voice",
-            "sentence": "Question 9 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 10,
             "category": "Preposition",
-            "sentence": "Question 10 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 11,
             "category": "Tense",
-            "sentence": "Question 11 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 12,
             "category": "Agreement",
-            "sentence": "Question 12 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 13,
             "category": "Clause",
-            "sentence": "Question 13 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 14,
             "category": "Voice",
-            "sentence": "Question 14 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 15,
             "category": "Preposition",
-            "sentence": "Question 15 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 16,
             "category": "Tense",
-            "sentence": "Question 16 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 17,
             "category": "Agreement",
-            "sentence": "Question 17 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 18,
             "category": "Clause",
-            "sentence": "Question 18 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 19,
             "category": "Voice",
-            "sentence": "Question 19 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 20,
             "category": "Preposition",
-            "sentence": "Question 20 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 21,
             "category": "Tense",
-            "sentence": "Question 21 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 22,
             "category": "Agreement",
-            "sentence": "Question 22 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 23,
             "category": "Clause",
-            "sentence": "Question 23 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 24,
             "category": "Voice",
-            "sentence": "Question 24 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 25,
             "category": "Preposition",
-            "sentence": "Question 25 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 26,
             "category": "Tense",
-            "sentence": "Question 26 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 27,
             "category": "Agreement",
-            "sentence": "Question 27 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 28,
             "category": "Clause",
-            "sentence": "Question 28 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 29,
             "category": "Voice",
-            "sentence": "Question 29 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 30,
             "category": "Preposition",
-            "sentence": "Question 30 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 31,
             "category": "Tense",
-            "sentence": "Question 31 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 32,
             "category": "Agreement",
-            "sentence": "Question 32 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 33,
             "category": "Clause",
-            "sentence": "Question 33 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 34,
             "category": "Voice",
-            "sentence": "Question 34 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 35,
             "category": "Preposition",
-            "sentence": "Question 35 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 36,
             "category": "Tense",
-            "sentence": "Question 36 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 37,
             "category": "Agreement",
-            "sentence": "Question 37 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 38,
             "category": "Clause",
-            "sentence": "Question 38 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 39,
             "category": "Voice",
-            "sentence": "Question 39 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 40,
             "category": "Preposition",
-            "sentence": "Question 40 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 41,
             "category": "Tense",
-            "sentence": "Question 41 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 42,
             "category": "Agreement",
-            "sentence": "Question 42 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 43,
             "category": "Clause",
-            "sentence": "Question 43 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 44,
             "category": "Voice",
-            "sentence": "Question 44 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 45,
             "category": "Preposition",
-            "sentence": "Question 45 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 46,
             "category": "Tense",
-            "sentence": "Question 46 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 47,
             "category": "Agreement",
-            "sentence": "Question 47 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 48,
             "category": "Clause",
-            "sentence": "Question 48 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 49,
             "category": "Voice",
-            "sentence": "Question 49 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 50,
             "category": "Preposition",
-            "sentence": "Question 50 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 51,
             "category": "Tense",
-            "sentence": "Question 51 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 52,
             "category": "Agreement",
-            "sentence": "Question 52 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 53,
             "category": "Clause",
-            "sentence": "Question 53 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 54,
             "category": "Voice",
-            "sentence": "Question 54 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 55,
             "category": "Preposition",
-            "sentence": "Question 55 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 56,
             "category": "Tense",
-            "sentence": "Question 56 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 57,
             "category": "Agreement",
-            "sentence": "Question 57 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 58,
             "category": "Clause",
-            "sentence": "Question 58 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 59,
             "category": "Voice",
-            "sentence": "Question 59 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 60,
             "category": "Preposition",
-            "sentence": "Question 60 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 61,
             "category": "Tense",
-            "sentence": "Question 61 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 62,
             "category": "Agreement",
-            "sentence": "Question 62 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 63,
             "category": "Clause",
-            "sentence": "Question 63 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 64,
             "category": "Voice",
-            "sentence": "Question 64 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 65,
             "category": "Preposition",
-            "sentence": "Question 65 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 66,
             "category": "Tense",
-            "sentence": "Question 66 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 67,
             "category": "Agreement",
-            "sentence": "Question 67 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 68,
             "category": "Clause",
-            "sentence": "Question 68 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 69,
             "category": "Voice",
-            "sentence": "Question 69 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 70,
             "category": "Preposition",
-            "sentence": "Question 70 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 71,
             "category": "Tense",
-            "sentence": "Question 71 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 72,
             "category": "Agreement",
-            "sentence": "Question 72 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 73,
             "category": "Clause",
-            "sentence": "Question 73 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 74,
             "category": "Voice",
-            "sentence": "Question 74 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 75,
             "category": "Preposition",
-            "sentence": "Question 75 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 76,
             "category": "Tense",
-            "sentence": "Question 76 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 77,
             "category": "Agreement",
-            "sentence": "Question 77 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 78,
             "category": "Clause",
-            "sentence": "Question 78 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 79,
             "category": "Voice",
-            "sentence": "Question 79 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 80,
             "category": "Preposition",
-            "sentence": "Question 80 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 81,
             "category": "Tense",
-            "sentence": "Question 81 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 82,
             "category": "Agreement",
-            "sentence": "Question 82 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 83,
             "category": "Clause",
-            "sentence": "Question 83 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 84,
             "category": "Voice",
-            "sentence": "Question 84 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 85,
             "category": "Preposition",
-            "sentence": "Question 85 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 86,
             "category": "Tense",
-            "sentence": "Question 86 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 87,
             "category": "Agreement",
-            "sentence": "Question 87 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 88,
             "category": "Clause",
-            "sentence": "Question 88 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 89,
             "category": "Voice",
-            "sentence": "Question 89 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 90,
             "category": "Preposition",
-            "sentence": "Question 90 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 91,
             "category": "Tense",
-            "sentence": "Question 91 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 92,
             "category": "Agreement",
-            "sentence": "Question 92 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 93,
             "category": "Clause",
-            "sentence": "Question 93 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 94,
             "category": "Voice",
-            "sentence": "Question 94 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 95,
             "category": "Preposition",
-            "sentence": "Question 95 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 96,
             "category": "Tense",
-            "sentence": "Question 96 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 97,
             "category": "Agreement",
-            "sentence": "Question 97 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 98,
             "category": "Clause",
-            "sentence": "Question 98 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 99,
             "category": "Voice",
-            "sentence": "Question 99 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 100,
             "category": "Preposition",
-            "sentence": "Question 100 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 101,
             "category": "Tense",
-            "sentence": "Question 101 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 102,
             "category": "Agreement",
-            "sentence": "Question 102 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 103,
             "category": "Clause",
-            "sentence": "Question 103 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 104,
             "category": "Voice",
-            "sentence": "Question 104 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 105,
             "category": "Preposition",
-            "sentence": "Question 105 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 106,
             "category": "Tense",
-            "sentence": "Question 106 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 107,
             "category": "Agreement",
-            "sentence": "Question 107 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 108,
             "category": "Clause",
-            "sentence": "Question 108 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 109,
             "category": "Voice",
-            "sentence": "Question 109 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 110,
             "category": "Preposition",
-            "sentence": "Question 110 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 111,
             "category": "Tense",
-            "sentence": "Question 111 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 112,
             "category": "Agreement",
-            "sentence": "Question 112 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 113,
             "category": "Clause",
-            "sentence": "Question 113 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 114,
             "category": "Voice",
-            "sentence": "Question 114 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 115,
             "category": "Preposition",
-            "sentence": "Question 115 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 116,
             "category": "Tense",
-            "sentence": "Question 116 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 117,
             "category": "Agreement",
-            "sentence": "Question 117 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 118,
             "category": "Clause",
-            "sentence": "Question 118 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 119,
             "category": "Voice",
-            "sentence": "Question 119 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 120,
             "category": "Preposition",
-            "sentence": "Question 120 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 121,
             "category": "Tense",
-            "sentence": "Question 121 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 122,
             "category": "Agreement",
-            "sentence": "Question 122 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 123,
             "category": "Clause",
-            "sentence": "Question 123 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 124,
             "category": "Voice",
-            "sentence": "Question 124 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 125,
             "category": "Preposition",
-            "sentence": "Question 125 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 126,
             "category": "Tense",
-            "sentence": "Question 126 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 127,
             "category": "Agreement",
-            "sentence": "Question 127 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 128,
             "category": "Clause",
-            "sentence": "Question 128 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 129,
             "category": "Voice",
-            "sentence": "Question 129 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 130,
             "category": "Preposition",
-            "sentence": "Question 130 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 131,
             "category": "Tense",
-            "sentence": "Question 131 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 132,
             "category": "Agreement",
-            "sentence": "Question 132 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 133,
             "category": "Clause",
-            "sentence": "Question 133 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 134,
             "category": "Voice",
-            "sentence": "Question 134 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 135,
             "category": "Preposition",
-            "sentence": "Question 135 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 136,
             "category": "Tense",
-            "sentence": "Question 136 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 137,
             "category": "Agreement",
-            "sentence": "Question 137 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 138,
             "category": "Clause",
-            "sentence": "Question 138 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 139,
             "category": "Voice",
-            "sentence": "Question 139 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 140,
             "category": "Preposition",
-            "sentence": "Question 140 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 141,
             "category": "Tense",
-            "sentence": "Question 141 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 142,
             "category": "Agreement",
-            "sentence": "Question 142 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 143,
             "category": "Clause",
-            "sentence": "Question 143 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 144,
             "category": "Voice",
-            "sentence": "Question 144 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 145,
             "category": "Preposition",
-            "sentence": "Question 145 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 146,
             "category": "Tense",
-            "sentence": "Question 146 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 147,
             "category": "Agreement",
-            "sentence": "Question 147 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 148,
             "category": "Clause",
-            "sentence": "Question 148 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 149,
             "category": "Voice",
-            "sentence": "Question 149 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 150,
             "category": "Preposition",
-            "sentence": "Question 150 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 151,
             "category": "Tense",
-            "sentence": "Question 151 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 152,
             "category": "Agreement",
-            "sentence": "Question 152 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 153,
             "category": "Clause",
-            "sentence": "Question 153 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 154,
             "category": "Voice",
-            "sentence": "Question 154 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 155,
             "category": "Preposition",
-            "sentence": "Question 155 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 156,
             "category": "Tense",
-            "sentence": "Question 156 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 157,
             "category": "Agreement",
-            "sentence": "Question 157 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 158,
             "category": "Clause",
-            "sentence": "Question 158 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 159,
             "category": "Voice",
-            "sentence": "Question 159 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 160,
             "category": "Preposition",
-            "sentence": "Question 160 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 161,
             "category": "Tense",
-            "sentence": "Question 161 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 162,
             "category": "Agreement",
-            "sentence": "Question 162 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 163,
             "category": "Clause",
-            "sentence": "Question 163 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 164,
             "category": "Voice",
-            "sentence": "Question 164 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 165,
             "category": "Preposition",
-            "sentence": "Question 165 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 166,
             "category": "Tense",
-            "sentence": "Question 166 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 167,
             "category": "Agreement",
-            "sentence": "Question 167 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 168,
             "category": "Clause",
-            "sentence": "Question 168 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 169,
             "category": "Voice",
-            "sentence": "Question 169 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 170,
             "category": "Preposition",
-            "sentence": "Question 170 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 171,
             "category": "Tense",
-            "sentence": "Question 171 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 172,
             "category": "Agreement",
-            "sentence": "Question 172 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 173,
             "category": "Clause",
-            "sentence": "Question 173 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 174,
             "category": "Voice",
-            "sentence": "Question 174 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 175,
             "category": "Preposition",
-            "sentence": "Question 175 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 176,
             "category": "Tense",
-            "sentence": "Question 176 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 177,
             "category": "Agreement",
-            "sentence": "Question 177 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 178,
             "category": "Clause",
-            "sentence": "Question 178 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 179,
             "category": "Voice",
-            "sentence": "Question 179 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 180,
             "category": "Preposition",
-            "sentence": "Question 180 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 181,
             "category": "Tense",
-            "sentence": "Question 181 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 182,
             "category": "Agreement",
-            "sentence": "Question 182 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 183,
             "category": "Clause",
-            "sentence": "Question 183 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 184,
             "category": "Voice",
-            "sentence": "Question 184 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 185,
             "category": "Preposition",
-            "sentence": "Question 185 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 186,
             "category": "Tense",
-            "sentence": "Question 186 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 187,
             "category": "Agreement",
-            "sentence": "Question 187 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 188,
             "category": "Clause",
-            "sentence": "Question 188 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 189,
             "category": "Voice",
-            "sentence": "Question 189 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 190,
             "category": "Preposition",
-            "sentence": "Question 190 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 191,
             "category": "Tense",
-            "sentence": "Question 191 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 192,
             "category": "Agreement",
-            "sentence": "Question 192 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 193,
             "category": "Clause",
-            "sentence": "Question 193 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 194,
             "category": "Voice",
-            "sentence": "Question 194 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 195,
             "category": "Preposition",
-            "sentence": "Question 195 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 196,
             "category": "Tense",
-            "sentence": "Question 196 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 197,
             "category": "Agreement",
-            "sentence": "Question 197 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 198,
             "category": "Clause",
-            "sentence": "Question 198 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 199,
             "category": "Voice",
-            "sentence": "Question 199 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 200,
             "category": "Preposition",
-            "sentence": "Question 200 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 201,
             "category": "Tense",
-            "sentence": "Question 201 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 202,
             "category": "Agreement",
-            "sentence": "Question 202 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 203,
             "category": "Clause",
-            "sentence": "Question 203 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 204,
             "category": "Voice",
-            "sentence": "Question 204 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 205,
             "category": "Preposition",
-            "sentence": "Question 205 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 206,
             "category": "Tense",
-            "sentence": "Question 206 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 207,
             "category": "Agreement",
-            "sentence": "Question 207 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 208,
             "category": "Clause",
-            "sentence": "Question 208 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 209,
             "category": "Voice",
-            "sentence": "Question 209 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 210,
             "category": "Preposition",
-            "sentence": "Question 210 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 211,
             "category": "Tense",
-            "sentence": "Question 211 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 212,
             "category": "Agreement",
-            "sentence": "Question 212 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 213,
             "category": "Clause",
-            "sentence": "Question 213 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 214,
             "category": "Voice",
-            "sentence": "Question 214 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 215,
             "category": "Preposition",
-            "sentence": "Question 215 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 216,
             "category": "Tense",
-            "sentence": "Question 216 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 217,
             "category": "Agreement",
-            "sentence": "Question 217 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 218,
             "category": "Clause",
-            "sentence": "Question 218 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 219,
             "category": "Voice",
-            "sentence": "Question 219 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 220,
             "category": "Preposition",
-            "sentence": "Question 220 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 221,
             "category": "Tense",
-            "sentence": "Question 221 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 222,
             "category": "Agreement",
-            "sentence": "Question 222 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 223,
             "category": "Clause",
-            "sentence": "Question 223 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 224,
             "category": "Voice",
-            "sentence": "Question 224 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 225,
             "category": "Preposition",
-            "sentence": "Question 225 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 226,
             "category": "Tense",
-            "sentence": "Question 226 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 227,
             "category": "Agreement",
-            "sentence": "Question 227 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 228,
             "category": "Clause",
-            "sentence": "Question 228 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 229,
             "category": "Voice",
-            "sentence": "Question 229 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 230,
             "category": "Preposition",
-            "sentence": "Question 230 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 231,
             "category": "Tense",
-            "sentence": "Question 231 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 232,
             "category": "Agreement",
-            "sentence": "Question 232 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 233,
             "category": "Clause",
-            "sentence": "Question 233 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 234,
             "category": "Voice",
-            "sentence": "Question 234 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 235,
             "category": "Preposition",
-            "sentence": "Question 235 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 236,
             "category": "Tense",
-            "sentence": "Question 236 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 237,
             "category": "Agreement",
-            "sentence": "Question 237 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 238,
             "category": "Clause",
-            "sentence": "Question 238 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 239,
             "category": "Voice",
-            "sentence": "Question 239 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 240,
             "category": "Preposition",
-            "sentence": "Question 240 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 241,
             "category": "Tense",
-            "sentence": "Question 241 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 242,
             "category": "Agreement",
-            "sentence": "Question 242 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 243,
             "category": "Clause",
-            "sentence": "Question 243 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 244,
             "category": "Voice",
-            "sentence": "Question 244 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 245,
             "category": "Preposition",
-            "sentence": "Question 245 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 246,
             "category": "Tense",
-            "sentence": "Question 246 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 247,
             "category": "Agreement",
-            "sentence": "Question 247 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 248,
             "category": "Clause",
-            "sentence": "Question 248 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 249,
             "category": "Voice",
-            "sentence": "Question 249 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 250,
             "category": "Preposition",
-            "sentence": "Question 250 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 251,
             "category": "Tense",
-            "sentence": "Question 251 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 252,
             "category": "Agreement",
-            "sentence": "Question 252 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 253,
             "category": "Clause",
-            "sentence": "Question 253 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 254,
             "category": "Voice",
-            "sentence": "Question 254 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 255,
             "category": "Preposition",
-            "sentence": "Question 255 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 256,
             "category": "Tense",
-            "sentence": "Question 256 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 257,
             "category": "Agreement",
-            "sentence": "Question 257 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 258,
             "category": "Clause",
-            "sentence": "Question 258 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 259,
             "category": "Voice",
-            "sentence": "Question 259 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 260,
             "category": "Preposition",
-            "sentence": "Question 260 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 261,
             "category": "Tense",
-            "sentence": "Question 261 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 262,
             "category": "Agreement",
-            "sentence": "Question 262 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 263,
             "category": "Clause",
-            "sentence": "Question 263 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 264,
             "category": "Voice",
-            "sentence": "Question 264 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 265,
             "category": "Preposition",
-            "sentence": "Question 265 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 266,
             "category": "Tense",
-            "sentence": "Question 266 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 267,
             "category": "Agreement",
-            "sentence": "Question 267 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 268,
             "category": "Clause",
-            "sentence": "Question 268 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 269,
             "category": "Voice",
-            "sentence": "Question 269 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 270,
             "category": "Preposition",
-            "sentence": "Question 270 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 271,
             "category": "Tense",
-            "sentence": "Question 271 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 272,
             "category": "Agreement",
-            "sentence": "Question 272 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 273,
             "category": "Clause",
-            "sentence": "Question 273 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 274,
             "category": "Voice",
-            "sentence": "Question 274 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 275,
             "category": "Preposition",
-            "sentence": "Question 275 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 276,
             "category": "Tense",
-            "sentence": "Question 276 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 277,
             "category": "Agreement",
-            "sentence": "Question 277 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 278,
             "category": "Clause",
-            "sentence": "Question 278 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 279,
             "category": "Voice",
-            "sentence": "Question 279 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 280,
             "category": "Preposition",
-            "sentence": "Question 280 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 281,
             "category": "Tense",
-            "sentence": "Question 281 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 282,
             "category": "Agreement",
-            "sentence": "Question 282 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 283,
             "category": "Clause",
-            "sentence": "Question 283 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 284,
             "category": "Voice",
-            "sentence": "Question 284 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 285,
             "category": "Preposition",
-            "sentence": "Question 285 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 286,
             "category": "Tense",
-            "sentence": "Question 286 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 287,
             "category": "Agreement",
-            "sentence": "Question 287 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 288,
             "category": "Clause",
-            "sentence": "Question 288 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 289,
             "category": "Voice",
-            "sentence": "Question 289 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 290,
             "category": "Preposition",
-            "sentence": "Question 290 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 291,
             "category": "Tense",
-            "sentence": "Question 291 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 292,
             "category": "Agreement",
-            "sentence": "Question 292 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 293,
             "category": "Clause",
-            "sentence": "Question 293 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 294,
             "category": "Voice",
-            "sentence": "Question 294 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 295,
             "category": "Preposition",
-            "sentence": "Question 295 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         },
         {
             "id": 296,
             "category": "Tense",
-            "sentence": "Question 296 focusing on Tense ________.",
-            "answer": "answer",
-            "explanation": "Explanation for Tense rule."
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Tense]",
+            "answer": "went",
+            "explanation": "In Tense, we must follow specific rules. For example..."
         },
         {
             "id": 297,
             "category": "Agreement",
-            "sentence": "Question 297 focusing on Agreement ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Agreement]",
             "answer": "answer",
-            "explanation": "Explanation for Agreement rule."
+            "explanation": "In Agreement, we must follow specific rules. For example..."
         },
         {
             "id": 298,
             "category": "Clause",
-            "sentence": "Question 298 focusing on Clause ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Clause]",
             "answer": "answer",
-            "explanation": "Explanation for Clause rule."
+            "explanation": "In Clause, we must follow specific rules. For example..."
         },
         {
             "id": 299,
             "category": "Voice",
-            "sentence": "Question 299 focusing on Voice ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Voice]",
             "answer": "answer",
-            "explanation": "Explanation for Voice rule."
+            "explanation": "In Voice, we must follow specific rules. For example..."
         },
         {
             "id": 300,
             "category": "Preposition",
-            "sentence": "Question 300 focusing on Preposition ________.",
+            "sentence": "I ________ (go) to the library yesterday. [Focus: Preposition]",
             "answer": "answer",
-            "explanation": "Explanation for Preposition rule."
+            "explanation": "In Preposition, we must follow specific rules. For example..."
         }
     ],
     "phoneticExercises": [
