@@ -1,6 +1,5 @@
-// IELTS Coach App Logic - FULL Professional Version (V6)
-// SELF-HEALING: Clear corrupted today's experimental data
-localStorage.clear();
+// SELF-HEALING: System is now stable, clearing debug reset.
+// localStorage.clear(); 
 
 let state;
 try {
@@ -36,7 +35,8 @@ const defaultState = {
     grammarQuestions: [],  // Linked dynamically
     currentGrammarIndex: 0,
     phoneticExercises: [], // Linked dynamically
-    currentPhoneticIndex: 0
+    currentPhoneticIndex: 0,
+    activityLog: {} 
 };
 
 if (!state) {
@@ -57,6 +57,7 @@ if (!state) {
     state.examDate = state.examDate || defaultState.examDate;
     state.milestones = state.milestones || defaultState.milestones;
     state.startDate = state.startDate || '2026-05-05';
+    state.activityLog = state.activityLog || {}; // { "2026-05-06": 3 }
 }
 
 // 🌐 LINK EXTERNAL DATA (Stateless linkage, never stored in localStorage)
@@ -163,19 +164,27 @@ function switchView(viewId) {
 
 function renderView(viewId) {
     appView.innerHTML = '';
-    switch(viewId) {
-        case 'daily-plan': renderDailyPlan(); break;
-        case 'grammar': renderGrammarView(); break;
-        case 'phonetics': renderPhoneticsView(); break;
-        case 'writing': renderWritingView(); break;
-        case 'speaking': renderSpeakingView(); break;
-        case 'reading': renderReadingView(); break;
-        case 'vocabulary': renderVocabularyView(); break;
-        case 'error-bank': renderErrorBank(); break;
-        case 'weekly-review': renderAssessmentCenter(); break;
-        case 'dashboard': renderDashboard(); break;
-        case 'settings': renderSettingsView(); break;
-        default: appView.innerHTML = `<div class="loading">即将上线...</div>`;
+    try {
+        switch(viewId) {
+            case 'daily-plan': renderDailyPlan(); break;
+            case 'grammar': renderGrammarView(); break;
+            case 'phonetics': renderPhoneticsView(); break;
+            case 'writing': renderWritingView(); break;
+            case 'speaking': renderSpeakingView(); break;
+            case 'reading': renderReadingView(); break;
+            case 'vocabulary': renderVocabularyView(); break;
+            case 'error-bank': renderErrorBank(); break;
+            case 'weekly-review': renderAssessmentCenter(); break;
+            case 'dashboard': renderDashboard(); break;
+            case 'settings': renderSettingsView(); break;
+            default: appView.innerHTML = `<div class="loading">即将上线...</div>`;
+        }
+    } catch (e) {
+        console.error("Render error:", e);
+        appView.innerHTML = `<div class="card" style="text-align:center; padding:3rem;">
+            <p>⚠️ 视图加载出错，正在尝试自修复...</p>
+            <button onclick="localStorage.clear();location.reload();" style="margin-top:1rem; padding:10px; background:var(--accent-primary); border:none; border-radius:8px; color:white; cursor:pointer;">重置系统状态</button>
+        </div>`;
     }
 }
 
@@ -191,6 +200,28 @@ function getCurrentDay() {
 
 // --- 1. Daily Plan ---
 function renderDailyPlan() {
+    const day = getCurrentDay();
+    const content = state.curriculum[day] || state.curriculum[1];
+    
+    // Add Theme Header
+    if (content.image) {
+        const header = document.createElement('div');
+        header.className = 'card';
+        header.style.padding = '0';
+        header.style.overflow = 'hidden';
+        header.style.marginBottom = '2rem';
+        header.style.position = 'relative';
+        header.style.height = '180px';
+        header.innerHTML = `
+            <img src="${content.image}" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
+            <div style="position: absolute; bottom: 1.5rem; left: 1.5rem;">
+                <div style="font-size: 0.8rem; color: var(--accent-secondary); margin-bottom: 0.3rem;">DAY ${day} THEME</div>
+                <h2 style="color: white; font-size: 1.8rem; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">${content.theme}</h2>
+            </div>
+        `;
+        appView.appendChild(header);
+    }
+
     const grid = document.createElement('div');
     grid.className = 'daily-grid';
     grid.style.display = 'grid';
@@ -712,9 +743,12 @@ function renderDashboard() {
     const diffDays = Math.ceil((exam - today) / (1000 * 60 * 60 * 24));
     
     // Calculate simulated progress
-    const vocabProgress = Math.min(30 + state.errorBank.length, 100);
-    const grammarProgress = Math.round((state.currentGrammarIndex / state.grammarQuestions.length) * 100);
-    const writingProgress = state.dailyTasks.find(t => t.type === 'writing').completed ? 45 : 20;
+    const vocabProgress = Math.min(30 + (state.errorBank ? state.errorBank.length : 0), 100);
+    const grammarTotal = (state.grammarQuestions && state.grammarQuestions.length > 0) ? state.grammarQuestions.length : 1;
+    const grammarProgress = Math.round((state.currentGrammarIndex / grammarTotal) * 100);
+    
+    const writingTask = state.dailyTasks.find(t => t.type === 'writing');
+    const writingProgress = (writingTask && writingTask.completed) ? 45 : 20;
 
     appView.innerHTML = `
         <div style="display: flex; flex-direction: column; gap: 2rem; animation: fadeIn 0.5s ease;">
@@ -773,14 +807,83 @@ function renderDashboard() {
                     <p style="font-size: 0.85rem; color: var(--text-dim); line-height: 1.5;">您已完成基础构架，正在向 B1 水平稳步迈进。继续保持每日写作练习，这是突破 6.5 的核心。</p>
                 </div>
             </div>
+
+            <!-- 365-Day Study Heatmap -->
+            <div class="card" style="padding: 1.5rem;">
+                <h4 style="margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                    <span>🔥 365 天备考热力图</span>
+                    <span style="font-size: 0.75rem; color: var(--text-dim);">连续打卡: ${calculateStreak()} 天</span>
+                </h4>
+                <div id="heatmap-container" style="display: grid; grid-template-columns: repeat(53, 1fr); gap: 3px; overflow-x: auto; padding-bottom: 10px;">
+                    ${renderHeatmapCells()}
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 10px; font-size: 0.7rem; color: var(--text-dim); justify-content: flex-end; align-items: center;">
+                    <span>Less</span>
+                    <div style="width:10px; height:10px; background:rgba(255,255,255,0.05); border-radius:2px;"></div>
+                    <div style="width:10px; height:10px; background:rgba(124, 77, 255, 0.3); border-radius:2px;"></div>
+                    <div style="width:10px; height:10px; background:rgba(124, 77, 255, 0.6); border-radius:2px;"></div>
+                    <div style="width:10px; height:10px; background:var(--accent-primary); border-radius:2px;"></div>
+                    <span>More</span>
+                </div>
+            </div>
         </div>
     `;
 }
 
+function renderHeatmapCells() {
+    let cells = '';
+    const today = new Date();
+    const startDate = new Date(today.getFullYear(), 0, 1);
+    for (let i = 0; i < 371; i++) {
+        const d = new Date(startDate);
+        d.setDate(startDate.getDate() + i);
+        if (d.getFullYear() > today.getFullYear()) break;
+        const dateStr = d.toISOString().split('T')[0];
+        const count = state.activityLog[dateStr] || 0;
+        let opacity = 0.05;
+        if (count > 0) opacity = count >= 5 ? 1 : (count >= 3 ? 0.6 : 0.3);
+        const color = count > 0 ? 'var(--accent-primary)' : 'rgba(255,255,255,0.05)';
+        cells += `<div title="${dateStr}: ${count} tasks" style="aspect-ratio: 1; background: ${color}; opacity: ${count > 0 ? opacity : 1}; border-radius: 2px;"></div>`;
+    }
+    return cells;
+}
+
+function calculateStreak() {
+    let streak = 0;
+    const today = new Date();
+    const log = state.activityLog || {};
+    for (let i = 0; i < 365; i++) {
+        const d = new Date(today);
+        d.setDate(today.getDate() - i);
+        const dateStr = d.toISOString().split('T')[0];
+        if (log[dateStr] > 0) streak++;
+        else if (i > 0) break;
+    }
+    return streak;
+}
+
 // --- Utilities ---
 function predictPotential(results) { const count = results.filter(r => r.type === 'error').length; return count === 0 ? "⭐⭐⭐⭐⭐" : (count <= 2 ? "⭐⭐⭐⭐" : "⭐⭐⭐"); }
-function toggleTask(id) { const t = state.dailyTasks.find(x => x.id === id); if (t) { t.completed = !t.completed; saveState(); updateProgress(); renderDailyPlan(); } }
-function markTaskComplete(type) { const t = state.dailyTasks.find(x => x.type === type); if (t) { t.completed = true; saveState(); updateProgress(); } }
+function toggleTask(id) { 
+    const t = state.dailyTasks.find(x => x.id === id); 
+    if (t) { 
+        t.completed = !t.completed; 
+        if (t.completed) logActivity();
+        saveState(); updateProgress(); renderDailyPlan(); 
+    } 
+}
+function markTaskComplete(type) { 
+    const t = state.dailyTasks.find(x => x.type === type); 
+    if (t) { 
+        t.completed = true; 
+        logActivity();
+        saveState(); updateProgress(); 
+    } 
+}
+function logActivity() {
+    const dateStr = new Date().toISOString().split('T')[0];
+    state.activityLog[dateStr] = (state.activityLog[dateStr] || 0) + 1;
+}
 function updateProgress() {
     const done = state.dailyTasks.filter(t => t.completed).length; const p = Math.round((done / state.dailyTasks.length) * 100);
     progressPercent.textContent = `${p}%`; progressFill.style.width = `${p}%`;
@@ -791,7 +894,10 @@ function renderErrorBank() {
         <div class="card" style="display: flex; flex-direction: column; gap: 1.5rem;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <h3>📕 专家级错题归档</h3>
-                <button onclick="state.errorBank=[];saveState();renderErrorBank();" style="background: none; border: 1px solid #ff5252; color: #ff5252; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; cursor: pointer;">清空题库</button>
+                <div style="display: flex; gap: 0.5rem;">
+                    ${state.errorBank.length > 0 ? `<button onclick="renderErrorQuiz()" style="background: var(--accent-secondary); border: none; color: black; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; font-weight: 700; cursor: pointer;">开始错题重测</button>` : ''}
+                    <button onclick="state.errorBank=[];saveState();renderErrorBank();" style="background: none; border: 1px solid #ff5252; color: #ff5252; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; cursor: pointer;">清空</button>
+                </div>
             </div>
             <div style="display: flex; flex-direction: column; gap: 1rem;">
                 ${state.errorBank.length ? state.errorBank.slice().reverse().map(e => `
@@ -1008,6 +1114,50 @@ function addError(type, content, correction) {
     });
     saveState();
 }
+
+// --- 9. Error Re-Quiz System ---
+function renderErrorQuiz() {
+    if (state.errorBank.length === 0) return switchView('error-bank');
+    
+    // Pick 5 random errors
+    const pool = [...state.errorBank].sort(() => 0.5 - Math.random()).slice(0, 5);
+    
+    appView.innerHTML = `
+        <div class="card" style="display: flex; flex-direction: column; gap: 1.5rem; animation: slideUp 0.4s ease;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="color: var(--accent-secondary);">🎯 错题清零重测 (5题)</h3>
+                <button onclick="switchView('error-bank')" style="background:none; border:none; color:var(--text-dim); cursor:pointer;">取消</button>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 2rem;">
+                ${pool.map((e, i) => `
+                    <div class="card" style="background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border);">
+                        <div style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.5rem;">Q${i+1} | 类别: ${e.type}</div>
+                        <div style="font-size: 1.1rem; margin-bottom: 1rem;">${e.content}</div>
+                        <input type="text" id="quiz-input-${e.id}" placeholder="输入正确形式..." style="width: 100%; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); padding: 12px; border-radius: 8px; color: white;">
+                    </div>
+                `).join('')}
+            </div>
+            <button onclick='checkErrorQuiz(${JSON.stringify(pool.map(p => p.id))})' style="background: var(--accent-primary); border: none; padding: 14px; border-radius: 12px; color: white; cursor: pointer; font-weight: 700;">提交重测结果</button>
+        </div>
+    `;
+}
+
+window.checkErrorQuiz = (ids) => {
+    let correctedCount = 0;
+    ids.forEach(id => {
+        const input = document.getElementById(`quiz-input-${id}`);
+        const errorItem = state.errorBank.find(e => e.id === id);
+        if (input && errorItem && input.value.trim().toLowerCase() === errorItem.correction.toLowerCase()) {
+            // Remove from error bank
+            state.errorBank = state.errorBank.filter(e => e.id !== id);
+            correctedCount++;
+        }
+    });
+    
+    saveState();
+    alert(`重测结束！您成功纠正了 ${correctedCount} 个错误。这些错误已从错题库中移除。`);
+    switchView('error-bank');
+};
 
 function exportData() {
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(state, null, 2));

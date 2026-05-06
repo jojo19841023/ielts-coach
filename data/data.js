@@ -1,7 +1,7 @@
 window.IELTS_DATA = {
     "curriculum": {
         "1": {
-            "theme": "Remote Work",
+            "theme": "Remote Work", "image": "assets/day1.png",
             "reading": {
                 "title": "The Rise of the Digital Nomad",
                 "text": "The traditional nine-to-five office model is increasingly being challenged by the rise of remote work. Enabled by high-speed internet and cloud computing, millions of professionals are choosing to work from home or co-working spaces. While this flexibility offers a better work-life balance and reduces commuting time, it also poses challenges for team cohesion and mental health, as the boundaries between professional and personal life become blurred.",
@@ -55,7 +55,7 @@ window.IELTS_DATA = {
             ]
         },
         "2": {
-            "theme": "Sustainable Cities",
+            "theme": "Sustainable Cities", "image": "assets/day2.png",
             "reading": {
                 "title": "Urban Planning for a Greener Future",
                 "text": "As the global population becomes more urbanized, the concept of 'sustainable cities' has gained momentum. These cities prioritize eco-friendly infrastructure, such as green roofs, integrated public transport systems, and renewable energy sources. The goal is to minimize the environmental footprint of urban living while enhancing the quality of life for residents through better air quality and more green spaces.",
@@ -109,7 +109,7 @@ window.IELTS_DATA = {
             ]
         },
         "3": {
-            "theme": "AI in Education",
+            "theme": "AI in Education", "image": "assets/day3.png",
             "reading": {
                 "title": "Artificial Intelligence in the Classroom",
                 "text": "AI is revolutionizing education by providing personalized learning experiences. Intelligent tutoring systems can adapt to a student's pace, identifying areas where they struggle and offering tailored feedback. However, critics argue that excessive reliance on AI might diminish the role of teachers and reduce critical human interaction in the learning process.",
