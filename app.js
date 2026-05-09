@@ -417,7 +417,7 @@ function renderPhoneticsView() {
                 <button id="record-btn" onclick="toggleRecording()" style="width: 70px; height: 70px; border-radius: 50%; background: #ff5252; border: none; font-size: 1.8rem; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(255, 82, 82, 0.3);">🎙️</button>
                 <p id="record-status" style="font-size: 0.9rem; color: var(--text-dim);">尝试读出: <strong>${ex.words[0]}</strong> 和 <strong>${ex.words[1]}</strong></p>
                 <div id="audio-playback" style="display: none;"><audio id="player" controls style="height: 35px;"></audio></div>
-                <button id="next-phonetic-btn" onclick="nextPhoneticExercise()" style="display: none; background: var(--accent-primary); border: none; padding: 12px 30px; border-radius: 8px; color: white; cursor: pointer; font-weight: 600;">下一组练习</button>
+                <button id="next-phonetic-btn" onclick="nextPhoneticExercise()" style="background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border); padding: 12px 30px; border-radius: 8px; color: white; cursor: pointer; font-weight: 600;">跳过 / 下一组</button>
             </div>
         </div>
     `;
@@ -503,13 +503,14 @@ function evaluatePronunciation(result, target, confidence) {
 
     if (hasWordA && hasWordB) {
         status.innerHTML = `<span style="color: var(--accent-secondary); font-weight: 700;">✅ 完美!</span> 你读出了 "${ex.words[0]}" 和 "${ex.words[1]}"。<br><small style="color: var(--text-dim)">AI 识别结果: "${result}" (${confidence}%)</small>`;
-        nextBtn.style.display = 'block';
+        nextBtn.style.background = 'var(--accent-primary)';
+        nextBtn.style.border = 'none';
         if (state.currentPhoneticIndex === state.phoneticExercises.length - 1) {
             nextBtn.textContent = "完成全部发音练习";
             markTaskComplete('phonetics');
         }
     } else {
-        status.innerHTML = `<span style="color: #ff5252;">⚠️ 继续加油!</span> AI 识别为: "${result}"。<br><small style="color: var(--text-dim)">请尝试清晰地区分 <strong>${ex.words[0]}</strong> 和 <strong>${ex.words[1]}</strong>。</small>`;
+        status.innerHTML = `<span style="color: #ff5252;">⚠️ 继续加油!</span> AI 识别为: "${result}"。<br><small style="color: var(--text-dim)">您可以再次尝试，或点击下方按钮跳过。</small>`;
     }
 }
 
@@ -954,7 +955,7 @@ function startExam(type) {
             // Pick 3-5 words from last 7 days
             const startDay = Math.max(1, day - 7);
             for(let i=startDay; i<=day; i++) {
-                if(state.curriculum[i]) questions.push(...state.curriculum[i].vocab);
+                if(state.curriculum[i]) questions.push(...(state.curriculum[i].vocabulary || state.curriculum[i].vocab));
             }
             // Add some grammar from error bank
             const errorGrammar = state.errorBank.filter(e => e.type === 'Grammar').slice(0, 3);
@@ -965,7 +966,7 @@ function startExam(type) {
                     <div style="display: flex; flex-direction: column; gap: 0.8rem;">
                         <p><strong>1. 词汇拼写检查:</strong></p>
                         <ul style="padding-left: 1.5rem; font-size: 0.9rem; color: var(--text-dim);">
-                            ${questions.slice(0, 5).map(q => `<li>请拼写并造句: ${q}</li>`).join('')}
+                            ${questions.slice(0, 5).map(q => `<li>请拼写并造句: ${typeof q === 'string' ? q : q.word}</li>`).join('')}
                         </ul>
                         <p><strong>2. 顽固语法复测:</strong></p>
                         <ul style="padding-left: 1.5rem; font-size: 0.9rem; color: var(--text-dim);">
@@ -1047,7 +1048,7 @@ function renderVocabularyView() {
     // Phase 3: Spaced Repetition System (SRS)
     state.vocabSRS = state.vocabSRS || [];
     const reviewWords = state.vocabSRS.filter(v => v.nextReviewDay <= day && !v.mastered);
-    const newWords = content.vocab;
+    const newWords = content.vocabulary || [];
     const allWords = [...reviewWords, ...newWords];
 
     appView.innerHTML = `
@@ -1065,8 +1066,8 @@ function renderVocabularyView() {
                             <button onclick="playText('${w.word}', 'en-US')" style="background: none; border: none; cursor: pointer; font-size: 1.2rem;">🔊</button>
                         </div>
                         <p style="font-size: 0.95rem; color: #fff; margin-bottom: 0.5rem;"><span style="color: var(--text-dim);">释义:</span> ${w.meaning}</p>
-                        <p style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 0.8rem;">同义替换: <span style="color: var(--accent-secondary);">${w.syn || '-'}</span></p>
-                        <p style="font-size: 0.9rem; font-style: italic; color: #e0e0e0; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.8rem; margin-bottom: 1rem;">" ${w.ex || '-'} "</p>
+                        <p style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 0.8rem;">词性: <span style="color: var(--accent-secondary);">${w.pos || '-'}</span></p>
+                        <p style="font-size: 0.9rem; font-style: italic; color: #e0e0e0; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.8rem; margin-bottom: 1rem;">" ${w.example || w.ex || '-'} "</p>
                         <div style="display: flex; gap: 0.5rem;">
                             ${w.nextReviewDay 
                                 ? `<button onclick="markVocabMastered('${w.word}')" class="btn-primary" style="flex:1; padding: 6px; font-size: 0.85rem; background: var(--accent-primary); border:none; border-radius:8px; color:white; cursor:pointer;">✅ 已掌握</button>`
