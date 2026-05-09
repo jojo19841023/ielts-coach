@@ -4874,8 +4874,7 @@ window.IELTS_DATA = {
       "sentence": "Very well, we will visit.",
       "words": [
         "very",
-        "well",
-        "visit"
+        "well"
       ]
     },
     {
@@ -4884,8 +4883,232 @@ window.IELTS_DATA = {
       "sentence": "The red light is right.",
       "words": [
         "red",
-        "light",
-        "right"
+        "light"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "/n/ vs /ŋ/",
+      "sentence": "I'm thin and I like to sing.",
+      "words": [
+        "thin",
+        "sing"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "/p/ vs /b/",
+      "sentence": "The big pig is in the bin.",
+      "words": [
+        "pig",
+        "big"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "/t/ vs /d/",
+      "sentence": "Two dogs played in the mud.",
+      "words": [
+        "two",
+        "dog"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "/f/ vs /v/",
+      "sentence": "Fine wine is very expensive.",
+      "words": [
+        "fine",
+        "very"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "/s/ vs /z/",
+      "sentence": "The zebra saw the sun.",
+      "words": [
+        "zebra",
+        "sun"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "/ʃ/ vs /tʃ/",
+      "sentence": "She likes to eat cheese.",
+      "words": [
+        "she",
+        "cheese"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "/dʒ/ vs /j/",
+      "sentence": "The judge likes juice.",
+      "words": [
+        "judge",
+        "juice"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "/h/ vs (silent)",
+      "sentence": "He is an honest hero.",
+      "words": [
+        "honest",
+        "hero"
+      ]
+    },
+    {
+      "id": 14,
+      "title": "/k/ vs /g/",
+      "sentence": "The cat got a big cake.",
+      "words": [
+        "cat",
+        "get"
+      ]
+    },
+    {
+      "id": 15,
+      "title": "/ʊ/ vs /u:/",
+      "sentence": "Look at the blue moon.",
+      "words": [
+        "look",
+        "blue"
+      ]
+    },
+    {
+      "id": 16,
+      "title": "/ʌ/ vs /ɑ:/",
+      "sentence": "Mother's car is in the mud.",
+      "words": [
+        "mother",
+        "car"
+      ]
+    },
+    {
+      "id": 17,
+      "title": "/ɒ/ vs /ɔ:/",
+      "sentence": "The dog saw the tall wall.",
+      "words": [
+        "dog",
+        "tall"
+      ]
+    },
+    {
+      "id": 18,
+      "title": "/aɪ/ vs /eɪ/",
+      "sentence": "My bike is on the lake.",
+      "words": [
+        "bike",
+        "lake"
+      ]
+    },
+    {
+      "id": 19,
+      "title": "/aʊ/ vs /əʊ/",
+      "sentence": "The brown cow goes slow.",
+      "words": [
+        "cow",
+        "slow"
+      ]
+    },
+    {
+      "id": 20,
+      "title": "/ɪə/ vs /eə/",
+      "sentence": "The deer is near the chair.",
+      "words": [
+        "near",
+        "chair"
+      ]
+    },
+    {
+      "id": 21,
+      "title": "/ʊə/ vs /ɔ:/",
+      "sentence": "The pure water is for the floor.",
+      "words": [
+        "pure",
+        "floor"
+      ]
+    },
+    {
+      "id": 22,
+      "title": "/m/ vs /n/",
+      "sentence": "Mom and Nan are at home.",
+      "words": [
+        "mom",
+        "nan"
+      ]
+    },
+    {
+      "id": 23,
+      "title": "/ʒ/ vs /ʃ/",
+      "sentence": "Vision of a fresh ocean.",
+      "words": [
+        "vision",
+        "fresh"
+      ]
+    },
+    {
+      "id": 24,
+      "title": "/tr/ vs /dr/",
+      "sentence": "The tree is near the dream.",
+      "words": [
+        "tree",
+        "dream"
+      ]
+    },
+    {
+      "id": 25,
+      "title": "/ts/ vs /dz/",
+      "sentence": "Cats and dogs like beds.",
+      "words": [
+        "cats",
+        "beds"
+      ]
+    },
+    {
+      "id": 26,
+      "title": "Final /t/ omission",
+      "sentence": "Last night I lost my hat.",
+      "words": [
+        "last",
+        "hat"
+      ]
+    },
+    {
+      "id": 27,
+      "title": "Final /d/ omission",
+      "sentence": "The good food is cold.",
+      "words": [
+        "good",
+        "cold"
+      ]
+    },
+    {
+      "id": 28,
+      "title": "Syllable Stress",
+      "sentence": "Present a present to the team.",
+      "words": [
+        "present",
+        "present"
+      ]
+    },
+    {
+      "id": 29,
+      "title": "Word Linking",
+      "sentence": "Get up and go out.",
+      "words": [
+        "get",
+        "up"
+      ]
+    },
+    {
+      "id": 30,
+      "title": "Sentence Intonation",
+      "sentence": "Do you like coffee or tea?",
+      "words": [
+        "coffee",
+        "tea"
       ]
     }
   ],
