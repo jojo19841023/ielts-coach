@@ -8,7 +8,9 @@
 雅思教练是一个面向长线备考者的、高审美、自适应智能学习平台。
 它旨在通过“数据-逻辑-表现”三层分离的架构，实现跨设备（手机/电脑）的无缝学习体验，并根据用户的真实进步动态调整教学方案。
 
-## 2. 核心架构 (System Architecture - V6+)
+## 2. 核心架构 (System Architecture - V6.5+)
+> [!NOTE]
+> **Phase 6.5 Status**: 30/30 days fully populated with authentic data (LuchoBazz/ielts-ai-dataset & hefengxian/ielts-vocabulary). HEALTH_CHECK PASSED.
 
 ### 2.1 数据与逻辑分离 (Decoupling)
 - **`app.js` (Logic)**: 纯逻辑引擎。包含渲染、算法、API 调用、状态管理。它是静态的、不存储业务数据。
@@ -42,5 +44,5 @@
 我作为您的 AI 合作伙伴，承诺在每一次交互中优先读取并遵守此文件。我们要共同把“雅思教练”做成一个极致稳定、懂人性的精品产品。
 
 ---
-*Last Updated: 2026-05-06*
-*Version: 6.1.0 (Stability Guardrail)*
+*Last Updated: 2026-05-09*
+*Version: 6.5.0 (Authentic Data Expansion)*
