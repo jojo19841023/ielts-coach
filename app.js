@@ -415,7 +415,7 @@ function renderPhoneticsView() {
             <div id="recording-controls" style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem; background: rgba(255,255,255,0.02); padding: 2rem; border-radius: 20px; width: 100%;">
                 <p style="font-size: 1.2rem; color: var(--text-main); font-weight: 600;">"${ex.sentence}"</p>
                 <button id="record-btn" onclick="toggleRecording()" style="width: 70px; height: 70px; border-radius: 50%; background: #ff5252; border: none; font-size: 1.8rem; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(255, 82, 82, 0.3);">🎙️</button>
-                <p id="record-status" style="font-size: 0.9rem; color: var(--text-dim);">点击麦克风开始挑战</p>
+                <p id="record-status" style="font-size: 0.9rem; color: var(--text-dim);">尝试读出: <strong>${ex.words[0]}</strong> 和 <strong>${ex.words[1]}</strong></p>
                 <div id="audio-playback" style="display: none;"><audio id="player" controls style="height: 35px;"></audio></div>
                 <button id="next-phonetic-btn" onclick="nextPhoneticExercise()" style="display: none; background: var(--accent-primary); border: none; padding: 12px 30px; border-radius: 8px; color: white; cursor: pointer; font-weight: 600;">下一组练习</button>
             </div>
@@ -475,7 +475,7 @@ async function toggleRecording() {
     const btn = document.getElementById('record-btn');
     const status = document.getElementById('record-status');
     const playback = document.getElementById('audio-playback');
-    const targetText = "A sheep is on a ship";
+    const targetText = state.phoneticExercises[state.currentPhoneticIndex].sentence;
     if (!mediaRecorder || mediaRecorder.state === 'inactive') {
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -515,22 +515,19 @@ function evaluatePronunciation(result, target, confidence) {
 
 // --- 4. Professional Writing Engine (V6) ---
 function renderWritingView() {
+    const day = getCurrentDay();
+    const task = state.curriculum[day]?.writing || { task: "Please complete your daily writing task.", wordCount: 250 };
     appView.innerHTML = `
         <div class="card" style="height: 100%; display: flex; flex-direction: column; gap: 1.5rem;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
-                <h3>✍️ 零基础写作：专家模式</h3>
+                <h3>✍️ 雅思写作专家模式 (Day ${day})</h3>
                 <span style="font-size: 0.75rem; color: var(--accent-secondary); background: rgba(0,229,255,0.1); padding: 4px 10px; border-radius: 20px;">V6 Hybrid Engine</span>
             </div>
             
-            <!-- 任务要求卡片 -->
             <div style="background: rgba(124, 77, 255, 0.05); border: 1px solid rgba(124, 77, 255, 0.2); padding: 1.2rem; border-radius: 12px;">
-                <h4 style="color: var(--accent-primary); margin-bottom: 0.8rem; font-size: 0.9rem;">📝 今日写作任务：我的家庭与居住环境</h4>
-                <ul style="font-size: 0.85rem; color: var(--text-main); line-height: 1.6; list-style-position: inside; display: flex; flex-direction: column; gap: 0.4rem;">
-                    <li>描述您的家庭成员及其职业/状态。</li>
-                    <li>介绍您居住的环境特点（城市、环境、是否环保）。</li>
-                    <li>使用连接词: <strong>and, but, because</strong>。</li>
-                    <li>字数建议: <strong>80 - 100 字</strong>。</li>
-                </ul>
+                <h4 style="color: var(--accent-primary); margin-bottom: 0.8rem; font-size: 0.9rem;">📝 今日写作任务</h4>
+                <p style="font-size: 0.95rem; color: var(--text-main); line-height: 1.6; white-space: pre-wrap;">${task.task}</p>
+                <div style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-dim);">建议字数: <strong>${task.wordCount}+ 字</strong></div>
             </div>
 
             <textarea id="essay-input" placeholder="请根据上述任务要求开始写作..." style="flex: 1; background: transparent; border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text-main); padding: 1.5rem; font-size: 1.1rem; resize: none; line-height: 1.8; outline: none; font-family: inherit;">${state.essays.current}</textarea>
