@@ -57,6 +57,78 @@ def get_pro_day(day):
                 {"word": "Reliance", "meaning": "依赖", "syn": "Dependence", "ex": "Over-reliance on technology can be risky."}
             ]
         }
+    elif day == 4:
+        return {
+            "theme": "Digital Privacy",
+            "reading": {
+                "title": "Protecting Data in the Age of Big Data",
+                "text": "As we navigate an increasingly digital world, the issue of 'digital privacy' has moved to the forefront of global discourse. Corporations and governments now have the ability to collect and analyze vast amounts of personal information, from browsing habits to physical locations. While big data can improve services and security, it also raises ethical questions about consent and the potential for surveillance to infringe upon individual freedoms.",
+                "level": "B2",
+                "questions": [{"q": "What is a major ethical concern of big data?", "options": ["Better services", "Invasion of privacy", "Faster internet"], "a": "b"}]
+            },
+            "writing": { "prompt": "Should individuals have more control over their personal data? Discuss the pros and cons of data collection." },
+            "vocab": [
+                {"word": "Discourse", "meaning": "论述；讨论", "syn": "Discussion", "ex": "Digital privacy is a key topic in modern political discourse."},
+                {"word": "Infringe", "meaning": "侵犯", "syn": "Encroach", "ex": "New laws must not infringe upon the rights of citizens."},
+                {"word": "Surveillance", "meaning": "监视", "syn": "Monitoring", "ex": "Mass surveillance has become a controversial tool."},
+                {"word": "Consent", "meaning": "同意", "syn": "Permission", "ex": "Data should only be collected with the user's explicit consent."},
+                {"word": "Ethical", "meaning": "伦理的", "syn": "Moral", "ex": "There are many ethical dilemmas in AI development."}
+            ]
+        }
+    elif day == 5:
+        return {
+            "theme": "Renewable Energy",
+            "reading": {
+                "title": "The Global Transition to Green Power",
+                "text": "The urgent need to combat climate change is driving a global shift from fossil fuels to renewable energy sources. Solar, wind, and hydroelectric power are becoming increasingly cost-competitive, offering a sustainable alternative to coal and oil. However, the transition faces obstacles, including the intermittency of weather-dependent sources and the need for significant investment in grid infrastructure and energy storage technologies.",
+                "level": "B2",
+                "questions": [{"q": "What is a main obstacle for renewable energy mentioned?", "options": ["High costs", "Weather dependence", "Lack of wind"], "a": "b"}]
+            },
+            "writing": { "prompt": "Is it realistic for the world to rely 100% on renewable energy? Discuss the challenges and benefits." },
+            "vocab": [
+                {"word": "Hydroelectric", "meaning": "水力发电的", "syn": "Water-powered", "ex": "Hydroelectric dams provide a clean source of electricity."},
+                {"word": "Intermittency", "meaning": "间歇性", "syn": "Irregularity", "ex": "The intermittency of solar power is a challenge for grid stability."},
+                {"word": "Competitive", "meaning": "有竞争力的", "syn": "Challenging", "ex": "Renewable energy is now cost-competitive with fossil fuels."},
+                {"word": "Alternative", "meaning": "替代品", "syn": "Substitute", "ex": "Electric vehicles are a sustainable alternative to petrol cars."},
+                {"word": "Transition", "meaning": "过渡", "syn": "Shift", "ex": "The transition to a low-carbon economy will take decades."}
+            ]
+        }
+    elif day == 6:
+        return {
+            "theme": "Space Exploration",
+            "reading": {
+                "title": "Beyond Earth: The Value of Space Travel",
+                "text": "Space exploration has long captured the human imagination, leading to groundbreaking scientific discoveries. Proponents argue that investing in space research drives technological innovation, provides insights into our place in the universe, and could eventually lead to the colonization of other planets. Critics, however, suggest that the billions spent on space missions could be better used to solve pressing problems on Earth, such as poverty and disease.",
+                "level": "C1",
+                "questions": [{"q": "What is one argument in favor of space exploration?", "options": ["It solves poverty", "It drives technological innovation", "It is very cheap"], "a": "b"}]
+            },
+            "writing": { "prompt": "Should governments spend billions on space exploration when there are many problems on Earth? Discuss both sides." },
+            "vocab": [
+                {"word": "Groundbreaking", "meaning": "开创性的", "syn": "Innovative", "ex": "The researchers made a groundbreaking discovery in physics."},
+                {"word": "Proponent", "meaning": "支持者", "syn": "Advocate", "ex": "Proponents of solar energy emphasize its sustainability."},
+                {"word": "Colonization", "meaning": "殖民；定居", "syn": "Settlement", "ex": "Space colonization remains a distant goal for humanity."},
+                {"word": "Innovation", "meaning": "创新", "syn": "Creativity", "ex": "Technological innovation is key to economic growth."},
+                {"word": "Insight", "meaning": "见解；洞察力", "syn": "Understanding", "ex": "The study provides valuable insights into human behavior."}
+            ]
+        }
+    elif day == 7:
+        return {
+            "theme": "Cultural Heritage",
+            "reading": {
+                "title": "Preserving the Past for the Future",
+                "text": "Cultural heritage, including historical monuments and traditional customs, is vital for a community's identity and sense of belonging. In an era of globalization, many local traditions are at risk of disappearing. Preserving these sites and practices is not only about honoring history but also about fostering cultural diversity and promoting sustainable tourism that benefits local economies.",
+                "level": "B2",
+                "questions": [{"q": "Why is cultural heritage important for a community?", "options": ["For globalization", "For identity and belonging", "For building monuments"], "a": "b"}]
+            },
+            "writing": { "prompt": "To what extent should governments be responsible for preserving historical buildings?" },
+            "vocab": [
+                {"word": "Preservation", "meaning": "保存；保护", "syn": "Conservation", "ex": "The preservation of historical sites is a national priority."},
+                {"word": "Heritage", "meaning": "遗产", "syn": "Legacy", "ex": "Language is a vital part of our cultural heritage."},
+                {"word": "Identity", "meaning": "身份；特征", "syn": "Character", "ex": "Traditions help maintain a community's unique identity."},
+                {"word": "Globalization", "meaning": "全球化", "syn": "Integration", "ex": "Globalization has led to the spread of diverse cultures."},
+                {"word": "Diversity", "meaning": "多样性", "syn": "Variety", "ex": "Cultural diversity enriches our society."}
+            ]
+        }
     else:
         # Placeholder for other days
         return {
