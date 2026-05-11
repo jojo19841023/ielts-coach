@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IELTS Coach | 雅思自动化学习教练</title>
-    <link rel="stylesheet" href="style.css?v=1.0.2">
+    <link rel="stylesheet" href="style.css?v=20260510-1828">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -36,8 +36,11 @@
                 <button class="nav-item" data-view="phonetics">
                     <span class="icon">👄</span> 发音实验室
                 </button>
+                <button class="nav-item" data-view="listening">
+                    <span class="icon">🎧</span> 听力专项
+                </button>
                 <button class="nav-item" data-view="writing">
-                    <span class="icon">✍️</span> 零基础写作
+                    <span class="icon">✍️</span> 写作训练
                 </button>
                 <button class="nav-item" data-view="speaking">
                     <span class="icon">🗣️</span> 口语纠偏
@@ -47,6 +50,9 @@
                 </button>
                 <button class="nav-item" data-view="weekly-review">
                     <span class="icon">📊</span> 周度复盘
+                </button>
+                <button class="nav-item" data-view="settings">
+                    <span class="icon">☁️</span> 云同步
                 </button>
                 <div style="margin-top: auto; padding: 1rem 0; border-top: 1px solid var(--glass-border);">
                     <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; font-size: 0.75rem; color: #4caf50; padding-left: 1.5rem;">
@@ -86,7 +92,10 @@
         <main class="content">
             <header class="top-bar">
                 <h2 id="view-title">每日计划</h2>
-                <div class="date-display" id="current-date">2026年5月5日</div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <button class="nav-item" data-view="settings" style="padding: 8px 12px; background: rgba(0,229,255,0.12); border: 1px solid var(--accent-secondary); border-radius: 999px; color: var(--accent-secondary); cursor: pointer; font-size: 0.78rem; display: flex; align-items: center; justify-content: center; gap: 6px; white-space: nowrap;">☁️ 电脑/手机同步</button>
+                    <div class="date-display" id="current-date">2026年5月5日</div>
+                </div>
             </header>
 
             <div id="app-view" class="view-container">
@@ -109,6 +118,10 @@
                 <span class="icon">📚</span>
                 <span>词汇</span>
             </button>
+            <button class="nav-item" data-view="listening">
+                <span class="icon">🎧</span>
+                <span>听力</span>
+            </button>
             <button class="nav-item" data-view="writing">
                 <span class="icon">✍️</span>
                 <span>写作</span>
@@ -117,14 +130,20 @@
                 <span class="icon">☁️</span>
                 <span>同步</span>
             </button>
-            <button class="nav-item" data-view="error-bank">
-                <span class="icon">📕</span>
-                <span>错题</span>
-            </button>
         </nav>
+
+        <button class="nav-item" data-view="settings" style="position: fixed; right: 16px; bottom: 92px; z-index: 2500; padding: 12px 16px; background: linear-gradient(135deg, rgba(124,77,255,0.92), rgba(0,229,255,0.92)); border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; color: white; box-shadow: 0 10px 30px rgba(0,0,0,0.28); display: flex; align-items: center; gap: 8px; white-space: nowrap;">
+            <span>☁️</span>
+            <span>电脑/手机同步</span>
+        </button>
     </div>
 
-    <script src="data/data.js"></script>
-    <script src="app.js"></script>
+    <script src="data/data.js?v=20260510-1828"></script>
+    <script src="data/grammar_questions_v2.js?v=20260510-1828"></script>
+    <script src="data/vocabulary_overrides.js?v=20260510-1828"></script>
+    <script src="data/reading_overrides.js?v=20260510-1828"></script>
+    <script src="data/writing_overrides.js?v=20260510-1828"></script>
+    <script src="data/speaking_overrides.js?v=20260510-1828"></script>
+    <script src="app.js?v=20260510-1828"></script>
 </body>
 </html>
