@@ -490,7 +490,7 @@ function renderGrammarView() {
                 </div>
                 <p style="font-size: 0.82rem; color: var(--text-dim); margin-bottom: 0.75rem;">${skillLabel}</p>
                 <p style="font-size: 1.1rem; margin-bottom: 1rem;">${q.sentence}</p>
-                <input type="text" id="grammar-answer" placeholder="输入答案..." 
+                <input type="text" id="grammar-answer" placeholder="${['error_correction', 'sentence_improvement'].includes(q.promptType) ? '输入完整改正句，或只输入你改正的部分...' : '输入答案...'}" 
                        style="background: transparent; border: 1px solid var(--glass-border); padding: 12px; border-radius: 8px; color: white; width: 100%; margin-bottom: 1rem; outline: none;">
                 <div id="grammar-feedback" style="margin-bottom: 1rem; font-size: 0.9rem; display: none;"></div>
                 <div style="display: flex; gap: 1rem;">
@@ -555,13 +555,14 @@ function checkGrammarAnswer(qId) {
     const feedback = document.getElementById('grammar-feedback');
     const nextBtn = document.getElementById('next-btn');
     const checkBtn = document.getElementById('check-btn');
-    const val = input.value.trim().toLowerCase();
+    const val = normalizeEnglishText(input.value);
+    const acceptedAnswers = getGrammarAcceptedAnswers(q);
     
     checkBtn.style.display = 'none';
     nextBtn.style.display = 'block';
     feedback.style.display = 'block';
 
-    if (val === q.answer.toLowerCase()) {
+    if (acceptedAnswers.has(val)) {
         feedback.style.color = "var(--accent-secondary)";
         feedback.innerHTML = `✅ 正确！<br><small>${q.explanation}</small>`;
     } else {
@@ -691,6 +692,47 @@ function normalizeEnglishText(text) {
         .replace(/[^a-z0-9\s']/g, ' ')
         .replace(/\s+/g, ' ')
         .trim();
+}
+
+function stripGrammarPromptPrefix(text) {
+    return (text || '')
+        .replace(/^correct the sentence:\s*/i, '')
+        .replace(/^improve the sentence:\s*/i, '')
+        .trim();
+}
+
+function getGrammarAcceptedAnswers(question) {
+    const accepted = new Set();
+    const fullAnswer = normalizeEnglishText(question.answer);
+    if (fullAnswer) accepted.add(fullAnswer);
+
+    if (!['error_correction', 'sentence_improvement'].includes(question.promptType)) {
+        return accepted;
+    }
+
+    const originalTokens = normalizeEnglishText(stripGrammarPromptPrefix(question.sentence)).split(' ').filter(Boolean);
+    const answerTokens = normalizeEnglishText(question.answer).split(' ').filter(Boolean);
+
+    if (!originalTokens.length || !answerTokens.length) {
+        return accepted;
+    }
+
+    let start = 0;
+    while (start < originalTokens.length && start < answerTokens.length && originalTokens[start] === answerTokens[start]) {
+        start++;
+    }
+
+    let endOriginal = originalTokens.length - 1;
+    let endAnswer = answerTokens.length - 1;
+    while (endOriginal >= start && endAnswer >= start && originalTokens[endOriginal] === answerTokens[endAnswer]) {
+        endOriginal--;
+        endAnswer--;
+    }
+
+    const changedAnswer = answerTokens.slice(start, endAnswer + 1).join(' ').trim();
+    if (changedAnswer) accepted.add(changedAnswer);
+
+    return accepted;
 }
 
 function getWordDiffStatus(words, normalizedResult) {
