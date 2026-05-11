@@ -1,3 +1,9 @@
 node_modules
 .DS_Store
 dao道电商平台
+.env
+.vscode/
+.idea/
+__pycache__/
+*.pyc
+*.log
