@@ -71,3 +71,28 @@
 - Syntax files checked: 7
 - Rendered views: daily-plan, grammar, phonetics, listening, vocabulary, reading, writing, speaking, weekly-review, dashboard, settings
 - Interactions: resetFromOldDate, taskToggleAndActivityLog, moduleActivityLog, weeklyReview, monthlyAssessment, syncMissingCredentials, leanStateSave
+## 2026-05-12T10:15:36.497Z
+- Result: FAIL
+- Date: 2026年5月12日 (2026-05-12)
+- Day: 8
+- Current content: 语言演化 / Epigenetics: Beyond the DNA Sequence / speaking Languages
+- Syntax files checked: 7
+- Rendered views: daily-plan, grammar, phonetics, listening, vocabulary, reading, writing, speaking, weekly-review, dashboard, settings
+- Interactions: not reached
+- Error: Invalid regular expression: /^input\\[name="([^"]+)"\\]:checked$/: Unmatched ')'
+## 2026-05-12T10:16:00.411Z
+- Result: PASS
+- Date: 2026年5月12日 (2026-05-12)
+- Day: 8
+- Current content: 语言演化 / Epigenetics: Beyond the DNA Sequence / speaking Languages
+- Syntax files checked: 7
+- Rendered views: daily-plan, grammar, phonetics, listening, vocabulary, reading, writing, speaking, weekly-review, dashboard, settings
+- Interactions: resetFromOldDate, taskToggleAndActivityLog, moduleActivityLog, weeklyReview, monthlyAssessment, dashboardModuleCoverage, phoneticsNoRecordingFallback, writingCompletionGate, readingEvidence, syncMissingCredentials, leanStateSave
+## 2026-05-12T10:20:00.923Z
+- Result: PASS
+- Date: 2026年5月12日 (2026-05-12)
+- Day: 8
+- Current content: 语言演化 / Epigenetics: Beyond the DNA Sequence / speaking Languages
+- Syntax files checked: 7
+- Rendered views: daily-plan, grammar, phonetics, listening, vocabulary, reading, writing, speaking, weekly-review, dashboard, settings
+- Interactions: resetFromOldDate, taskToggleAndActivityLog, moduleActivityLog, weeklyReview, monthlyAssessment, dashboardModuleCoverage, phoneticsNoRecordingFallback, writingCompletionGate, readingEvidence, syncMissingCredentials, leanStateSave

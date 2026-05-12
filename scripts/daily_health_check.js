@@ -92,7 +92,12 @@ function createContext(seedState = null) {
         'sync-current-status',
         'sync-status',
         'gh-token',
-        'gh-repo'
+        'gh-repo',
+        'essay-input',
+        'check-writing-btn',
+        'writing-feedback',
+        'reading-feedback',
+        'record-status'
     ].forEach(element);
 
     const navViews = [
@@ -286,16 +291,55 @@ async function runInteractionChecks(report) {
     vm.runInContext('switchView("weekly-review")', context);
     vm.runInContext('startExam("weekly")', context);
     assert(/周度复盘任务单/.test(element('exam-container').innerHTML), 'Weekly review did not render task sheet');
+    assert(/本周强项记录/.test(element('exam-container').innerHTML), 'Weekly review missing module strengths');
+    assert(/本周缺口/.test(element('exam-container').innerHTML), 'Weekly review missing module gaps');
 
     vm.runInContext('switchView("weekly-review")', context);
     vm.runInContext('startExam("monthly")', context);
     assert(/30 天训练诊断单/.test(element('exam-container').innerHTML), 'Monthly assessment did not render report');
+    assert(/模块覆盖/.test(element('exam-container').innerHTML), 'Monthly assessment missing module coverage');
+    assert(/数据置信度/.test(element('exam-container').innerHTML), 'Monthly assessment missing data confidence');
+
+    vm.runInContext('switchView("dashboard")', context);
+    assert(/最近 7 天模块覆盖/.test(element('app-view').innerHTML), 'Dashboard missing module coverage panel');
+    assert(/常练模块/.test(element('app-view').innerHTML), 'Dashboard missing common modules');
+    assert(/缺口模块/.test(element('app-view').innerHTML), 'Dashboard missing module gaps');
+
+    vm.runInContext('switchView("phonetics")', context);
+    assert(/完成跟读（未录音）/.test(element('app-view').innerHTML), 'Phonetics missing no-recording completion fallback');
+
+    vm.runInContext('switchView("writing")', context);
+    element('essay-input').value = 'The chart shows online learning. For example, many students use apps.';
+    await vm.runInContext('saveAndCheckEssay()', context);
+    assert(/已提交，但还未达标/.test(element('writing-feedback').innerHTML), 'Short writing was not flagged as incomplete');
+    assert(/题目贴合度提醒/.test(element('writing-feedback').innerHTML), 'Off-topic writing prompt-fit reminder missing');
+    assert(!vm.runInContext('state.dailyTasks.find(t => t.type === "writing").completed', context), 'Short writing incorrectly completed task');
+
+    vm.runInContext('switchView("reading")', context);
+    const readingSession = vm.runInContext('buildReadingSessionForCurrentDay()', context);
+    readingSession.questions.forEach((question, index) => {
+        if (question.type === 'heading') {
+            element(`reading-q-${index}`).value = question.answerText;
+        }
+    });
+    vm.runInContext(`
+        document.querySelector = (selector) => {
+            const nameMatch = selector.match(/name="([^"]+)"/);
+            if (!nameMatch || !nameMatch[1].startsWith('reading-q-')) return null;
+            const index = Number(nameMatch[1].replace('reading-q-', ''));
+            const q = buildReadingSessionForCurrentDay().questions[index];
+            return { value: q.answerText || q.options[q.answerKey] || q.options[0] };
+        };
+    `, context);
+    vm.runInContext('checkReadingAnswers()', context);
+    assert(/定位建议/.test(element('reading-feedback').innerHTML), 'Reading feedback missing evidence hint');
 
     vm.runInContext('switchView("settings")', context);
     await vm.runInContext('syncToCloud()', context);
     assert(/上传到云端/.test(element('app-view').innerHTML), 'Sync upload button missing');
     assert(/从云端下载/.test(element('app-view').innerHTML), 'Sync download button missing');
     assert(alerts.includes('请先配置 Token 和仓库路径！'), 'Missing-credentials sync alert did not appear');
+    assert(/请先配置 Token 和仓库路径/.test(element('sync-status').innerHTML), 'Missing-credentials sync status was not shown inline');
 
     const saved = JSON.parse(context.localStorage.store.ieltsState || '{}');
     assert(!Object.prototype.hasOwnProperty.call(saved, 'curriculum'), 'Lean saved state unexpectedly contains curriculum');
@@ -307,6 +351,10 @@ async function runInteractionChecks(report) {
         moduleActivityLog: 'ok',
         weeklyReview: 'ok',
         monthlyAssessment: 'ok',
+        dashboardModuleCoverage: 'ok',
+        phoneticsNoRecordingFallback: 'ok',
+        writingCompletionGate: 'ok',
+        readingEvidence: 'ok',
         syncMissingCredentials: 'ok',
         leanStateSave: 'ok'
     };

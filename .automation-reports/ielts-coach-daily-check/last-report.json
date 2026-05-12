@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "runAt": "2026-05-12T10:12:46.197Z",
+  "runAt": "2026-05-12T10:20:00.923Z",
   "syntax": {
     "data/data.js": "ok",
     "data/grammar_questions_v2.js": "ok",
@@ -73,6 +73,10 @@
     "moduleActivityLog": "ok",
     "weeklyReview": "ok",
     "monthlyAssessment": "ok",
+    "dashboardModuleCoverage": "ok",
+    "phoneticsNoRecordingFallback": "ok",
+    "writingCompletionGate": "ok",
+    "readingEvidence": "ok",
     "syncMissingCredentials": "ok",
     "leanStateSave": "ok"
   },
