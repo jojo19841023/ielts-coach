@@ -1,0 +1,85 @@
+{
+  "ok": true,
+  "runAt": "2026-05-12T10:12:46.197Z",
+  "syntax": {
+    "data/data.js": "ok",
+    "data/grammar_questions_v2.js": "ok",
+    "data/vocabulary_overrides.js": "ok",
+    "data/reading_overrides.js": "ok",
+    "data/writing_overrides.js": "ok",
+    "data/speaking_overrides.js": "ok",
+    "app.js": "ok"
+  },
+  "data": {
+    "curriculumDays": 30,
+    "grammarQuestions": 300,
+    "phoneticExercises": 30,
+    "currentDay": 8,
+    "currentTheme": "语言演化",
+    "currentReadingTitle": "Epigenetics: Beyond the DNA Sequence",
+    "currentWritingWordCount": 260,
+    "currentSpeakingTopic": "Languages",
+    "missing": []
+  },
+  "views": {
+    "daily-plan": {
+      "title": "每日计划",
+      "rendered": true
+    },
+    "grammar": {
+      "title": "语法诊所",
+      "rendered": true
+    },
+    "phonetics": {
+      "title": "发音实验室",
+      "rendered": true
+    },
+    "listening": {
+      "title": "听力专项",
+      "rendered": true
+    },
+    "vocabulary": {
+      "title": "核心词汇",
+      "rendered": true
+    },
+    "reading": {
+      "title": "阅读专项",
+      "rendered": true
+    },
+    "writing": {
+      "title": "写作训练",
+      "rendered": true
+    },
+    "speaking": {
+      "title": "口语纠偏",
+      "rendered": true
+    },
+    "weekly-review": {
+      "title": "周度复盘",
+      "rendered": true
+    },
+    "dashboard": {
+      "title": "目标追踪",
+      "rendered": true
+    },
+    "settings": {
+      "title": "系统设置",
+      "rendered": true
+    }
+  },
+  "interactions": {
+    "resetFromOldDate": "ok",
+    "taskToggleAndActivityLog": "ok",
+    "moduleActivityLog": "ok",
+    "weeklyReview": "ok",
+    "monthlyAssessment": "ok",
+    "syncMissingCredentials": "ok",
+    "leanStateSave": "ok"
+  },
+  "date": {
+    "expected": "2026年5月12日",
+    "actual": "2026年5月12日",
+    "dateKey": "2026-05-12",
+    "currentDay": 8
+  }
+}

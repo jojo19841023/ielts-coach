@@ -129,6 +129,7 @@
 当前已添加每日自动检查：
 
 - `IELTS Coach Daily Check`
+- 本地自检脚本：[scripts/daily_health_check.js](/Users/jojo/Documents/Codex/2026-05-08/daily-work-dashboard/雅思教练/scripts/daily_health_check.js)
 
 它会每天检查：
 
@@ -136,6 +137,17 @@
 - 每日任务是否重置
 - 各核心模块是否仍然接到最新内容
 - 同步入口是否存在
+
+在受限沙盒中，优先运行：
+
+```bash
+node scripts/daily_health_check.js
+```
+
+这个脚本不依赖本地端口、浏览器 `file://` 权限或外部 `$CODEX_HOME` 写入权限。检查结果会写到项目内：
+
+- [.automation-reports/ielts-coach-daily-check/memory.md](/Users/jojo/Documents/Codex/2026-05-08/daily-work-dashboard/雅思教练/.automation-reports/ielts-coach-daily-check/memory.md)
+- [.automation-reports/ielts-coach-daily-check/last-report.json](/Users/jojo/Documents/Codex/2026-05-08/daily-work-dashboard/雅思教练/.automation-reports/ielts-coach-daily-check/last-report.json)
 
 ## 当前仍然存在的限制
 

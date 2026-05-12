@@ -1,0 +1,616 @@
+diff --git a/README.md b/README.md
+index de939a8..5adf979 100644
+--- a/README.md
++++ b/README.md
+@@ -129,6 +129,7 @@
+ 当前已添加每日自动检查：
+ 
+ - `IELTS Coach Daily Check`
++- 本地自检脚本：[scripts/daily_health_check.js](/Users/jojo/Documents/Codex/2026-05-08/daily-work-dashboard/雅思教练/scripts/daily_health_check.js)
+ 
+ 它会每天检查：
+ 
+@@ -137,6 +138,17 @@
+ - 各核心模块是否仍然接到最新内容
+ - 同步入口是否存在
+ 
++在受限沙盒中，优先运行：
++
++```bash
++node scripts/daily_health_check.js
++```
++
++这个脚本不依赖本地端口、浏览器 `file://` 权限或外部 `$CODEX_HOME` 写入权限。检查结果会写到项目内：
++
++- [.automation-reports/ielts-coach-daily-check/memory.md](/Users/jojo/Documents/Codex/2026-05-08/daily-work-dashboard/雅思教练/.automation-reports/ielts-coach-daily-check/memory.md)
++- [.automation-reports/ielts-coach-daily-check/last-report.json](/Users/jojo/Documents/Codex/2026-05-08/daily-work-dashboard/雅思教练/.automation-reports/ielts-coach-daily-check/last-report.json)
++
+ ## 当前仍然存在的限制
+ 
+ - 这还不是正式 IELTS 评分系统
+diff --git a/app.js b/app.js
+index eed1d3c..df5af1e 100644
+--- a/app.js
++++ b/app.js
+@@ -88,6 +88,7 @@ const defaultState = {
+     phoneticExercises: [], // Linked dynamically
+     currentPhoneticIndex: 0,
+     activityLog: {},
++    moduleActivityLog: {},
+     vocabSRS: [],
+     adaptiveCompleted: [],
+     lastTaskResetDate: '',
+@@ -141,6 +142,7 @@ function hydrateState(rawState) {
+         vocabSRS: Array.isArray(source.vocabSRS) ? source.vocabSRS : [],
+         adaptiveCompleted: Array.isArray(source.adaptiveCompleted) ? source.adaptiveCompleted : [],
+         activityLog: source.activityLog && typeof source.activityLog === 'object' ? source.activityLog : {},
++        moduleActivityLog: source.moduleActivityLog && typeof source.moduleActivityLog === 'object' ? source.moduleActivityLog : {},
+         speakingInput: source.speakingInput || '',
+         startDate: source.startDate || '2026-05-05',
+         examDate: source.examDate || defaultState.examDate,
+@@ -968,7 +970,10 @@ function renderPhoneticsView() {
+                 <button id="record-btn" onclick="toggleRecording()" style="width: 70px; height: 70px; border-radius: 50%; background: #ff5252; border: none; font-size: 1.8rem; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 20px rgba(255, 82, 82, 0.3);">🎙️</button>
+                 <p id="record-status" style="font-size: 0.9rem; color: var(--text-dim);">先做辨音模仿和短语跟读，再录整句。系统主要看 <strong>${ex.words[0]}</strong> 和 <strong>${ex.words[1]}</strong> 在整句里有没有保持清楚。</p>
+                 <div id="audio-playback" style="display: none;"><audio id="player" controls style="height: 35px;"></audio></div>
+-                <button id="next-phonetic-btn" onclick="nextPhoneticExercise()" style="background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border); padding: 12px 30px; border-radius: 8px; color: white; cursor: pointer; font-weight: 600;">完成今日发音训练</button>
++                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center;">
++                    <button id="next-phonetic-btn" onclick="nextPhoneticExercise()" style="background: rgba(0,229,255,0.1); border: 1px solid var(--accent-secondary); padding: 12px 22px; border-radius: 8px; color: var(--accent-secondary); cursor: pointer; font-weight: 600;">已录音，完成训练</button>
++                    <button onclick="completePhoneticsWithoutRecording()" style="background: rgba(255,255,255,0.08); border: 1px solid var(--glass-border); padding: 12px 22px; border-radius: 8px; color: white; cursor: pointer; font-weight: 600;">完成跟读（未录音）</button>
++                </div>
+             </div>
+         </div>
+     `;
+@@ -1034,6 +1039,15 @@ function nextPhoneticExercise() {
+     switchView('daily-plan');
+ }
+ 
++function completePhoneticsWithoutRecording() {
++    const status = document.getElementById('record-status');
++    if (status) {
++        status.innerHTML = '已按未录音跟读完成记录。下次如果浏览器允许麦克风，再补录音对比清晰度。';
++        status.style.color = 'var(--accent-secondary)';
++    }
++    nextPhoneticExercise();
++}
++
+ async function playContrastPair() {
+     const session = getPhoneticExerciseForCurrentDay();
+     const ex = session.exercise;
+@@ -1260,6 +1274,91 @@ function buildWritingSessionForCurrentDay() {
+     return { day, rawTask, prompt, taskType, stage, goal, checklist, targetWords, isTask1 };
+ }
+ 
++function getWordCount(text) {
++    return (text || '').trim().split(/\s+/).filter(Boolean).length;
++}
++
++function getPromptKeywords(prompt) {
++    const stopWords = new Set([
++        'the', 'and', 'or', 'to', 'of', 'in', 'a', 'an', 'is', 'are', 'was', 'were',
++        'that', 'this', 'these', 'those', 'some', 'people', 'think', 'believe',
++        'should', 'with', 'from', 'while', 'others', 'your', 'own', 'opinion',
++        'give', 'reasons', 'answer', 'include', 'relevant', 'examples'
++    ]);
++    return Array.from(new Set((prompt || '')
++        .toLowerCase()
++        .match(/[a-z]{4,}/g) || []))
++        .filter(word => !stopWords.has(word))
++        .slice(0, 14);
++}
++
++function assessWritingPromptFit(text, session) {
++    const keywords = getPromptKeywords(session.prompt);
++    if (!keywords.length) return { score: 1, matched: [], missing: [] };
++
++    const normalized = normalizeEnglishText(text);
++    const matched = keywords.filter(word => normalized.includes(word));
++    return {
++        score: matched.length / keywords.length,
++        matched,
++        missing: keywords.filter(word => !matched.includes(word)).slice(0, 6)
++    };
++}
++
++function getWritingCompletionStatus(words, promptFit, session) {
++    const minimumWords = Math.ceil(session.targetWords * 0.7);
++    if (words < minimumWords) {
++        return {
++            complete: false,
++            label: '已提交，但还未达标',
++            message: `当前 ${words} 词，建议至少写到 ${minimumWords} 词后再计入完成。`
++        };
++    }
++    if (promptFit.score < 0.22) {
++        return {
++            complete: false,
++            label: '已提交，但疑似偏题',
++            message: `这篇文章和题目关键词连接偏弱，请先补回主题词：${promptFit.missing.join(' / ') || '题目核心词'}。`
++        };
++    }
++    return {
++        complete: true,
++        label: '已达标完成',
++        message: session.isTask1 ? '字数和题目贴合度已达到今日完成标准。' : '字数、题目贴合度和展开基础已达到今日完成标准。'
++    };
++}
++
++function assessWritingRubric({ words, connectors, paragraphCount, accuracyIssues, promptFit, session }) {
++    const minimumWords = Math.ceil(session.targetWords * 0.7);
++    const taskResponse = Math.max(20, Math.min(90, Math.round(promptFit.score * 70) + (words >= minimumWords ? 20 : 0)));
++    const coherence = Math.min(90, 25 + Math.min(connectors, 5) * 10 + Math.min(paragraphCount, 4) * 8);
++    const lexical = Math.min(88, 35 + Math.min(new Set((state.essays.current || '').toLowerCase().match(/[a-z]{6,}/g) || []).size, 18) * 3);
++    const grammar = Math.max(25, 82 - accuracyIssues * 10);
++
++    return [
++        {
++            name: 'Task Response',
++            score: taskResponse,
++            note: taskResponse >= 70 ? '基本回应题目。' : '需要更紧扣题目关键词和任务要求。'
++        },
++        {
++            name: 'Coherence',
++            score: coherence,
++            note: coherence >= 70 ? '结构和连接开始稳定。' : '建议分段更清楚，并补足连接表达。'
++        },
++        {
++            name: 'Lexical',
++            score: lexical,
++            note: lexical >= 70 ? '词汇变化还可以。' : '词汇范围偏窄，建议加入主题词和同义替换。'
++        },
++        {
++            name: 'Grammar',
++            score: grammar,
++            note: grammar >= 70 ? '暂未发现太多低级准确性问题。' : '准确性会拖累整体表达，需要先控错。'
++        }
++    ];
++}
++
+ function renderWritingView() {
+     const session = buildWritingSessionForCurrentDay();
+     appView.innerHTML = `
+@@ -1305,11 +1404,14 @@ async function saveAndCheckEssay() {
+     feedback.innerHTML = `<div class="loading">正在扫描语法、拼写与表达逻辑...</div>`;
+     try {
+         const results = await hybridAnalysis(text);
+-        const words = text.split(/\s+/).filter(Boolean).length;
++        const words = getWordCount(text);
+         const sentences = text.split(/[.!?]+/).map(s => s.trim()).filter(Boolean).length;
+         const connectors = (text.match(/\b(because|however|therefore|for example|for instance|in addition|firstly|secondly|overall|while)\b/gi) || []).length;
+         const paragraphCount = text.split(/\n+/).map(p => p.trim()).filter(Boolean).length;
+         const accuracyIssues = results.filter(res => res.type === 'error').length;
++        const promptFit = assessWritingPromptFit(text, session);
++        const completion = getWritingCompletionStatus(words, promptFit, session);
++        const rubric = assessWritingRubric({ words, connectors, paragraphCount, accuracyIssues, promptFit, session });
+         const developmentHint = session.isTask1
+             ? (paragraphCount >= 2 && words >= 140 ? '结构基本够用了，下一步重点是概述和对比。' : '先保证有总览句，再分段写关键变化。')
+             : (paragraphCount >= 3 && connectors >= 2 ? '结构开始像 IELTS Task 2 了，下一步重点是把理由展开。' : '先把立场和两段理由写清楚，再谈高级表达。');
+@@ -1321,10 +1423,34 @@ async function saveAndCheckEssay() {
+                 <div style="background: rgba(255,183,77,0.06); border: 1px solid rgba(255,183,77,0.2); border-radius: 10px; padding: 0.9rem; font-size: 0.85rem; color: var(--text-dim);">连接表达：${connectors}</div>
+                 <div style="background: rgba(255,82,82,0.06); border: 1px solid rgba(255,82,82,0.2); border-radius: 10px; padding: 0.9rem; font-size: 0.85rem; color: var(--text-dim);">准确性问题：${accuracyIssues}</div>
+             </div>
++            <div style="padding: 1rem; background: ${completion.complete ? 'rgba(0,229,255,0.05)' : 'rgba(255,183,77,0.08)'}; border: 1px solid ${completion.complete ? 'rgba(0,229,255,0.2)' : 'rgba(255,183,77,0.28)'}; border-radius: 12px; margin-bottom: 1rem;">
++                <div style="font-weight: 700; color: ${completion.complete ? 'var(--accent-secondary)' : '#ffb74d'}; margin-bottom: 0.35rem;">${completion.label}</div>
++                <div style="font-size: 0.9rem; line-height: 1.6; color: #f4f4f4;">${completion.message}</div>
++            </div>
++            ${promptFit.score < 0.35 ? `
++                <div style="padding: 1rem; background: rgba(255,82,82,0.05); border: 1px solid rgba(255,82,82,0.22); border-radius: 12px; margin-bottom: 1rem;">
++                    <div style="font-weight: 700; color: #ff8a80; margin-bottom: 0.35rem;">题目贴合度提醒</div>
++                    <div style="font-size: 0.9rem; line-height: 1.6; color: #f4f4f4;">这篇文章可能没有紧扣题目。建议补入或展开这些核心词：${promptFit.missing.join(' / ') || '题目核心词'}。</div>
++                </div>
++            ` : ''}
+             <div style="padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 12px; border-left: 4px solid var(--accent-secondary); margin-bottom: 1rem;">
+                 <div style="font-weight: 700; color: var(--accent-secondary); margin-bottom: 0.35rem;">今日判断</div>
+                 <div style="font-size: 0.92rem; line-height: 1.6; color: #f4f4f4;">${developmentHint}</div>
+             </div>
++            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.8rem; margin-bottom: 1rem;">
++                ${rubric.map(item => `
++                    <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 12px; padding: 1rem;">
++                        <div style="display:flex; justify-content:space-between; gap:0.8rem; margin-bottom:0.45rem;">
++                            <span style="font-size:0.82rem; color:var(--text-dim);">${item.name}</span>
++                            <strong style="color:${item.score >= 70 ? 'var(--accent-secondary)' : '#ffb74d'};">${item.score}%</strong>
++                        </div>
++                        <div style="height:6px; background: rgba(255,255,255,0.06); border-radius:4px; overflow:hidden; margin-bottom:0.55rem;">
++                            <div style="width:${item.score}%; height:100%; background:${item.score >= 70 ? 'var(--accent-secondary)' : '#ffb74d'};"></div>
++                        </div>
++                        <div style="font-size:0.8rem; line-height:1.5; color:var(--text-dim);">${item.note}</div>
++                    </div>
++                `).join('')}
++            </div>
+             <div style="display: flex; flex-direction: column; gap: 1rem;">`;
+         results.forEach(res => {
+             const color = res.type === 'error' ? '#ff5252' : (res.type === 'success' ? 'var(--accent-secondary)' : '#ffb74d');
+@@ -1350,7 +1476,13 @@ async function saveAndCheckEssay() {
+                 <span style="color: var(--accent-secondary); font-weight: 700;">📈 6.5 潜力评估：${predictPotential(results)}</span>
+             </div>
+         </div>`;
+-        feedback.innerHTML = html; markTaskComplete('writing');
++        feedback.innerHTML = html;
++        if (completion.complete) {
++            markTaskComplete('writing');
++        } else {
++            saveState();
++            updateProgress();
++        }
+     } catch (err) { feedback.innerHTML = `<p style="color:#ff5252;">分析超时。</p>`; } finally { btn.disabled = false; btn.innerHTML = "重新进行诊断"; }
+ }
+ 
+@@ -1565,18 +1697,15 @@ function generateOptimizedText(original, results) {
+ function generateIELTSVersion(text) {
+     let ielts = generateOptimizedText(text, []); // Start with a basic clean version
+     
+-    // Academic Vocabulary Upgrades
++    // Keep upgrades conservative. Broad word-for-word replacements can corrupt
++    // natural phrases such as "for example" or "go to school".
+     const upgrades = [
+         { from: /\bliving in\b/gi, to: "residing in" },
+-        { from: /\bsent my daughter to school\b/gi, to: "escorted my daughter to her educational institution" },
+-        { from: /\bgo to\b/gi, to: "visit" },
+-        { from: /\bexercise\b/gi, to: "physical activities" },
++        { from: /\bvery important\b/gi, to: "particularly important" },
++        { from: /\ba lot of\b/gi, to: "many" },
+         { from: /\busually\b/gi, to: "typically" },
+-        { from: /\bnow\b/gi, to: "at present" },
+-        { from: /\bafter\b/gi, to: "subsequently" },
+-        { from: /\bfor\b/gi, to: "in order to engage in" },
+-        { from: /\bi with\b/gi, to: "Accompanied by" },
+-        { from: /\bmyself\b/gi, to: "individually" }
++        { from: /\bnowadays\b/gi, to: "in contemporary society" },
++        { from: /\bI think\b/gi, to: "I would argue that" }
+     ];
+ 
+     upgrades.forEach(u => {
+@@ -1590,6 +1719,28 @@ function generateIELTSVersion(text) {
+     return ielts;
+ }
+ 
++function getModuleLabel(type) {
++    const labels = {
++        grammar: '语法',
++        phonetics: '发音',
++        listening: '听力',
++        vocabulary: '词汇',
++        reading: '阅读',
++        writing: '写作',
++        speaking: '口语',
++        'error-bank': '错题'
++    };
++    return labels[type] || type;
++}
++
++function buildDashboardModuleAdvice(stats) {
++    if (stats.activeDays === 0) return '最近 7 天还没有模块记录，今天先完成词汇、听力、阅读三件套。';
++    if (stats.missingModules.includes('writing') && stats.missingModules.includes('speaking')) return '最近输出模块偏少，下一步优先补写作或口语。';
++    if (stats.missingModules.includes('listening') || stats.missingModules.includes('reading')) return '输入模块覆盖还不完整，下一步补听力或阅读。';
++    if (stats.missingModules.length) return `下一步补齐：${stats.missingModules.map(getModuleLabel).join(' / ')}。`;
++    return '最近 7 天七个核心模块都有记录，接下来重点提高写作和口语质量。';
++}
++
+ function renderDashboard() {
+     const today = new Date();
+     const exam = new Date(state.examDate);
+@@ -1604,6 +1755,9 @@ function renderDashboard() {
+     const writingSamples = Object.keys(state.activityLog || {}).length;
+     const writingProgress = Math.min(100, 20 + writingSamples * 3 + (((state.essays || {}).current || '').length > 80 ? 15 : 0));
+     const streak = calculateStreak();
++    const moduleStats = getRecentActivityStats(7);
++    const moduleAdvice = buildDashboardModuleAdvice(moduleStats);
++    const moduleCoverage = 7 - moduleStats.missingModules.length;
+     const scoreEstimate = todayCompletion >= 85 && streak >= 7 ? 'A2-B1 过渡期' : todayCompletion >= 55 ? 'A2 稳定筑基期' : 'A2 起步期';
+     const dashboardAdvice = grammarWeakness >= 6
+         ? '当前最该优先收的是语法准确性，不然写作和口语都会被一起拖住。'
+@@ -1631,6 +1785,25 @@ function renderDashboard() {
+                 `).join('')}
+             </div>
+ 
++            <div class="card" style="padding: 1.5rem;">
++                <h4 style="margin-bottom: 1rem;">🧭 最近 7 天模块覆盖</h4>
++                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.9rem; margin-bottom: 1rem;">
++                    <div style="padding:1rem; border-radius:12px; border:1px solid rgba(0,229,255,0.2); background:rgba(0,229,255,0.05);">
++                        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:0.4rem;">覆盖模块</div>
++                        <div style="font-size:1.1rem; color:var(--accent-secondary); font-weight:700;">${moduleCoverage}/7</div>
++                    </div>
++                    <div style="padding:1rem; border-radius:12px; border:1px solid rgba(124,77,255,0.2); background:rgba(124,77,255,0.06);">
++                        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:0.4rem;">常练模块</div>
++                        <div style="font-size:0.92rem; line-height:1.6; color:#f4f4f4;">${moduleStats.strongestModules.length ? moduleStats.strongestModules.map(item => `${getModuleLabel(item.module)} ${item.count}`).join(' / ') : '暂无记录'}</div>
++                    </div>
++                    <div style="padding:1rem; border-radius:12px; border:1px solid rgba(255,183,77,0.2); background:rgba(255,183,77,0.06);">
++                        <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:0.4rem;">缺口模块</div>
++                        <div style="font-size:0.92rem; line-height:1.6; color:#f4f4f4;">${moduleStats.missingModules.length ? moduleStats.missingModules.map(getModuleLabel).join(' / ') : '暂无缺口'}</div>
++                    </div>
++                </div>
++                <div style="padding: 1rem; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: 12px; font-size: 0.92rem; line-height: 1.6; color: #f4f4f4;">${moduleAdvice}</div>
++            </div>
++
+             <!-- Stats Charts -->
+             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                 <div class="card">
+@@ -1739,7 +1912,7 @@ function toggleTask(id) {
+     if (t) { 
+         const wasCompleted = !!t.completed;
+         t.completed = !t.completed; 
+-        if (!wasCompleted && t.completed) logActivity();
++        if (!wasCompleted && t.completed) logActivity(t.type);
+         saveState(); updateProgress(); renderDailyPlan(); 
+     } 
+ }
+@@ -1747,13 +1920,16 @@ function markTaskComplete(type) {
+     const t = state.dailyTasks.find(x => x.type === type); 
+     if (t && !t.completed) { 
+         t.completed = true; 
+-        logActivity();
++        logActivity(type);
+         saveState(); updateProgress(); 
+     } 
+ }
+-function logActivity() {
++function logActivity(type = 'general') {
+     const dateStr = getTodayDateString();
++    state.moduleActivityLog = state.moduleActivityLog || {};
+     state.activityLog[dateStr] = (state.activityLog[dateStr] || 0) + 1;
++    state.moduleActivityLog[dateStr] = state.moduleActivityLog[dateStr] || {};
++    state.moduleActivityLog[dateStr][type] = (state.moduleActivityLog[dateStr][type] || 0) + 1;
+ }
+ function updateProgress() {
+     const done = state.dailyTasks.filter(t => t.completed).length; const p = Math.round((done / state.dailyTasks.length) * 100);
+@@ -1857,8 +2033,49 @@ function getRecentActiveDays(days = 30) {
+     return active;
+ }
+ 
++function getRecentActivityStats(days = 7) {
++    const log = state.activityLog || {};
++    const moduleLog = state.moduleActivityLog || {};
++    const today = new Date();
++    const entries = [];
++    for (let i = days - 1; i >= 0; i--) {
++        const d = new Date(today);
++        d.setDate(today.getDate() - i);
++        const dateStr = getDateKey(d);
++        entries.push({ date: dateStr, count: log[dateStr] || 0, modules: moduleLog[dateStr] || {} });
++    }
++    const activeDays = entries.filter(item => item.count > 0).length;
++    const totalTasks = entries.reduce((sum, item) => sum + item.count, 0);
++    const bestDay = entries.reduce((best, item) => item.count > best.count ? item : best, entries[0] || { date: '', count: 0 });
++    const quietDays = entries.filter(item => item.count === 0).map(item => item.date);
++    const average = days ? Math.round((totalTasks / days) * 10) / 10 : 0;
++    const moduleTotals = entries.reduce((totals, item) => {
++        Object.entries(item.modules || {}).forEach(([module, count]) => {
++            totals[module] = (totals[module] || 0) + count;
++        });
++        return totals;
++    }, {});
++    const expectedModules = ['grammar', 'phonetics', 'listening', 'vocabulary', 'reading', 'writing', 'speaking'];
++    const missingModules = expectedModules.filter(module => !moduleTotals[module]);
++    const strongestModules = Object.entries(moduleTotals)
++        .sort((a, b) => b[1] - a[1])
++        .slice(0, 3)
++        .map(([module, count]) => ({ module, count }));
++    return { entries, activeDays, totalTasks, bestDay, quietDays, average, moduleTotals, missingModules, strongestModules };
++}
++
++function getWeeklyReviewAdvice(stats, grammarErrors, writingWords, vocabPool) {
++    if (stats.activeDays < 3) return '本周最大问题是连续性不足。下周先别追求全模块，先固定每天完成 3 个输入模块。';
++    if (stats.missingModules.includes('writing') || stats.missingModules.includes('speaking')) return '本周输出模块记录不足。下周至少补 2 次写作或口语，别只做输入。';
++    if (grammarErrors >= 4) return '本周语法错题偏多。下周建议先语法，再写作，把准确性放到速度前面。';
++    if (writingWords < 120) return '本周输出证据偏少。下周至少安排 2 次写作或口语成段输出。';
++    if (vocabPool < 4) return '本周词汇复现池偏薄。下周遇到生词要主动标难词，让系统有复习材料。';
++    return '本周节奏基本成立。下周可以保持输入，同时提高写作和口语的完成质量。';
++}
++
+ function buildMonthlyAssessment() {
+     const activeDays = getRecentActiveDays(30);
++    const activity30 = getRecentActivityStats(30);
+     const streak = calculateStreak();
+     const grammarErrors = (state.errorBank || []).filter(e => e.type === 'Grammar').length;
+     const vocabPool = (state.vocabSRS || []).length;
+@@ -1872,6 +2089,9 @@ function buildMonthlyAssessment() {
+     const writingScore = Math.min(100, writingWords >= 220 ? 78 : writingWords >= 140 ? 60 : writingWords >= 80 ? 42 : 20);
+     const integrationScore = Math.min(100, Math.round(((finishedToday + Math.min(streak, 7)) / 14) * 100));
+     const averageScore = Math.round((consistencyScore + grammarScore + vocabScore + writingScore + integrationScore) / 5);
++    const dataConfidence = activeDays >= 20 ? '高' : activeDays >= 10 ? '中' : '低';
++    const moduleCoverage = 7 - activity30.missingModules.length;
++    const moduleCoverageScore = Math.round((moduleCoverage / 7) * 100);
+ 
+     const bandEstimate = averageScore >= 75
+         ? '接近 B1，开始具备冲 6.0-6.5 的基础'
+@@ -1907,6 +2127,14 @@ function buildMonthlyAssessment() {
+         writingScore,
+         integrationScore,
+         averageScore,
++        totalTasks30: activity30.totalTasks,
++        averageTasks30: activity30.average,
++        quietDays30: activity30.quietDays.length,
++        moduleCoverage,
++        moduleCoverageScore,
++        missingModules30: activity30.missingModules,
++        strongestModules30: activity30.strongestModules,
++        dataConfidence,
+         bandEstimate,
+         biggestRisk,
+         nextMonthFocus
+@@ -1927,11 +2155,26 @@ function startExam(type) {
+             }
+             const vocabItems = vocabPool.slice(0, 4).map(item => typeof item === 'string' ? item : item.word);
+             const errorGrammar = state.errorBank.filter(e => e.type === 'Grammar').slice(0, 3);
++            const weeklyStats = getRecentActivityStats(7);
++            const writingWords = getWordCount((state.essays || {}).current || '');
++            const weeklyAdvice = getWeeklyReviewAdvice(weeklyStats, errorGrammar.length, writingWords, (state.vocabSRS || []).length);
+             const reviewSummary = [
+-                `本周完成模块：${state.dailyTasks.filter(t => t.completed).length}/${state.dailyTasks.length}`,
++                `近 7 天活跃：${weeklyStats.activeDays}/7 天`,
++                `近 7 天完成动作：${weeklyStats.totalTasks} 次`,
++                `今天完成模块：${state.dailyTasks.filter(t => t.completed).length}/${state.dailyTasks.length}`,
+                 `语法错题数：${errorGrammar.length}`,
+-                `词汇复习池：${(state.vocabSRS || []).length} 词`
++                `词汇复习池：${(state.vocabSRS || []).length} 词`,
++                `最近写作字数：${writingWords}`
+             ];
++            const moduleLabels = {
++                grammar: '语法',
++                phonetics: '发音',
++                listening: '听力',
++                vocabulary: '词汇',
++                reading: '阅读',
++                writing: '写作',
++                speaking: '口语'
++            };
+             
+             container.innerHTML = `
+                 <div class="card" style="background: rgba(255,255,255,0.02);">
+@@ -1941,6 +2184,28 @@ function startExam(type) {
+                             <div style="background: rgba(124,77,255,0.06); border: 1px solid rgba(124,77,255,0.2); border-radius: 10px; padding: 0.9rem; font-size: 0.85rem; color: var(--text-dim);">${item}</div>
+                         `).join('')}
+                     </div>
++                    <div style="padding: 1rem; background: rgba(0,229,255,0.05); border: 1px solid rgba(0,229,255,0.2); border-radius: 12px; margin-bottom: 1rem;">
++                        <div style="font-weight: 700; color: var(--accent-secondary); margin-bottom: 0.4rem;">本周数据判断</div>
++                        <div style="font-size: 0.9rem; line-height: 1.6; color: #f4f4f4;">${weeklyAdvice}</div>
++                    </div>
++                    <div style="display: grid; grid-template-columns: repeat(7, minmax(34px, 1fr)); gap: 0.4rem; margin-bottom: 1rem;">
++                        ${weeklyStats.entries.map(item => `
++                            <div title="${item.date}: ${item.count} 次" style="text-align:center; padding:0.55rem 0.25rem; border-radius: 8px; border: 1px solid ${item.count ? 'rgba(0,229,255,0.25)' : 'var(--glass-border)'}; background:${item.count ? 'rgba(0,229,255,0.06)' : 'rgba(255,255,255,0.03)'};">
++                                <div style="font-size:0.68rem; color:var(--text-dim);">${item.date.slice(5)}</div>
++                                <div style="font-weight:700; color:${item.count ? 'var(--accent-secondary)' : 'var(--text-dim)'};">${item.count}</div>
++                            </div>
++                        `).join('')}
++                    </div>
++                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.8rem; margin-bottom: 1rem;">
++                        <div style="padding: 0.9rem; border-radius: 10px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.03);">
++                            <div style="font-size:0.78rem; color:var(--text-dim); margin-bottom:0.4rem;">本周强项记录</div>
++                            <div style="font-size:0.9rem; line-height:1.6; color:#f4f4f4;">${weeklyStats.strongestModules.length ? weeklyStats.strongestModules.map(item => `${moduleLabels[item.module] || item.module} ${item.count}`).join(' / ') : '暂无模块级记录'}</div>
++                        </div>
++                        <div style="padding: 0.9rem; border-radius: 10px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.03);">
++                            <div style="font-size:0.78rem; color:var(--text-dim); margin-bottom:0.4rem;">本周缺口</div>
++                            <div style="font-size:0.9rem; line-height:1.6; color:#f4f4f4;">${weeklyStats.missingModules.length ? weeklyStats.missingModules.map(module => moduleLabels[module] || module).join(' / ') : '七个核心模块都有记录'}</div>
++                        </div>
++                    </div>
+                     <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                         <p><strong>1. 词汇回忆与造句:</strong></p>
+                         <ul style="padding-left: 1.5rem; font-size: 0.9rem; color: var(--text-dim);">
+@@ -1968,11 +2233,15 @@ function startExam(type) {
+                     <div style="padding: 1rem; background: rgba(0,229,255,0.05); border: 1px solid rgba(0,229,255,0.2); border-radius: 12px;">
+                         <div style="font-size: 0.8rem; color: var(--text-dim); margin-bottom: 0.35rem;">当前判断</div>
+                         <div style="font-size: 1rem; color: var(--accent-secondary); font-weight: 700; margin-bottom: 0.45rem;">${report.bandEstimate}</div>
+-                        <div style="font-size: 0.9rem; line-height: 1.6; color: #f4f4f4;">这不是正式 band 分数，而是根据你最近 30 天的训练连续性、词汇复现、语法错误和写作输出做的阶段判断。</div>
++                        <div style="font-size: 0.9rem; line-height: 1.6; color: #f4f4f4;">这不是正式 band 分数，而是根据你最近 30 天的训练连续性、词汇复现、语法错误和写作输出做的阶段判断。当前数据置信度：${report.dataConfidence}。</div>
+                     </div>
+ 
+                     <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.8rem;">
+                         <div style="background: rgba(124,77,255,0.06); border: 1px solid rgba(124,77,255,0.2); border-radius: 10px; padding: 0.9rem; font-size: 0.85rem; color: var(--text-dim);">近 30 天活跃天数：${report.activeDays}</div>
++                        <div style="background: rgba(124,77,255,0.06); border: 1px solid rgba(124,77,255,0.2); border-radius: 10px; padding: 0.9rem; font-size: 0.85rem; color: var(--text-dim);">近 30 天完成动作：${report.totalTasks30}</div>
++                        <div style="background: rgba(124,77,255,0.06); border: 1px solid rgba(124,77,255,0.2); border-radius: 10px; padding: 0.9rem; font-size: 0.85rem; color: var(--text-dim);">日均动作：${report.averageTasks30}</div>
++                        <div style="background: rgba(124,77,255,0.06); border: 1px solid rgba(124,77,255,0.2); border-radius: 10px; padding: 0.9rem; font-size: 0.85rem; color: var(--text-dim);">空白天数：${report.quietDays30}</div>
++                        <div style="background: rgba(124,77,255,0.06); border: 1px solid rgba(124,77,255,0.2); border-radius: 10px; padding: 0.9rem; font-size: 0.85rem; color: var(--text-dim);">模块覆盖：${report.moduleCoverage}/7</div>
+                         <div style="background: rgba(124,77,255,0.06); border: 1px solid rgba(124,77,255,0.2); border-radius: 10px; padding: 0.9rem; font-size: 0.85rem; color: var(--text-dim);">连续打卡：${report.streak} 天</div>
+                         <div style="background: rgba(124,77,255,0.06); border: 1px solid rgba(124,77,255,0.2); border-radius: 10px; padding: 0.9rem; font-size: 0.85rem; color: var(--text-dim);">词汇复习池：${report.vocabPool} 词</div>
+                         <div style="background: rgba(124,77,255,0.06); border: 1px solid rgba(124,77,255,0.2); border-radius: 10px; padding: 0.9rem; font-size: 0.85rem; color: var(--text-dim);">最近写作字数：${report.writingWords}</div>
+@@ -1995,6 +2264,10 @@ function startExam(type) {
+                             <div style="display:flex; justify-content:space-between; font-size:0.82rem; margin-bottom:0.4rem;"><span>写作输出</span><span>${report.writingScore}%</span></div>
+                             <div style="height:6px; background: rgba(255,255,255,0.06); border-radius:4px; overflow:hidden;"><div style="width:${report.writingScore}%; height:100%; background:#ffb74d;"></div></div>
+                         </div>
++                        <div style="background: rgba(255,255,255,0.03); border-radius: 12px; padding: 1rem;">
++                            <div style="display:flex; justify-content:space-between; font-size:0.82rem; margin-bottom:0.4rem;"><span>模块覆盖</span><span>${report.moduleCoverageScore}%</span></div>
++                            <div style="height:6px; background: rgba(255,255,255,0.06); border-radius:4px; overflow:hidden;"><div style="width:${report.moduleCoverageScore}%; height:100%; background:#4caf50;"></div></div>
++                        </div>
+                     </div>
+ 
+                     <div style="padding: 1rem; background: rgba(255,82,82,0.05); border: 1px solid rgba(255,82,82,0.2); border-radius: 12px;">
+@@ -2060,6 +2333,36 @@ function buildReadingSessionForCurrentDay() {
+     };
+ }
+ 
++function getReadingEvidence(content, question) {
++    const answer = question.answerText || '';
++    const paragraphs = (content.text || '').match(/\([A-Z]\)[\s\S]*?(?=\n\n\([A-Z]\)|$)/g) || [];
++    const answerWords = normalizeEnglishText(answer)
++        .split(' ')
++        .filter(word => word.length >= 5)
++        .slice(0, 8);
++
++    if (!paragraphs.length || !answerWords.length) {
++        return '定位建议：回到原文找题目关键词和答案同义替换。';
++    }
++
++    const best = paragraphs.map((paragraph) => {
++        const normalized = normalizeEnglishText(paragraph);
++        const score = answerWords.filter(word => normalized.includes(word)).length;
++        return { paragraph, score };
++    }).sort((a, b) => b.score - a.score)[0];
++
++    if (!best || best.score === 0) {
++        return '定位建议：回到原文找题目关键词和答案同义替换。';
++    }
++
++    const label = (best.paragraph.match(/^\(([A-Z])\)/) || [])[1] || '?';
++    const compact = best.paragraph
++        .replace(/^\([A-Z]\)\s*/, '')
++        .replace(/\s+/g, ' ')
++        .slice(0, 180);
++    return `定位建议：Paragraph ${label}。依据片段：${compact}...`;
++}
++
+ function renderReadingView() {
+     const session = buildReadingSessionForCurrentDay();
+     const content = session.content;
+@@ -2148,6 +2451,7 @@ function checkReadingAnswers() {
+                 <div style="font-size: 0.92rem; line-height: 1.6;">你的答案：${userAnswer || '未作答'}</div>
+                 <div style="font-size: 0.92rem; line-height: 1.6; color: var(--text-dim);">参考答案：${q.answerText || q.answerKey || '请结合原文核对'}</div>
+                 <div style="font-size: 0.86rem; line-height: 1.6; color: var(--text-dim); margin-top: 0.45rem;">${q.explanation}</div>
++                <div style="font-size: 0.86rem; line-height: 1.6; color: var(--accent-secondary); margin-top: 0.45rem;">${getReadingEvidence(session.content, q)}</div>
+             </div>
+         `;
+     }).join('');
+@@ -2438,14 +2742,21 @@ function renderSettingsView() {
+ function saveSettings() {
+     safeSetItem('ghToken', document.getElementById('gh-token').value);
+     safeSetItem('ghRepo', document.getElementById('gh-repo').value);
+-    alert(persistentStorageAvailable ? "✅ 配置已保存！" : "✅ 配置已暂存到当前会话！");
++    const status = document.getElementById('sync-status');
++    const message = persistentStorageAvailable ? "✅ 配置已保存！" : "✅ 配置已暂存到当前会话！";
++    if (status) status.innerHTML = `<span style="color: #4caf50;">${message}</span>`;
++    alert(message);
+ }
+ 
+ async function syncToCloud() {
+     const token = safeGetItem('ghToken', '');
+     const repo = safeGetItem('ghRepo', '');
+     const status = document.getElementById('sync-status');
+-    if (!token || !repo) return alert("请先配置 Token 和仓库路径！");
++    if (!token || !repo) {
++        const message = "请先配置 Token 和仓库路径！";
++        if (status) status.innerHTML = `<span style="color: #ffb74d;">⚠️ ${message}</span>`;
++        return alert(message);
++    }
+ 
+     status.textContent = "正在上传...";
+     try {
+@@ -2490,7 +2801,11 @@ async function syncFromCloud() {
+     const token = safeGetItem('ghToken', '');
+     const repo = safeGetItem('ghRepo', '');
+     const status = document.getElementById('sync-status');
+-    if (!token || !repo) return alert("请先配置 Token 和仓库路径！");
++    if (!token || !repo) {
++        const message = "请先配置 Token 和仓库路径！";
++        if (status) status.innerHTML = `<span style="color: #ffb74d;">⚠️ ${message}</span>`;
++        return alert(message);
++    }
+ 
+     status.textContent = "正在从云端拉取...";
+     try {
+diff --git a/docs/DAILY_CHECKLIST.md b/docs/DAILY_CHECKLIST.md
+index cff05db..5a8752a 100644
+--- a/docs/DAILY_CHECKLIST.md
++++ b/docs/DAILY_CHECKLIST.md
+@@ -6,6 +6,14 @@
+ 
+ ## 每日检查项
+ 
++自动化优先执行：
++
++```bash
++node scripts/daily_health_check.js
++```
++
++它会在不启动本地服务器、不打开浏览器的情况下完成日期、任务重置、内容接线、核心视图渲染、周复盘、月度诊断和同步入口检查。结果保存在项目内 `.automation-reports/ielts-coach-daily-check/`，避免依赖外部自动化记忆目录权限。
++
+ ### 1. 日期与每日状态
+ 
+ - 右上角日期是否显示为今天

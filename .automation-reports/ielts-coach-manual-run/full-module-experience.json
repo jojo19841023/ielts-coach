@@ -1,0 +1,195 @@
+{
+  "runAt": "2026-05-12T05:10:09.385Z",
+  "date": "2026年5月12日",
+  "day": 8,
+  "modules": {
+    "daily-plan": {
+      "ok": true,
+      "taskCount": 7,
+      "completedBefore": 0,
+      "visible": ""
+    },
+    "grammar": {
+      "ok": true,
+      "sessionTitle": "Day 8 核心考点",
+      "answered": 10,
+      "sample": [
+        {
+          "category": "Simple Present",
+          "prompt": "The nurse ____ dinner for the family every weekend. (cook)",
+          "answer": "cooks"
+        },
+        {
+          "category": "Simple Past",
+          "prompt": "Correct the sentence: I pack my bag before school.",
+          "answer": "I packed my bag before school."
+        },
+        {
+          "category": "Present Continuous",
+          "prompt": "Look! His cousin ____ the instructions. (read)",
+          "answer": "is reading"
+        }
+      ],
+      "completed": true,
+      "errorBankCount": 1
+    },
+    "phonetics": {
+      "ok": true,
+      "exercise": "/t/ vs /d/",
+      "words": [
+        "two",
+        "dog"
+      ],
+      "sentence": "Two dogs played in the mud.",
+      "completed": true
+    },
+    "listening": {
+      "ok": true,
+      "title": "医生预约",
+      "scene": "诊所前台",
+      "transcript": "Your appointment is at half past three with Doctor Brown this afternoon.",
+      "items": [
+        {
+          "title": "题 1：关键词捕捉",
+          "prompt": "先听整句，写下两个最重要的信息点。",
+          "answer": "half past three / Doctor Brown"
+        },
+        {
+          "title": "题 2：句子填空",
+          "prompt": "Your appointment is at _____ with _____ this afternoon.",
+          "answer": "half past three / Doctor Brown"
+        },
+        {
+          "title": "题 3：信息回答",
+          "prompt": "预约在什么时候，和谁见？",
+          "answer": "At half past three with Doctor Brown."
+        }
+      ],
+      "completed": true,
+      "feedback": "✅ 今日听力完成 3/3 你已经完成了今天这组听力的核心训练：先抓关键词，再把它们放回句子里。整句也写对了，状态很好。 题 1 关键词：✓ ｜ 题 2 填空：✓ ｜ 题 3 整句：✓"
+    },
+    "vocabulary": {
+      "ok": true,
+      "theme": "语言演化",
+      "newWords": [
+        {
+          "word": "language",
+          "meaning": "语言",
+          "example": "Language allows people to share ideas and emotions."
+        },
+        {
+          "word": "symbol",
+          "meaning": "象征；符号；记号",
+          "example": "A dove is often used as a symbol of peace."
+        },
+        {
+          "word": "sign",
+          "meaning": "符号；征兆；迹象；手势；签（名）",
+          "example": "The dark clouds were a sign that rain was coming."
+        },
+        {
+          "word": "gesture",
+          "meaning": "手势；姿势",
+          "example": "A simple hand gesture can carry different meanings across cultures."
+        },
+        {
+          "word": "handwriting",
+          "meaning": "书写；笔迹",
+          "example": "Clear handwriting makes notes easier to review later."
+        },
+        {
+          "word": "pictograph",
+          "meaning": "象形文字",
+          "example": "Early societies used a pictograph to represent simple ideas."
+        }
+      ],
+      "reviewWords": [],
+      "hardMarked": "language",
+      "completed": true
+    },
+    "reading": {
+      "ok": true,
+      "article": "Epigenetics: Beyond the DNA Sequence",
+      "stage": "阶段 1：主旨与定位",
+      "questionCount": 3,
+      "questions": [
+        {
+          "type": "tfng",
+          "prompt": "What is the article’s central point about epigenetics?",
+          "answer": "Gene expression can be altered without changing the DNA sequence itself"
+        },
+        {
+          "type": "tfng",
+          "prompt": "People exposed to famine before birth in the Dutch Hunger Winter were later found to have higher rates of several diseases.",
+          "answer": "TRUE"
+        },
+        {
+          "type": "tfng",
+          "prompt": "Why are epi-drugs seen as a promising medical frontier?",
+          "answer": "Because some harmful epigenetic changes can potentially be reversed"
+        }
+      ],
+      "completed": true,
+      "feedback": "阅读反馈 3/3 正确 这篇文章的主线和细节你都抓得比较稳。 Q1 正确 你的答案：Gene expression can be altered without changing the DNA sequence itself 参考答案：Gene expression can be altered without changing the DNA sequence itself Answer: Gene expression can be altered without changing the DNA sequence itself Q2 正确 你的答案：TRUE 参考答案：TRUE Answer: TRUE Q3 正确 你的答案：Because some harmful epigenetic changes can potentially be reversed 参考答案：Because some harmful epigenetic changes can potentially be reversed Answer: Because some harmful epigenetic changes can potentially be reversed"
+    },
+    "writing": {
+      "ok": false,
+      "error": "evalmachine.<anonymous>:1\ngetWritingTaskForCurrentDay ? getWritingTaskForCurrentDay() : null\n^\n\nReferenceError: getWritingTaskForCurrentDay is not defined\n    at evalmachine.<anonymous>:1:1\n    at Script.runInContext (node:vm:149:12)\n    at Object.runInContext (node:vm:301:6)\n    at run ([stdin]:52:24)\n    at [stdin]:114:16\n    at safe ([stdin]:55:65)\n    at [stdin]:112:7\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)"
+    },
+    "speaking": {
+      "ok": true,
+      "topic": "Languages",
+      "questions": [
+        "Do you enjoy learning languages?",
+        "What is difficult about learning a new language?",
+        "Do you think children should start learning languages early?"
+      ],
+      "submittedWords": 52,
+      "completed": true,
+      "feedback": "💡 口语逻辑深度诊断 句子数量 4 词数 52 连接表达 6 ✅ 表现不错！未发现明显的低级错误。 🎯 更像 IELTS Part 1 的回答方式: 先直接回答问题，再补一个具体细节，最后给一个简单原因或未来想法。 ✨ 地道口语润色 (Polished Version): \"I enjoy learning languages because they help me understand different people. I usually practise English with short articles and simple speaking questions. For example, I read one paragraph and then explain the main idea in my own words. In the future, I want to speak more naturally and make fewer grammar mistakes.\" 🏆 雅思 7.0+ 高分版 (IELTS Version): \"I enjoy learning languages because they help me understand different people. I typically practise English with short articles and simple speaking questions. in order to engage in example, I read one paragraph and then explain the main idea in my own words. In the future, I want to speak more naturally and mak"
+    },
+    "error-bank": {
+      "ok": true,
+      "count": 1,
+      "visible": "📕 专家级错题归档 开始错题重测 清空 5/12/2026 | Grammar The nurse ____ dinner for the family every weekend. (cook) ✅ 修正: cooks"
+    },
+    "weekly-review": {
+      "ok": true,
+      "visible": "📖 周度复盘任务单 本周完成模块：6/7 语法错题数：1 词汇复习池：1 词 1. 词汇回忆与造句: 请拼写并造句: atmosphere 请拼写并造句: hydrosphere 请拼写并造句: lithosphere 请拼写并造句: oxygen 2. 顽固语法复测: 纠正此句: The nurse ____ dinner for the family every weekend. (cook) 3. 自我复盘问题: 这周最卡的是输入理解，还是输出准确性？ 如果下周只能优先补一块，你会选哪一块？为什么？ 今天的错题有没有反复出现的模式？ 完成本周复盘"
+    },
+    "monthly-assessment": {
+      "ok": true,
+      "visible": "🏆 30 天训练诊断单 当前判断 A2 基础巩固期，还在搭底层框架 这不是正式 band 分数，而是根据你最近 30 天的训练连续性、词汇复现、语法错误和写作输出做的阶段判断。 近 30 天活跃天数：1 连续打卡：1 天 词汇复习池：1 词 最近写作字数：0 连续性 5% 语法准确性 77% 词汇复现 3% 写作输出 20% 当前最大风险 输出量偏少，写作和口语还没有真正拉起来。 下一个 30 天建议 • 每周至少完成 2 篇成型写作 • 口语和写作都优先练展开 • 减少只看不写的训练方式 综合训练得分： 31%"
+    },
+    "dashboard": {
+      "ok": true,
+      "visible": "🎯 距离 2026 年底目标：227 天 目标分数：雅思 6.5 | 当前阶段：阶段 1：基础重建 | 当前估计：A2 稳定筑基期 STEP 01 - 2026-06 基础筑基 (A2) 掌握 2000 核心词 + 基础时态 STEP 02 - 2026-09 能力爬坡 (B1) 3500 词汇 + 复合句式 STEP 03 - 2026-12 6.5 冲刺 (B2) 真题模拟 + 写作逻辑优化 📊 核心维度进度 今日任务完成度 86% 词汇复现稳定度 3% 语法稳固度 90% AI 写作等级 (Potential) 23% A2 稳定筑基期 当前训练判断 你的训练节奏已经在成形，接下来重点是连续性，不是一次做很多。 🔥 365 天备考热力图 连续打卡: 1 天 Less More"
+    },
+    "settings-sync": {
+      "ok": true,
+      "hasUpload": true,
+      "hasDownload": true,
+      "alert": "请先配置 Token 和仓库路径！",
+      "visible": "☁️ 电脑 / 手机同步 把学习状态同步到 GitHub 后，你就可以在电脑端和手机端之间继续同一份进度。 当前浏览器支持本地保存，同步配置会保留在这台设备上。 GitHub Token 仓库路径 保存配置 上传到云端 从云端下载"
+    }
+  },
+  "issues": [
+    "writing: getWritingTaskForCurrentDay is not defined"
+  ],
+  "suggestions": [
+    "发音模块可以一键完成，但无法在无麦克风/无真实浏览器时验证录音质量；建议增加“跳过录音但完成跟读”的明确按钮或状态说明。",
+    "写作/口语反馈当前依赖规则和外部 LanguageTool；网络不可用时仍能完成，但反馈会偏模板化，建议增加离线评分维度说明。",
+    "听力题答案判定适合关键词，但用户输入同义表达时可能偏严格；建议展示可接受答案格式。",
+    "阅读选择题提交体验正常，但答案解释主要来自 Answer 字段；建议补一行“原文定位依据”。",
+    "同步页缺 Token 时只有 alert，建议页面内同步状态区也显示同样错误，移动端更稳。",
+    "周复盘/月诊断能生成，但与真实完成历史绑定较轻；建议按最近 7/30 天 activityLog 生成更具体的薄弱模块列表。"
+  ],
+  "finalState": {
+    "completedTasks": 6,
+    "totalTasks": 7,
+    "progressText": "86%",
+    "errorBankCount": 1,
+    "vocabSRS": 1,
+    "activityToday": 6
+  }
+}
